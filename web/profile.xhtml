@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <title>Project</title>
+        </h:head>
+
+        <h:body>
+            <center><big><big><big>Project</big></big></big></center>
+            <hr/>
+
+            <h:form>
+                <p align="right">
+                <h:commandButton value="Deslogar" action="#{sessionBean.logoutAction}"/>
+                </p>
+            </h:form>
+            <table>
+                <tr>
+                    <td>
+                <p:panel style="width: 200px; height: 200px"> <!-- header="Foto do Usuário" -->
+                    Logado como:<br/>
+                    #{userBean.name}
+                </p:panel>
+                </td>
+                <td>
+
+                </td>
+                </tr>
+            </table>
+            <br/>
+
+            <h:form id="newPostForm">
+                <p align="center">
+                <h:message id="newPostMessages" for="newPostForm"/>
+                </p>
+                <p:inputTextarea style="width: 95%" rows="3" id="newPostTextInput" value="#{profileBean.newPostText}"/>
+                <br/>
+                <p align="right">
+                <h:commandButton value="Enviar" action="#{profileBean.addNewPost}">
+                    <f:ajax execute="@form" render="newPostMessages newPostTextInput"/>
+                </h:commandButton>
+                <h:commandButton value="Apagar" action="#{profileBean.clearNewPostText}">
+                    <f:ajax execute="@form" render="newPostMessages newPostTextInput"/>
+                </h:commandButton>
+                </p>
+            </h:form>
+
+            <p:panel style="width: 70%; height: 450px" header="Feed" id="soundFeed">
+                <p:scrollPanel style="height: 400px" mode="native">
+                    <p:dataGrid columns="1" var="sound" value="#{userBean.soundFeed}">
+                        <p:panelGrid columns="1" style="width: 100%">
+                            <h:outputText value="#{sound.author.name} em #{sound.creationDate}:"/>
+                            <h:outputText value="#{sound.link}"/>
+                        </p:panelGrid>
+                    </p:dataGrid>
+                </p:scrollPanel>
+            </p:panel>
+
+            <h:form id="newSource" prependId="false">
+                <table>
+                    <tr>
+                        <td style="width: 100%">
+                    <p:panel style="width: 100%; height: 200px" header="Lista de Amigos" id="sourceList">
+                        <p:scrollPanel style="height: 150px" mode="native">
+                            <p:dataGrid columns="5" var="friend" value="#{userBean.sourceList}">
+                                <p:panel>
+                                    <h:outputText value="#{friend.name}"/>
+                                </p:panel>
+                            </p:dataGrid>
+                        </p:scrollPanel>
+                    </p:panel>
+                    </td>
+                    <td style="height: 100%">
+                    <p:panel style="width: 260px; height: 100%">
+                        <h:outputText value="Adicionar amigo:"/>
+                        <h:inputText id="newSourceLoginInput" value="#{profileBean.newSourceLogin}"/>
+                        <br/><h:message id="newSourceMessages" for="newSource"/>
+                        <h:commandButton value="Adicionar" action="#{profileBean.addNewSource}">
+                            <f:ajax execute="@form" render="newSourceMessages newSourceLoginInput sourceList :soundFeed" />
+                        </h:commandButton>
+                    </p:panel>
+                    </td>
+                    </tr>
+                </table>
+            </h:form>
+
+            <hr/>
+            <p:accordionPanel activeIndex="">
+                <p:tab title="Sobre o Sistema">
+                    Project blablabla...
+                </p:tab>
+                <p:tab title="Fale Conosco">
+                    Nosso email é blablabla...
+                </p:tab>
+            </p:accordionPanel>
+        </h:body>
+
+    </f:view>
+</html>
+

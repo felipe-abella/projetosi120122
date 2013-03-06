@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+        <h:head>
+                <title>Project Signup</title>
+        </h:head>
+    <h:body>
+        <center><big><big><big>Project</big></big></big></center>
+        
+         <h:form id="formSignup" prependId="false">
+             <h:messages/>
+             
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Login" for="inputLogin"/>
+                <h:inputText id="inputLogin" value="#{signupBean.login}" required="true"/>
+                <p:outputLabel value="Nome" for="inputName"/>
+                <h:inputText id="inputName" value="#{signupBean.name}" required="true"/>
+                <p:outputLabel value="Email" for="inputEmail"/>
+                <h:inputText id="inputEmail" value="#{signupBean.email}" required="true"/>
+                <p:outputLabel value="Password" for="inputPassword"/>
+                <h:inputSecret id="inputPassword" value="#{signupBean.password}" required="true"/>
+                <p:outputLabel value="Confirm Password" for="inputPasswordConfirm"/>
+                <h:inputSecret id="inputPasswordConfirm" value="#{signupBean.passwordConfirm}" required="true"/>
+                
+            </p:panelGrid>
+            <br/>
+            <h:commandButton id="createButton" value="Criar conta" action="#{signupBean.createUser}"/> 
+         </h:form>
+    </h:body>
+</html>
