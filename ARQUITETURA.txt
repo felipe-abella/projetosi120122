@@ -1,0 +1,25 @@
+Nosso sistema utiliza JSF 2.0 com Primefaces 3.4
+
+Basicamente, nossa arquitetura se divide entre a parte lógica
+e a interface web, essa divisão é feita atrás do uso de diferentes
+pacotes para as classes que lidam com a parte web, e as classes
+que lidam com a lógica do sistema.
+
+Os dados são gerenciados pela classe Project, seguindo o padrão MVC,
+onde o ProjectModel contém as informações de tudo que o sistema deve
+guardar de forma persistente, e o pacote web é responsável por exibir
+este modelo ao usuário.
+
+Todo tipo de String para o usuário deve ser colocado dentro do pacote
+web, o pacote do sistema não deve criar mensagens que serão lidas
+por usuários, pois o design da página da web deve ser capaz de ser totalmente
+modificado alterando apenas os *.xhtml e as classes do pacote web.
+As exceções do pacote system são as únicas que podem quebrar esta regra,
+ao gerar uma mensagem de erro em Português, isto foi feito para evitar
+código extra no Façade apenas para traduzir mensagens do Inglês para o
+Português.
+
+As páginas devem seguir o princípio REST, de forma que no futuro seja
+possível, por exemplo, enviar o link da página de um Som para outro
+usuário, para que ele possa favoritar (Caso página de Som venha a ser
+um requisito do cliente).

@@ -62,7 +62,6 @@ public class SignupBean implements Serializable {
         FacesContext context = FacesContext.getCurrentInstance();
         
         if (model.isLoginTaken(login)) {
-            System.out.println("Bla: " + project.getModel().getUsers().toString());
             context.addMessage(null, new FacesMessage("Este login já é cadastrado!"));
             return null;
         }

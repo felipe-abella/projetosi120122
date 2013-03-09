@@ -35,11 +35,11 @@
             <br/>
 
             <h:form id="newPostForm">
+                <p:inputTextarea style="width: 95%" rows="3" id="newPostTextInput" value="#{profileBean.newPostText}"/>
+                <br/>
                 <p align="center">
                 <h:message id="newPostMessages" for="newPostForm"/>
                 </p>
-                <p:inputTextarea style="width: 95%" rows="3" id="newPostTextInput" value="#{profileBean.newPostText}"/>
-                <br/>
                 <p align="right">
                 <h:commandButton value="Enviar" action="#{profileBean.addNewPost}">
                     <f:ajax execute="@form" render="newPostMessages newPostTextInput"/>
@@ -54,7 +54,7 @@
                 <tr>
                     <td style="width: 100%">
                 <h:form id="soundFeedForm">
-                    <h:message id="soundFeedMessagesUp" for="soundFeedForm"/>
+                    <p:growl id="soundFeedMessages" for="soundFeedForm"/>
                     <p:panel style="width: 100%; height: 450px" header="Feed" id="soundFeed">
                         <p:scrollPanel style="height: 350px" mode="native">
                             <ui:repeat value="#{userBean.sortedSoundFeed}" var="sound">
@@ -65,7 +65,7 @@
                                     </td>
                                     <td>
                                     <h:commandButton value="Favoritar" action="#{userBean.favoriteSound(sound.sound, 'soundFeedForm')}">
-                                        <f:ajax execute="@form" render=":soundFeedForm :soundFeedForm:soundFeed :soundFeedForm:soundFeedMessagesUp :soundFeedForm:soundFeedMessagesDown"/>
+                                        <f:ajax execute="@form" render=":soundFeedForm :soundFeedForm:soundFeed :soundFeedForm:soundFeedMessages"/>
                                     </h:commandButton> 
                                     </td>
                                     </tr>
@@ -88,13 +88,12 @@
                             
                         </p>
                     </p:panel>
-                    <h:message id="soundFeedMessagesDown" for="soundFeedForm"/>
                 </h:form>
                 </td>
                 <td style="width: 30%">
 
                 <h:form id="extraSoundFeedForm">
-                    <h:message id="extraSoundFeedMessagesUp" for="extraSoundFeedForm"/>
+                    <p:growl id="extraSoundFeedMessages" for="extraSoundFeedForm"/>
                     <p:panel style="height: 450px; min-width: 300px" header="Feed de Favoritos" id="extraSoundFeed">
                         <p:scrollPanel style="height: 400px" mode="native">
                             <ui:repeat value="#{userBean.extraSoundFeed}" var="sound">
@@ -105,7 +104,7 @@
                                     </td>
                                     <td>
                                     <h:commandButton value="Favoritar" action="#{userBean.favoriteSound(sound.sound, 'extraSoundFeedForm')}">
-                                        <f:ajax execute="@form" render=":extraSoundFeedForm :extraSoundFeedForm:extraSoundFeed :extraSoundFeedForm:extraSoundFeedMessagesDown :extraSoundFeedForm:extraSoundFeedMessagesUp"/>
+                                        <f:ajax execute="@form" render=":extraSoundFeedForm :extraSoundFeedForm:extraSoundFeed :extraSoundFeedForm:extraSoundFeedMessages"/>
                                     </h:commandButton> 
                                     </td>
                                     </tr>
@@ -117,7 +116,6 @@
                             </ui:repeat>
                         </p:scrollPanel>
                     </p:panel>
-                    <h:message id="extraSoundFeedMessagesDown" for="extraSoundFeedForm"/>
                 </h:form>
                 </td>
                 </tr>
@@ -154,14 +152,13 @@
             <hr/>
             <p:accordionPanel activeIndex="">
                 <p:tab title="Sobre o Sistema">
-                    Project blablabla...
+                    Project é uma rede social para fãs de música baseado em JSF 2.0 e PrimeFaces 3.4
                 </p:tab>
                 <p:tab title="Fale Conosco">
-                    Nosso email é blablabla...
+                    Envie-nos um email, ou ligue para nossa central.
                 </p:tab>
             </p:accordionPanel>
         </h:body>
 
     </f:view>
 </html>
-

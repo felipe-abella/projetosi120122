@@ -105,7 +105,6 @@ public class ProfileBean implements Serializable {
     
     public void setFeedSorterRule(String rule) {
         this.feedSorter = getFeedSorterFromRule(rule);
-        System.out.println("Rule: " + rule);
         if (this.feedSorter != null)
             sessionBean.getSession().getUser().setFeedSorter(feedSorter);
     }

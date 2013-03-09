@@ -71,7 +71,10 @@
     
     <target name="limpa" depends="clean"/>
     <target name="compila" depends="compile"/>
-    <target name="testa" depends="test"/>
+    <target name="testa" depends="compile">
+      <java classname="project.EasyAcceptProjectTest" classpath="build/web/WEB-INF/classes/:lib/easyaccept.jar"/>
+    </target>
+    <target name="testajunit" depends="test"/>
     <target name="doc" depends="javadoc"/>
     <target name="jar" depends="dist"/>
 

@@ -19,8 +19,7 @@ public class UserBean implements Serializable {
 
     @Inject
     private SessionBean sessionBean;
-    private User targetUser; // TODO: THIS IS TERRIBLY, FIX IT USING CONVERSATIONS, OR ANYTHING LIKE THAT
-// INVALIDATE SESSION DURING LOGOUT(?)    
+    private User targetUser;
 
     public UserBean() {
         targetUser = null;
@@ -30,15 +29,15 @@ public class UserBean implements Serializable {
         this.targetUser = targetUser;
     }
 
-    private User getUser() {
+    private User getUser() { //TODO: Find a clean way instead of this
         if (targetUser != null) {
             return targetUser;
         }
 
         /* Testing purposes: */
-        if (sessionBean.getSession() == null) {
-            sessionBean.logon("a", "a");
-        }
+        //if (sessionBean.getSession() == null) {
+        //    sessionBean.logon("a", "a");
+        //}
 
         Session session = sessionBean.getSession();
 
