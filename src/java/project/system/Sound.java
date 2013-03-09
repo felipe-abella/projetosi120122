@@ -1,7 +1,5 @@
 package project.system;
 
-import java.util.Date;
-import java.util.GregorianCalendar;
 import project.exceptions.InvalidCreationDateException;
 import project.exceptions.InvalidDateException;
 
@@ -9,11 +7,13 @@ public class Sound implements Comparable<Sound> {
     private Link link;
     private SimpleDate creationDate;
     private User author;
+    private int favoriteCount;
     
     public Sound(Link link, SimpleDate creationDate, User author) {
         this.link = link;
         this.creationDate = creationDate;
         this.author = author;
+        favoriteCount = 0;
     }
     
     public Sound(String link, String creationDate, User author) {
@@ -37,6 +37,10 @@ public class Sound implements Comparable<Sound> {
     public User getAuthor() {
         return author;
     }
+
+    public int getFavoriteCount() {
+        return favoriteCount;
+    }
     
     public void setLink(Link link) {
         this.link = link;
@@ -48,6 +52,23 @@ public class Sound implements Comparable<Sound> {
     
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public void incrementFavoriteCount() {
+        favoriteCount++;
+    }
+    
+    public void setFavoriteCount(int favoriteCount) {
+        this.favoriteCount = favoriteCount;
+    }
+    
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 29 * hash + (this.link != null ? this.link.hashCode() : 0);
+        hash = 29 * hash + (this.creationDate != null ? this.creationDate.hashCode() : 0);
+        hash = 29 * hash + (this.author != null ? this.author.hashCode() : 0);
+        return hash;
     }
 
     @Override
@@ -65,26 +86,24 @@ public class Sound implements Comparable<Sound> {
         if (this.creationDate != other.creationDate && (this.creationDate == null || !this.creationDate.equals(other.creationDate))) {
             return false;
         }
+        if (this.author != other.author && (this.author == null || !this.author.equals(other.author))) {
+            return false;
+        }
         return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + (this.link != null ? this.link.hashCode() : 0);
-        hash = 79 * hash + (this.creationDate != null ? this.creationDate.hashCode() : 0);
-        return hash;
     }
 
     @Override
     public int compareTo(Sound other) {
         if (link.compareTo(other.getLink()) != 0)
             return link.compareTo(other.getLink());
-        return creationDate.compareTo(other.getCreationDate());
+        if (creationDate.compareTo(other.getCreationDate()) != 0)
+            return creationDate.compareTo(other.getCreationDate());
+        return author.compareTo(other.getAuthor());
     }
 
     @Override
     public String toString() {
-        return "[Sound: link=" + getLink() + ", creationDate=" + getCreationDate()+"]";
+        return "[S: " + (link.hashCode()+author.hashCode()) + " CD: " + getCreationDate() + "]";
+        //return "[Sound: link=" + getLink() + ", creationDate=" + getCreationDate()+", author=" + author + "]";
     }
 }

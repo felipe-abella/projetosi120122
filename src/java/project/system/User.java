@@ -1,5 +1,6 @@
 package project.system;
 
+import project.system.feedsorting.FeedSorter;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,12 +9,16 @@ import java.util.TreeSet;
 import project.exceptions.InvalidEmailException;
 import project.exceptions.InvalidLoginException;
 import project.exceptions.InvalidNameException;
+import project.exceptions.InvalidSoundException;
+import project.system.feedsorting.CronologicalSourceFeedSorter;
 
 public class User implements Comparable<User> {
     private String login, password, name, email;
     private List<Sound> postlist;
-    private List<User> sources;
+    private List<SourceView> sourceViews;
     private SortedSet<User> followers;
+    private List<Sound> favoriteList;
+    private FeedSorter feedSorter;
     
     public User(String login, String password, String name, String email) {
         setLogin(login);
@@ -22,8 +27,10 @@ public class User implements Comparable<User> {
         setEmail(email);
         
         postlist = new LinkedList<Sound>();
-        sources = new ArrayList<User>();
+        sourceViews = new ArrayList<SourceView>();
         followers = new TreeSet<User>();
+        favoriteList = new LinkedList<Sound>();
+        feedSorter = new CronologicalSourceFeedSorter();
     }
 
     public String getLogin() {
@@ -41,9 +48,20 @@ public class User implements Comparable<User> {
     public String getEmail() {
         return email;
     }
+
+    public FeedSorter getFeedSorter() {
+        return feedSorter;
+    }
     
     public List<User> getSources() {
-        return sources;
+        List<User> result = new ArrayList<User>();
+        for (SourceView sview: sourceViews)
+            result.add(sview.getSource());
+        return result;
+    }
+
+    public List<SourceView> getSourceViews() {
+        return sourceViews;
     }
     
     public SortedSet<User> getFollowers() {
@@ -52,6 +70,10 @@ public class User implements Comparable<User> {
     
     public List<Sound> getPostlist() {
         return postlist;
+    }
+    
+    public List<Sound> getFavoriteList() {
+        return favoriteList;
     }
     
     public void setLogin(String login) {
@@ -79,17 +101,17 @@ public class User implements Comparable<User> {
     public void setPostlist(List<Sound> postlist) {
         this.postlist = postlist;
     }
-    
-    public void setSources(List<User> sources) {
-        this.sources = sources;
-    }
-    
+
     public void setFollowers(SortedSet<User> followers) {
         this.followers = followers;
     }
+
+    public void setFeedSorter(FeedSorter feedSorter) {
+        this.feedSorter = feedSorter;
+    }
     
     public int countSources() {
-        return sources.size();
+        return sourceViews.size();
     }
     
     public int countFollowers() {
@@ -100,11 +122,59 @@ public class User implements Comparable<User> {
         postlist.add(0, sound);
     }
     
-    public List<Sound> getSoundFeed() {
+    public SourceView getViewOfSource(User source) {
+        for (SourceView sview: sourceViews)
+            if (sview.getSource().equals(source))
+                return sview;
+        return null;
+    }
+    
+    public boolean addFavorite(Sound sound) {
+        if (sound == null)
+            throw new InvalidSoundException();
+        if (!favoriteList.contains(sound)) {
+            favoriteList.add(0, sound);
+            sound.incrementFavoriteCount();
+            SourceView sview = getViewOfSource(sound.getAuthor());
+            if (sview != null)
+                sview.incrementFavoriteCount();
+            return true;
+        }
+        return false;
+    }
+    
+    public void addSource(User source) {
+        SourceView sview = new SourceView(source);
+
+        for (Sound sound: getFavoriteList())
+            if (sound.getAuthor().equals(source))
+                sview.incrementFavoriteCount();
+        
+        sourceViews.add(sview);
+    }
+    
+    public void addFollower(User follower) {
+        followers.add(follower);
+    }
+    
+    public List<Sound> getUnsortedSoundFeed() {
         List<Sound> result = new ArrayList<Sound>();
-        for (int i = sources.size()-1; i >= 0; i--) {
-            User source = sources.get(i);
+        for (int i = sourceViews.size()-1; i >= 0; i--) {
+            User source = sourceViews.get(i).getSource();
             result.addAll(source.getPostlist());
+        }
+        return result;
+    }
+    
+    public List<Sound> getSortedSoundFeed() {
+        return feedSorter.sortFeed(this);
+    }
+    
+    public List<Sound> getExtraSoundFeed() {
+        List<Sound> result = new ArrayList<Sound>();
+        for (int i = sourceViews.size()-1; i >= 0; i--) {
+            User source = sourceViews.get(i).getSource();
+            result.addAll(source.getFavoriteList());
         }
         return result;
     }

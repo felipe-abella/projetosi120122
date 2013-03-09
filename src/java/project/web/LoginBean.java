@@ -12,7 +12,7 @@ import javax.inject.Named;
 public class LoginBean implements Serializable {
     private String login, password;
     @Inject private SessionBean sessionBean;
-    
+
     public String getLogin() {
         return login;
     }

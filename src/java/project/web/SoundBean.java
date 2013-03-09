@@ -31,4 +31,8 @@ public class SoundBean implements Serializable {
     public UserBean getAuthor() {
         return new UserBean(sound.getAuthor());
     }
+    
+    public Sound getSound() {
+        return sound;
+    }
 }

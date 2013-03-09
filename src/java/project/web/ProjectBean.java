@@ -14,7 +14,7 @@ public class ProjectBean {
     public ProjectBean() {
         project = new Project();
         /* Testing purposes: */
-        //createSampleState();
+        createSampleState();
     }
     
     private void createSampleState() {

@@ -59,8 +59,8 @@ public class ProjectModel implements Serializable {
         if (user.getSources().contains(user2))
             return false;
         
-        user.getSources().add(user2);
-        user2.getFollowers().add(user);
+        user.addSource(user2);
+        user2.addFollower(user);
         
         return true;
     }
