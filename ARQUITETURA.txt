@@ -15,8 +15,8 @@ web, o pacote do sistema não deve criar mensagens que serão lidas
 por usuários, pois o design da página da web deve ser capaz de ser totalmente
 modificado alterando apenas os *.xhtml e as classes do pacote web.
 As exceções do pacote system são as únicas que podem quebrar esta regra,
-ao gerar uma mensagem de erro em Português, isto foi feito para evitar
-código extra no Façade apenas para traduzir mensagens do Inglês para o
+pois geram uma mensagem de erro em Português, isto foi feito para evitar
+código extra no Façade que iriam apenas traduzir mensagens do Inglês para o
 Português.
 
 As páginas devem seguir o princípio REST, de forma que no futuro seja

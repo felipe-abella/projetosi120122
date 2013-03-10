@@ -81,7 +81,7 @@
                         <h:selectOneMenu id="sortingRuleChooser" value="#{profileBean.feedSorterRule}">
                             <f:ajax execute="@form" render=":soundFeedForm"/>
                             <!--<f:selectItem itemDisabled="true" itemLabel="Selecione a ordem dos sons:"/>-->
-                            <f:selectItem itemLabel="Sons de velhos amigos primeiro" itemValue="cronologicalSource"/>
+                            <f:selectItem itemLabel="Sons de velhos amigos primeiro" itemValue="chronologicalSource"/>
                             <f:selectItem itemLabel="Sons populares primeiro" itemValue="mostFavorited"/>
                             <f:selectItem itemLabel="Primeiro os sons de amigos cujas músicas eu costumo favoritar" itemValue="favoriteSources"/>
                         </h:selectOneMenu>
@@ -141,7 +141,7 @@
                         <h:inputText id="newSourceLoginInput" value="#{profileBean.newSourceLogin}"/>
                         <br/><h:message id="newSourceMessages" for="newSource"/>
                         <h:commandButton value="Adicionar" action="#{profileBean.addNewSource}">
-                            <f:ajax execute="@form" render="newSourceMessages newSourceLoginInput sourceList :soundFeedForm:soundFeed" />
+                            <f:ajax execute="@form" render="newSourceMessages newSourceLoginInput sourceList :soundFeedForm:soundFeed :extraSoundFeedForm:extraSoundFeed" />
                         </h:commandButton>
                     </p:panel>
                     </td>

@@ -1,9 +1,6 @@
 package project.web;
 
-import java.awt.event.ActionEvent;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -15,11 +12,14 @@ import project.system.Link;
 import project.system.SimpleDate;
 import project.system.Sound;
 import project.system.User;
-import project.system.feedsorting.CronologicalSourceFeedSorter;
+import project.system.feedsorting.ChronologicalSourceFeedSorter;
 import project.system.feedsorting.FavoriteSourcesFeedSorter;
 import project.system.feedsorting.FeedSorter;
 import project.system.feedsorting.MostFavoritedFeedSorter;
 
+/**
+ * Manages forms and operations made on a user's profile page.
+ */
 @Named("profileBean")
 @SessionScoped
 public class ProfileBean implements Serializable {
@@ -31,30 +31,57 @@ public class ProfileBean implements Serializable {
     private String newSourceLogin;
     private String newPostText;
 
-    public ProfileBean() {
-    }
-
+    /**
+     * Returns the login of the user about to be added as a new source.
+     *
+     * @return the new source's login
+     */
     public String getNewSourceLogin() {
         return newSourceLogin;
     }
 
+    /**
+     * Returns the text of the new post.
+     *
+     * @return new post text
+     */
     public String getNewPostText() {
         return newPostText;
     }
 
+    /**
+     * Sets the login of the user about to be added as a new source.
+     *
+     * @param newSourceLogin the new "new source login"
+     */
     public void setNewSourceLogin(String newSourceLogin) {
         this.newSourceLogin = newSourceLogin;
     }
 
+    /**
+     * Sets the new post text.
+     *
+     * @param newPostText new "new post text"
+     */
     public void setNewPostText(String newPostText) {
         this.newPostText = newPostText;
     }
 
+    /**
+     * Clears new post text.
+     *
+     * @return action to be executed
+     */
     public String clearNewPostText() {
         newPostText = "";
         return null;
     }
 
+    /**
+     * Adds a new post in the user's post list.
+     *
+     * @return action to be executed
+     */
     public String addNewPost() {
         User user = sessionBean.getSession().getUser();
 
@@ -71,6 +98,11 @@ public class ProfileBean implements Serializable {
         return null;
     }
 
+    /**
+     * Adds a new source to the user's source list.
+     *
+     * @return action to executed
+     */
     public String addNewSource() {
         try {
             User user, user2;
@@ -90,28 +122,40 @@ public class ProfileBean implements Serializable {
         newSourceLogin = null;
         return null;
     }
-
-    private FeedSorter feedSorters[] = {new CronologicalSourceFeedSorter(),
-        new MostFavoritedFeedSorter(), new FavoriteSourcesFeedSorter(),
-    };
+    private FeedSorter feedSorters[] = {new ChronologicalSourceFeedSorter(),
+        new MostFavoritedFeedSorter(), new FavoriteSourcesFeedSorter(),};
     private FeedSorter feedSorter = null;
-    
-    public FeedSorter getFeedSorterFromRule(String rule) {
-        for (FeedSorter sorter: feedSorters)
-            if (sorter.getRuleName().equals(rule))
+
+    private FeedSorter getFeedSorterFromRule(String rule) {
+        for (FeedSorter sorter : feedSorters) {
+            if (sorter.getRuleName().equals(rule)) {
                 return sorter;
+            }
+        }
         return null;
     }
-    
+
+    /**
+     * Sets the main feed sorter rule.
+     *
+     * @param rule rule to be set
+     */
     public void setFeedSorterRule(String rule) {
         this.feedSorter = getFeedSorterFromRule(rule);
-        if (this.feedSorter != null)
+        if (this.feedSorter != null) {
             sessionBean.getSession().getUser().setFeedSorter(feedSorter);
+        }
     }
 
+    /**
+     * Returns the main feed sorter rule.
+     *
+     * @return sorter rule
+     */
     public String getFeedSorterRule() {
-        if (feedSorter == null)
-            feedSorter = getFeedSorterFromRule("cronologicalSource");
+        if (feedSorter == null) {
+            feedSorter = getFeedSorterFromRule("chronologicalSource");
+        }
         return feedSorter.getRuleName();
     }
 }

@@ -1,3 +1,0 @@
-threadPool poolsize=10
-repeat numberOfTimes=1000 executeScript newThread=false TestRepeating1.txt
-

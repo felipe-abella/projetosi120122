@@ -1,8 +1,0 @@
-# a comment
-# another
-# continue \
-comment continues here
-
-# empty line above
-a line
-# comment

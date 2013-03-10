@@ -21,25 +21,34 @@ import project.system.Project;
 import project.system.Session;
 import project.system.Sound;
 import project.system.User;
-import project.system.feedsorting.CronologicalSourceFeedSorter;
+import project.system.feedsorting.ChronologicalSourceFeedSorter;
 import project.system.feedsorting.FavoriteSourcesFeedSorter;
 import project.system.feedsorting.FeedSorter;
 import project.system.feedsorting.MostFavoritedFeedSorter;
 
+/**
+ * Implements the Façade to be used by EasyAccept.
+ */
 public class ProjectFacade {
 
     private Project project;
     private Map<String, Object> ids;
     private Map<Object, String> objs;
-    private String[] compositionRules = {
+    /**
+     * Valid composition rules for the main feed construction.
+     */
+    public String[] compositionRules = {
         "PRIMEIRO OS SONS POSTADOS MAIS RECENTEMENTE PELAS FONTES DE SONS",
         "PRIMEIRO OS SONS COM MAIS FAVORITOS",
         "PRIMEIRO SONS DE FONTES DAS QUAIS FAVORITEI SONS NO PASSADO",};
     private FeedSorter[] feedSorters = {
-        new CronologicalSourceFeedSorter(),
+        new ChronologicalSourceFeedSorter(),
         new MostFavoritedFeedSorter(),
         new FavoriteSourcesFeedSorter(),};
 
+    /**
+     * Constructs the ProjectFacade.
+     */
     public ProjectFacade() {
         project = new Project();
         ids = new HashMap<String, Object>();
@@ -93,10 +102,25 @@ public class ProjectFacade {
         return user;
     }
 
+    /**
+     * Creates a new user in the Project.
+     *
+     * @param login User's login
+     * @param senha User's password
+     * @param nome User's name
+     * @param email User's email
+     */
     public void criarUsuario(String login, String senha, String nome, String email) {
         project.getModel().addUser(login, senha, nome, email);
     }
 
+    /**
+     * Retrieves a attribute from a User.
+     *
+     * @param login User's login
+     * @param atributo Attribute of interest, must be "nome" or "email"
+     * @return The attribute's value
+     */
     public String getAtributoUsuario(String login, String atributo) {
         if (atributo == null || atributo.isEmpty()) {
             throw new InvalidAttributeException();
@@ -124,22 +148,40 @@ public class ProjectFacade {
         return result;
     }
 
+    /**
+     * Returns a user's postlist.
+     *
+     * @param idSessao User's session id
+     * @return User's postlist
+     */
     public String getPerfilMusical(String idSessao) {
         Session session = getSessionForId(idSessao);
         return iterableToString(session.getUser().getPostlist());
     }
 
+    /**
+     * Returns a user's sound feed.
+     *
+     * @param idSessao User's session id
+     * @return User's sound feed
+     */
     public String getVisaoDosSons(String idSessao) {
         Session session = getSessionForId(idSessao);
         return iterableToString(session.getUser().getUnsortedSoundFeed());
     }
 
+    /**
+     * Returns a user's main feed.
+     *
+     * @param idSessao User's session id
+     * @return User's main feed
+     */
     public String getMainFeed(String idSessao) {
         Session session = getSessionForId(idSessao);
         return iterableToString(session.getUser().getSortedSoundFeed());
     }
 
-    public FeedSorter getSorterFromDescription(String rule) {
+    private FeedSorter getSorterFromDescription(String rule) {
         for (int i = 0; i < compositionRules.length; i++) {
             if (compositionRules[i].equals(rule)) {
                 return feedSorters[i];
@@ -148,6 +190,14 @@ public class ProjectFacade {
         return null;
     }
 
+    /**
+     * Sets a user's preferred main feed sorting rule.
+     *
+     * The rule must be one of the listed in "compositionRules".
+     *
+     * @param idSessao User's session id
+     * @param rule Sorting rule
+     */
     public void setMainFeedRule(String idSessao, String rule) {
         Session session = getSessionForId(idSessao);
         if (rule == null || rule.isEmpty()) {
@@ -161,6 +211,14 @@ public class ProjectFacade {
         session.getUser().setFeedSorter(sorter);
     }
 
+    /**
+     * Posts a new sound.
+     *
+     * @param idSessao Session's id of the User who posted
+     * @param link Sound link
+     * @param dataCriacao Sound creation date
+     * @return the sound id
+     */
     public String postarSom(String idSessao, String link, String dataCriacao) {
         Session session = getSessionForId(idSessao);
         Sound sound = new Sound(link, dataCriacao, session.getUser());
@@ -171,6 +229,13 @@ public class ProjectFacade {
         return getIdOf(sound);
     }
 
+    /**
+     * Retrieves an attribute of the sound.
+     *
+     * @param idSom Sound id
+     * @param atributo The attribute of interest, must be "dataCriacao"
+     * @return The value of the attribute
+     */
     public String getAtributoSom(String idSom, String atributo) {
         Sound sound = getSoundForId(idSom);
         if (atributo == null || atributo.isEmpty()) {
@@ -182,23 +247,48 @@ public class ProjectFacade {
         throw new AttributeNotFoundException();
     }
 
+    /**
+     * Opens a new session.
+     *
+     * @param login User's login
+     * @param senha User's password
+     * @return Id of the new session
+     */
     public String abrirSessao(String login, String senha) {
         Session session = project.login(login, senha);
         return getIdOf(session);
     }
 
+    /**
+     * Returns the id of some session's user.
+     *
+     * @param idSessao Session's id
+     * @return the user id
+     */
     public String getIDUsuario(String idSessao) {
         Session session = getSessionForId(idSessao);
         User user = session.getUser();
         return getIdOf(user);
     }
 
+    /**
+     * Returns the number of followers of a user.
+     *
+     * @param idSessao User's session id
+     * @return the number of followers
+     */
     public String getNumeroDeSeguidores(String idSessao) {
         Session session = getSessionForId(idSessao);
         User user = session.getUser();
         return Integer.toString(user.countFollowers());
     }
 
+    /**
+     * Sets a user as a follower of another one.
+     *
+     * @param idSessao Session id of the user who's gonna follow
+     * @param login Login of the user who will be followed
+     */
     public void seguirUsuario(String idSessao, String login) {
         Session session = getSessionForId(idSessao);
         User user = session.getUser();
@@ -213,6 +303,12 @@ public class ProjectFacade {
         project.getModel().addUserFollowing(user, user2);
     }
 
+    /**
+     * Sets a sound as one favorite user's sound.
+     *
+     * @param idSessao User's session id
+     * @param idSom Sound id
+     */
     public void favoritarSom(String idSessao, String idSom) {
         Session session = getSessionForId(idSessao);
         User user = session.getUser();
@@ -220,52 +316,101 @@ public class ProjectFacade {
         user.addFavorite(sound);
     }
 
+    /**
+     * Returns a user's sound sources.
+     *
+     * @param idSessao User's session id
+     * @return user's sound sources
+     */
     public String getFontesDeSons(String idSessao) {
         Session session = getSessionForId(idSessao);
         User user = session.getUser();
         return iterableToString(user.getSources());
     }
 
+    /**
+     * Returns a user's followers list.
+     *
+     * @param idSessao User's session id
+     * @return user's followers list
+     */
     public String getListaDeSeguidores(String idSessao) {
         Session session = getSessionForId(idSessao);
         User user = session.getUser();
         return iterableToString(user.getFollowers());
     }
 
+    /**
+     * Returns a list of a user's favorite sounds.
+     *
+     * @param idSessao User's session id
+     * @return the list of the user's favorite sounds
+     */
     public String getSonsFavoritos(String idSessao) {
         Session session = getSessionForId(idSessao);
         User user = session.getUser();
         return iterableToString(user.getFavoriteList());
     }
 
+    /**
+     * Returns a user's extra feed.
+     *
+     * @param idSessao User's session id
+     * @return user's extra feed
+     */
     public String getFeedExtra(String idSessao) {
         Session session = getSessionForId(idSessao);
         User user = session.getUser();
         return iterableToString(user.getExtraSoundFeed());
     }
 
+    /**
+     * Return the first composition rule.
+     *
+     * @return the first composition rule
+     */
     public String getFirstCompositionRule() {
         return compositionRules[0];
     }
 
+    /**
+     * Return the second composition rule.
+     *
+     * @return the second composition rule
+     */
     public String getSecondCompositionRule() {
         return compositionRules[1];
     }
 
+    /**
+     * Return the third composition rule.
+     *
+     * @return the third composition rule
+     */
     public String getThirdCompositionRule() {
         return compositionRules[2];
     }
 
+    /**
+     * Closes a user's session.
+     * @param login user's login
+     */
     public void encerrarSessao(String login) {
         Session session = project.getSessionOf(login);
         ids.remove(objs.remove(session));
         project.logout(login);
     }
 
+    /**
+     * Clears the system.
+     */
     public void zerarSistema() {
         project.clear();
     }
 
+    /**
+     * Closes the system.
+     */
     public void encerrarSistema() {
         zerarSistema();
         ids.clear();

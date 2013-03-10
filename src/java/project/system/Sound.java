@@ -2,20 +2,41 @@ package project.system;
 
 import project.exceptions.InvalidCreationDateException;
 import project.exceptions.InvalidDateException;
+import project.exceptions.InvalidLinkException;
 
+/**
+ * Represents a sound that some user posted.
+ */
 public class Sound implements Comparable<Sound> {
+
     private Link link;
     private SimpleDate creationDate;
     private User author;
     private int favoriteCount;
-    
+
+    /**
+     * Constructs a new Sound
+     *
+     * @param link Link of the sound
+     * @param creationDate Creation date of the sound
+     * @param author Author of the post
+     */
     public Sound(Link link, SimpleDate creationDate, User author) {
         this.link = link;
         this.creationDate = creationDate;
         this.author = author;
         favoriteCount = 0;
     }
-    
+
+    /**
+     * Constructs a new Sound
+     *
+     * @param link Link of the sound
+     * @param creationDate Creation date of the sound
+     * @param author Author of the post
+     * @throws InvalidCreationDateException if the creation date is invalid
+     * @throws InvalidLinkException if the link is invalid
+     */
     public Sound(String link, String creationDate, User author) {
         this.link = new Link(link);
         try {
@@ -25,43 +46,91 @@ public class Sound implements Comparable<Sound> {
         }
         this.author = author;
     }
-    
+
+    /**
+     * Returns the sound link
+     *
+     * @return the link
+     */
     public Link getLink() {
         return link;
     }
-    
+
+    /**
+     * Returns the sound creation date
+     *
+     * @return the creation date
+     */
     public SimpleDate getCreationDate() {
         return creationDate;
     }
-    
+
+    /**
+     * Returns the author of the sound post
+     *
+     * @return the author
+     */
     public User getAuthor() {
         return author;
     }
 
+    /**
+     * Returns how many users have this sound as a favorite one.
+     *
+     * @return the favorite count
+     */
     public int getFavoriteCount() {
         return favoriteCount;
     }
-    
+
+    /**
+     * Changes the link of this sound
+     *
+     * @param link the new link
+     */
     public void setLink(Link link) {
         this.link = link;
     }
-    
+
+    /**
+     * Changes the creation date of this sound
+     *
+     * @param creationDate the new creation date
+     */
     public void setCreationDate(SimpleDate creationDate) {
         this.creationDate = creationDate;
     }
-    
+
+    /**
+     * Changes the author of the post of this sound
+     *
+     * @param author the new author
+     */
     public void setAuthor(User author) {
         this.author = author;
     }
 
+    /**
+     * Increment the count of how many users have this sound as a favorite one.
+     */
     public void incrementFavoriteCount() {
         favoriteCount++;
     }
-    
+
+    /**
+     * Set the amount of users that have this sound as a favorite one.
+     *
+     * @param favoriteCount the new favorite count
+     */
     public void setFavoriteCount(int favoriteCount) {
         this.favoriteCount = favoriteCount;
     }
-    
+
+    /**
+     * Returns the hash code of this sound
+     *
+     * @return the hash code
+     */
     @Override
     public int hashCode() {
         int hash = 3;
@@ -71,6 +140,15 @@ public class Sound implements Comparable<Sound> {
         return hash;
     }
 
+    /**
+     * Returns whether this sound equals another object
+     *
+     * Two sounds are equal when they have the same link, creation date *and
+     * author*.
+     *
+     * @param obj the other object
+     * @return whether this sound equals the other object
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -92,18 +170,33 @@ public class Sound implements Comparable<Sound> {
         return true;
     }
 
+    /**
+     * Compare this Sound to another one.
+     *
+     * The comparison uses link, creationDate and author comparison functions,
+     * in this order.
+     *
+     * @param other The other sound to compare
+     * @return less than 0 if this sound should be before the other, 0 if they
+     * are equal, or 0 if it should be after
+     */
     @Override
     public int compareTo(Sound other) {
-        if (link.compareTo(other.getLink()) != 0)
+        if (link.compareTo(other.getLink()) != 0) {
             return link.compareTo(other.getLink());
-        if (creationDate.compareTo(other.getCreationDate()) != 0)
+        }
+        if (creationDate.compareTo(other.getCreationDate()) != 0) {
             return creationDate.compareTo(other.getCreationDate());
+        }
         return author.compareTo(other.getAuthor());
     }
 
+    /**
+     * Returns a string representation of this Sound
+     * @return the representation
+     */
     @Override
     public String toString() {
-        return "[S: " + (link.hashCode()+author.hashCode()) + " CD: " + getCreationDate() + "]";
-        //return "[Sound: link=" + getLink() + ", creationDate=" + getCreationDate()+", author=" + author + "]";
+      return "[Sound: link=" + getLink() + ", creationDate=" + getCreationDate()+", author=" + author + "]";
     }
 }
