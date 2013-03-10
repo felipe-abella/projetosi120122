@@ -1,2 +1,0 @@
-expect HELLO b=commandReturningString param1=hello
-expect ${b} commandReturningString param1=hello

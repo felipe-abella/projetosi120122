@@ -1,1 +1,0 @@
-equalfiles ./src/easyaccept/script/test/ok/script1.txt  ./src/easyaccept/script/test/script1.txt 

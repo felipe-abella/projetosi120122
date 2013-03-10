@@ -158,9 +158,6 @@ public class SimpleDate implements Comparable<SimpleDate> {
      * @return whether it's valid
      */
     public static boolean isDateValid(int year, int month, int day) {
-        if (year < 1900) {
-            return false; // Unsupported!
-        }
         if (month < 1 || month > 12) {
             return false;
         }

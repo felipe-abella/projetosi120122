@@ -1,2 +1,0 @@
-throwException message="An Exception"
-qwerty

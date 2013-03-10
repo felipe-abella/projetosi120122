@@ -1,3 +1,0 @@
-stringdelimiter \"
-commandReturningString param1=hello
-commandReturningString param1=" hello "

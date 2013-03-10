@@ -1,3 +1,0 @@
-# there is a blank character at the beginning of the next line
- 
-commandReturningString

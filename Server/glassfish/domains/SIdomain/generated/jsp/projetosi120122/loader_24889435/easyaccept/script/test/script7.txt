@@ -1,3 +1,0 @@
-stringdelimiter \'
-expect HELLO commandReturningString param1=hello
-expect 'HELLO WORLD' commandReturningString param1='hello world'
