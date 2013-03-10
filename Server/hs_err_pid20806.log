@@ -1,0 +1,61 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0xbfc00088, pid=20806, tid=3208362864
+#
+# JRE version: 7.0_07-b10
+# Java VM: Java HotSpot(TM) Server VM (23.3-b01 mixed mode linux-x86 )
+# Problematic frame:
+# C  0xbfc00088
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0xbfc50400):  JavaThread "pool-1-thread-4" [_thread_in_native, id=20845, stack(0xbf36b000,0xbf3bc000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=2 (SEGV_ACCERR), si_addr=0xbfc00088
+
+Registers:
+EAX=0xbfc00080, EBX=0xbf7e5ff4, ECX=0xffffffff, EDX=0xffffffff
+ESP=0xbf3b9afc, EBP=0xbf3b9b28, ESI=0xbfcd14c8, EDI=0x00000001
+EIP=0xbfc00088, EFLAGS=0x00010282, CR2=0xbfc00088
+
+Top of Stack: (sp=0xbf3b9afc)
+0xbf3b9afc:   bf7d0cfc bfcd14c8 00000001 ffffffff
+0xbf3b9b0c:   bf7d6a44 0a234acc 00000004 bf7baf5f
+0xbf3b9b1c:   bf7e5ff4 bfcd18e8 00000001 bf3b9b68
+0xbf3b9b2c:   bf7bb473 bfcd14c8 00000001 ffffffff
+0xbf3b9b3c:   0000006c 0a234acc bf7e5ff4 bf3b9b68
+0xbf3b9b4c:   ffffffff 0a234acc 00000000 00000000
+0xbf3b9b5c:   bf7e5ff4 bfcd18e8 0a234ac8 bf3b9ba8
+0xbf3b9b6c:   bf7bb553 bfcd18e8 00000001 ffffffff 
+
+Instructions: (pc=0xbfc00088)
+0xbfc00068:   60 00 c0 bf 60 00 c0 bf 30 02 ca bf 30 02 ca bf
+0xbfc00078:   70 00 c0 bf 70 00 c0 bf 78 00 c0 bf 78 00 c0 bf
+0xbfc00088:   c0 14 cd bf 20 30 cd bf 88 00 c0 bf 88 00 c0 bf
+0xbfc00098:   a8 2f cd bf a8 2f cd bf 98 00 c0 bf 98 00 c0 bf 
+
+Register to memory mapping:
+
+EAX=0xbfc00080 is an unknown value
+EBX=0xbf7e5ff4: <offset 0x38ff4> in /lib32/libdbus-1.so.3 at 0xbf7ad000
+ECX=0xffffffff is an unknown value
+EDX=0xffffffff is an unknown value
+ESP=0xbf3b9afc is pointing into the stack for thread: 0xbfc50400
+EBP=0xbf3b9b28 is pointing into the stack for thread: 0xbfc50400
+ESI=0xbfcd14c8 is an unknown value
+EDI=0x00000001 is an unknown value
+
+
+Stack: [0xbf36b000,0xbf3bc000],  sp=0xbf3b9afc,  free space=314k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0xbfc00088
+C  [libdbus-1.so.3+0xe473]

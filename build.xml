@@ -78,4 +78,46 @@
     <target name="doc" depends="javadoc"/>
     <target name="jar" depends="dist"/>
 
+    <target name="roda" depends="jar">
+      <echo message="Starting server"/>
+      <exec executable="Server/bin/asadmin" osfamily="mac">
+	<arg value="start-domain"/>
+	<arg value="SIdomain"/>
+      </exec>
+      <exec executable="Server/bin/asadmin" osfamily="unix">
+	<arg value="start-domain"/>
+	<arg value="SIdomain"/>
+      </exec>
+      <exec executable="Server/bin/asadmin.bat" osfamily="windows">
+	<arg value="start-domain"/>
+	<arg value="SIdomain"/>
+      </exec>
+
+      <property name="deploy.ant.client.url" value="http://localhost:38544/projetosi120122/"/>
+      <antcall target="run-display-browser"/>
+<!--
+      <echo message="Copying .war to auto-deploy folder"/>
+      <copy file="dist/projetosi120122.war" todir="Server/glassfish/domains/SIdomain/autodeploy/"/>
+      <echo message="Waiting for auto-deploying..."/>
+      <sleep seconds="5"/>
+      <echo message="Opening start page"/>
+      <browse url="http://localhost:38544/projetosi120122/"/>
+-->
+    </target>
+
+    <target name="para">
+      <echo message="Stopping server"/>
+      <exec executable="Server/bin/asadmin" osfamily="mac">
+	<arg value="stop-domain"/>
+	<arg value="SIdomain"/>
+      </exec>
+      <exec executable="Server/bin/asadmin" osfamily="unix">
+	<arg value="stop-domain"/>
+	<arg value="SIdomain"/>
+      </exec>
+      <exec executable="Server/bin/asadmin.bat" osfamily="windows">
+	<arg value="stop-domain"/>
+	<arg value="SIdomain"/>
+      </exec>
+    </target>
 </project>
