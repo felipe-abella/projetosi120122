@@ -2,10 +2,15 @@ package project.system;
 
 import project.system.feedsorting.FeedSorter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import project.exceptions.CircleNameTakenException;
+import project.exceptions.CircleNotFoundException;
+import project.exceptions.InvalidCircleNameException;
 import project.exceptions.InvalidEmailException;
 import project.exceptions.InvalidLoginException;
 import project.exceptions.InvalidNameException;
@@ -19,8 +24,9 @@ public class User implements Comparable<User> {
 
     private String login, password, name, email;
     private List<Sound> postlist;
-    private List<SourceView> sourceViews;
+    private List<User> sources;
     private SortedSet<User> followers;
+    private Map<String, Circle> circles;
     private List<Sound> favoriteList;
     private FeedSorter feedSorter;
 
@@ -41,7 +47,8 @@ public class User implements Comparable<User> {
         setEmail(email);
 
         postlist = new LinkedList<Sound>();
-        sourceViews = new ArrayList<SourceView>();
+        sources = new ArrayList<User>();
+        circles = new HashMap<String, Circle>();
         followers = new TreeSet<User>();
         favoriteList = new LinkedList<Sound>();
         feedSorter = new ChronologicalSourceFeedSorter();
@@ -101,23 +108,16 @@ public class User implements Comparable<User> {
      * @return the user's sources
      */
     public List<User> getSources() {
-        List<User> result = new ArrayList<User>();
-        for (SourceView sview : sourceViews) {
-            result.add(sview.getSource());
-        }
-        return result;
+        return sources;
     }
 
     /**
-     * Returns the user's source views.
+     * Returns the user's social circles.
      *
-     * A source view encapsulates a source, and all information this specific
-     * user find relevant about it.
-     *
-     * @return the user's source views
+     * @return the circles
      */
-    public List<SourceView> getSourceViews() {
-        return sourceViews;
+    public Map<String, Circle> getCircles() {
+        return circles;
     }
 
     /**
@@ -213,12 +213,50 @@ public class User implements Comparable<User> {
     }
 
     /**
+     * Adds a new circle to the user social circles list.
+     *
+     * @param circleName the new circle name
+     * @throws InvalidCircleNameException if the name is null or empty
+     * @throws CircleNameTakenException if there's already a circle with this
+     * name
+     */
+    public void addCircle(String circleName) {
+        if (circleName == null || circleName.isEmpty()) {
+            throw new InvalidCircleNameException();
+        }
+        if (circles.get(circleName) != null) {
+            throw new CircleNameTakenException();
+        }
+
+        circles.put(circleName, new Circle(this, circleName));
+    }
+
+    /**
+     * Returns the circle with a given name.
+     *
+     * @param circleName the circle's name
+     * @return the circle
+     * @throws InvalidCircleNameException if the circle's name is invalid
+     * @throws CircleNotFoundException if the circle is not found
+     */
+    public Circle getCircle(String circleName) {
+        if (circleName == null || circleName.isEmpty()) {
+            throw new InvalidCircleNameException();
+        }
+        Circle result = circles.get(circleName);
+        if (result == null) {
+            throw new CircleNotFoundException();
+        }
+        return result;
+    }
+
+    /**
      * Count how many sources this user have.
      *
      * @return the amount of sources this user have
      */
     public int countSources() {
-        return sourceViews.size();
+        return sources.size();
     }
 
     /**
@@ -240,21 +278,6 @@ public class User implements Comparable<User> {
     }
 
     /**
-     * Returns the SourceView for a given source.
-     *
-     * @param source The source
-     * @return the SourceView, or null if not found
-     */
-    public SourceView getViewOfSource(User source) {
-        for (SourceView sview : sourceViews) {
-            if (sview.getSource().equals(source)) {
-                return sview;
-            }
-        }
-        return null;
-    }
-
-    /**
      * Add a sound to this user's favorite sound list.
      *
      * @param sound The sound to add
@@ -267,11 +290,6 @@ public class User implements Comparable<User> {
         }
         if (!favoriteList.contains(sound)) {
             favoriteList.add(0, sound);
-            sound.incrementFavoriteCount();
-            SourceView sview = getViewOfSource(sound.getAuthor());
-            if (sview != null) {
-                sview.incrementFavoriteCount();
-            }
             return true;
         }
         return false;
@@ -283,15 +301,7 @@ public class User implements Comparable<User> {
      * @param source the source
      */
     public void addSource(User source) {
-        SourceView sview = new SourceView(source);
-
-        for (Sound sound : getFavoriteList()) {
-            if (sound.getAuthor().equals(source)) {
-                sview.incrementFavoriteCount();
-            }
-        }
-
-        sourceViews.add(sview);
+        sources.add(source);
     }
 
     /**
@@ -316,8 +326,8 @@ public class User implements Comparable<User> {
      */
     public List<Sound> getUnsortedSoundFeed() {
         List<Sound> result = new ArrayList<Sound>();
-        for (int i = sourceViews.size() - 1; i >= 0; i--) {
-            User source = sourceViews.get(i).getSource();
+        for (int i = sources.size() - 1; i >= 0; i--) {
+            User source = sources.get(i);
             result.addAll(source.getPostlist());
         }
         return result;
@@ -333,7 +343,7 @@ public class User implements Comparable<User> {
      * @return the sorted sound feed
      */
     public List<Sound> getSortedSoundFeed() {
-        return feedSorter.sortFeed(this);
+        return feedSorter.sortFeed(this, sources);
     }
 
     /**
@@ -350,8 +360,8 @@ public class User implements Comparable<User> {
      */
     public List<Sound> getExtraSoundFeed() {
         List<Sound> result = new ArrayList<Sound>();
-        for (int i = sourceViews.size() - 1; i >= 0; i--) {
-            User source = sourceViews.get(i).getSource();
+        for (int i = sources.size() - 1; i >= 0; i--) {
+            User source = sources.get(i);
             result.addAll(source.getFavoriteList());
         }
         return result;
@@ -361,13 +371,13 @@ public class User implements Comparable<User> {
      * Compare this user to another one.
      *
      * @param other The other user
-     * @return less than 0 if this user login is lexicographically first than
-     * the other, 0 if both logins are equal, and greater than 0 if it's
+     * @return less than 0 if this user name is lexicographically first than the
+     * other, 0 if both names are equal, and greater than 0 if it's
      * lexicographically later.
      */
     @Override
     public int compareTo(User other) {
-        return login.compareTo(other.getLogin());
+        return name.compareTo(other.getName());
     }
 
     /**

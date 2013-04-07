@@ -2,8 +2,10 @@ package project.web;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
+import project.system.Circle;
 import project.system.Project;
 import project.system.Sound;
+import project.system.User;
 
 /**
  * Bean responsible for the system Project instance.
@@ -24,9 +26,11 @@ public class ProjectBean {
      * it with some test data.
      */
     public ProjectBean() {
-        project = new Project();
+        project = Project.getInstance();
+        project.clear();
+        
         /* Testing purposes: */
-        //createSampleState();
+        createSampleState();
     }
 
     private void createSampleState() {
@@ -53,6 +57,15 @@ public class ProjectBean {
         project.getModel().findUserByLogin("c").post(new Sound("youtube234234", "30/11/2017", project.getModel().findUserByLogin("c")));
         project.getModel().findUserByLogin("c").post(new Sound("youtube234234", "30/11/2017", project.getModel().findUserByLogin("c")));
         project.getModel().findUserByLogin("c").post(new Sound("youtube234234", "30/11/2017", project.getModel().findUserByLogin("c")));
+        
+        User a = project.getModel().findUserByLogin("a");
+        User b = project.getModel().findUserByLogin("b");
+        User c = project.getModel().findUserByLogin("c");
+        
+        a.addCircle("C1");
+        Circle c1 = a.getCircle("C1");
+        c1.addUser(b);
+        //c1.addUser(c);
     }
 
     /**

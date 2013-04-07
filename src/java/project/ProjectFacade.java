@@ -10,13 +10,17 @@ import java.util.Set;
 import java.util.TreeSet;
 import project.exceptions.AttributeNotFoundException;
 import project.exceptions.InvalidAttributeException;
+import project.exceptions.InvalidCircleIdException;
+import project.exceptions.InvalidCircleNameException;
 import project.exceptions.InvalidCreationDateException;
 import project.exceptions.InvalidLoginException;
 import project.exceptions.InvalidSessionIdException;
 import project.exceptions.InvalidSoundException;
+import project.exceptions.InvalidUserIdException;
 import project.exceptions.LoginNotFoundException;
 import project.exceptions.SessionNotFoundException;
 import project.exceptions.UserNotFoundException;
+import project.system.Circle;
 import project.system.Project;
 import project.system.Session;
 import project.system.Sound;
@@ -50,7 +54,7 @@ public class ProjectFacade {
      * Constructs the ProjectFacade.
      */
     public ProjectFacade() {
-        project = new Project();
+        project = Project.getInstance();
         ids = new HashMap<String, Object>();
         objs = new HashMap<Object, String>();
     }
@@ -90,8 +94,24 @@ public class ProjectFacade {
         }
         return (Session) ids.get(sessionId);
     }
+    
+    private User getUserForId(String userId) {
+        if (userId == null || userId.isEmpty())
+            throw new InvalidUserIdException();
+        Object user = ids.get(userId);
+        if (user == null || !(user instanceof User))
+            throw new UserNotFoundException();
+        return (User)user;
+    }
+    
+    private Circle getCircleForId(String circleId) {
+        if (circleId == null || circleId.isEmpty())
+            throw new InvalidCircleIdException();
+        
+        return (Circle)ids.get(circleId);
+    }
 
-    private User userByLogin(String login) {
+    private User getUserByLogin(String login) {
         if (login == null || login.isEmpty()) {
             throw new InvalidLoginException();
         }
@@ -126,10 +146,10 @@ public class ProjectFacade {
             throw new InvalidAttributeException();
         }
         if (atributo.equals("nome")) {
-            return userByLogin(login).getName();
+            return getUserByLogin(login).getName();
         }
         if (atributo.equals("email")) {
-            return userByLogin(login).getEmail();
+            return getUserByLogin(login).getEmail();
         }
         throw new AttributeNotFoundException();
     }
@@ -362,6 +382,61 @@ public class ProjectFacade {
         Session session = getSessionForId(idSessao);
         User user = session.getUser();
         return iterableToString(user.getExtraSoundFeed());
+    }
+    
+    /**
+     * Creates a new user social circle.
+     * 
+     * @param idSessao User's session id
+     * @param nome New circle's name
+     */
+    public String criarLista(String idSessao, String nome) {
+        Session session = getSessionForId(idSessao);
+        User user = session.getUser();
+        
+        if (nome == null || nome.isEmpty())
+            throw new InvalidCircleNameException();
+        
+        user.addCircle(nome);
+        
+        return getIdOf(user.getCircle(nome));
+    }
+    
+    /**
+     * Adds a user to a social circle.
+     * 
+     * @param idSessao Session of the circle's owner.
+     * @param idLista Name of the circle.
+     * @param idUsuario User to add in the circle.
+     */
+    public void adicionarUsuario(String idSessao, String idLista, String idUsuario) {
+        User toAddUser = getUserForId(idUsuario);
+        Circle circle = getCircleForId(idLista);
+        Session session = getSessionForId(idSessao);
+        
+        circle.addUser(toAddUser);
+    }
+    
+    /**
+     * Returns the feed for a given circle.
+     * 
+     * @param idSessao Session of circle's owner.
+     * @param idLista Circle's name
+     * @return the feed
+     */
+    public String getSonsEmLista(String idSessao, String idLista) {
+        Session session = getSessionForId(idSessao);
+        User user = session.getUser();
+        Circle circle = getCircleForId(idLista);
+        
+        FeedSorter oldFeedSorter = user.getFeedSorter();
+        user.setFeedSorter(new ChronologicalSourceFeedSorter());
+        
+        List<Sound> feed = circle.getFeed();
+        
+        user.setFeedSorter(oldFeedSorter);
+        
+        return iterableToString(feed);
     }
 
     /**

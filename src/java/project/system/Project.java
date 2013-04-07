@@ -8,23 +8,39 @@ import java.util.TreeSet;
 import project.exceptions.InvalidLoginException;
 import project.exceptions.InvalidPasswordException;
 import project.exceptions.UserNotFoundException;
+import project.system.statistics.Stats;
 
 /**
  * Is the principal controller of the system.
  */
 public class Project implements Serializable {
-
+    private static Project instance = null;
     private Set<Session> sessions;
     private Map<User, Session> userSession;
     private ProjectModel model;
+    private Stats stats;
 
     /**
      * Constructs the Project.
      */
-    public Project() {
+    private Project() {
         sessions = new TreeSet<Session>();
         userSession = new TreeMap<User, Session>();
         model = new ProjectModel();
+        stats = new Stats(this);
+    }
+
+    /**
+     * Returns the instance of Project.
+     * 
+     * If the project wasn't instantiated before, it will be now.
+     * 
+     * @return the instance
+     */
+    public static Project getInstance() {
+        if (instance == null)
+            instance = new Project();
+        return instance;
     }
 
     /**
@@ -36,6 +52,15 @@ public class Project implements Serializable {
         return model;
     }
 
+    /**
+     * Returns the Stats for this Project.
+     * 
+     * @return the Stats
+     */
+    public Stats getStats() {
+        return stats;
+    }
+    
     /**
      * Creates a new user's session.
      *
@@ -105,7 +130,7 @@ public class Project implements Serializable {
     /**
      * Clears all data.
      * 
-     * This put the Project in a state equal to a newly created Project.
+     * This puts the Project in a state equal to a newly created Project.
      */
     public void clear() {
         userSession.clear();

@@ -1,13 +1,22 @@
 package project.web;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.primefaces.component.autocomplete.AutoComplete;
+import project.exceptions.CircleCantAddOwnerException;
+import project.exceptions.CircleNameTakenException;
+import project.exceptions.CircleNotFoundException;
+import project.exceptions.InvalidCircleNameException;
 import project.exceptions.InvalidFollowingException;
 import project.exceptions.InvalidLinkException;
+import project.exceptions.UserAlreadyInCircleException;
+import project.system.Circle;
 import project.system.Link;
 import project.system.SimpleDate;
 import project.system.Sound;
@@ -28,16 +37,24 @@ public class ProfileBean implements Serializable {
     private SessionBean sessionBean;
     @Inject
     private ProjectBean projectBean;
-    private String newSourceLogin;
+    private String newFriendLogin;
+    
     private String newPostText;
+    private FeedSorter feedSorters[] = {new ChronologicalSourceFeedSorter(),
+        new MostFavoritedFeedSorter(), new FavoriteSourcesFeedSorter(),};
+    private FeedSorter feedSorter = null;
+    private String feedSourceSetRule = "mainFeed";
+    private String friendSetRule = "mainSources";
+    private String newCircleName;
 
     /**
-     * Returns the login of the user about to be added as a new source.
+     * Returns the login of the user about to be added to the current friend
+     * list.
      *
-     * @return the new source's login
+     * @return the new friend's login
      */
-    public String getNewSourceLogin() {
-        return newSourceLogin;
+    public String getNewFriendLogin() {
+        return newFriendLogin;
     }
 
     /**
@@ -50,12 +67,12 @@ public class ProfileBean implements Serializable {
     }
 
     /**
-     * Sets the login of the user about to be added as a new source.
+     * Sets the login of the user about to be added in the current friend list.
      *
-     * @param newSourceLogin the new "new source login"
+     * @param newFriendLogin the new "new source login"
      */
-    public void setNewSourceLogin(String newSourceLogin) {
-        this.newSourceLogin = newSourceLogin;
+    public void setNewFriendLogin(String newFriendLogin) {
+        this.newFriendLogin = newFriendLogin;
     }
 
     /**
@@ -98,34 +115,6 @@ public class ProfileBean implements Serializable {
         return null;
     }
 
-    /**
-     * Adds a new source to the user's source list.
-     *
-     * @return action to executed
-     */
-    public String addNewSource() {
-        try {
-            User user, user2;
-            user = sessionBean.getSession().getUser();
-            user2 = projectBean.getProject().getModel().findUserByLogin(newSourceLogin);
-            if (!projectBean.getProject().getModel().addUserFollowing(user, user2)) {
-                FacesContext.getCurrentInstance().addMessage("newSource", new FacesMessage("O usuário já é amigo!"));
-                return null;
-            }
-        } catch (InvalidFollowingException ex) {
-            FacesContext.getCurrentInstance().addMessage("newSource", new FacesMessage("Usuário inválido!"));
-            return null;
-        }
-
-        FacesContext.getCurrentInstance().addMessage("newSource", new FacesMessage("Usuário adicionado!"));
-
-        newSourceLogin = null;
-        return null;
-    }
-    private FeedSorter feedSorters[] = {new ChronologicalSourceFeedSorter(),
-        new MostFavoritedFeedSorter(), new FavoriteSourcesFeedSorter(),};
-    private FeedSorter feedSorter = null;
-
     private FeedSorter getFeedSorterFromRule(String rule) {
         for (FeedSorter sorter : feedSorters) {
             if (sorter.getRuleName().equals(rule)) {
@@ -157,5 +146,232 @@ public class ProfileBean implements Serializable {
             feedSorter = getFeedSorterFromRule("chronologicalSource");
         }
         return feedSorter.getRuleName();
+    }
+
+    /**
+     * Returns the feed source set rule.
+     *
+     * @return the feed source set rule.
+     */
+    public String getFeedSourceSetRule() {
+        return feedSourceSetRule;
+    }
+
+    /**
+     * Sets the feed source set rule.
+     *
+     * @param feedSourceSetRule the new feed source set rule
+     */
+    public void setFeedSourceSetRule(String feedSourceSetRule) {
+        this.feedSourceSetRule = feedSourceSetRule;
+        if (!feedSourceSetRule.equals("mainFeed") && !feedSourceSetRule.startsWith("circle_")) {
+            throw new IllegalStateException("Invalid feed source set rule");
+        }
+    }
+
+    private List<Sound> getSoundFeed() {
+        User user = sessionBean.getSession().getUser();
+
+        if (feedSourceSetRule.equals("mainFeed")) {
+            return sessionBean.getSession().getUser().getSortedSoundFeed();
+        } else if (feedSourceSetRule.startsWith("circle_")) {
+            String circleName = feedSourceSetRule.substring("circle_".length());
+            try {
+                Circle circle = user.getCircle(circleName);
+                return circle.getFeed();
+            } catch (InvalidCircleNameException ex) {
+                throw new IllegalStateException("The UI circle list contained a invalid name.");
+            } catch (CircleNotFoundException ex) {
+                /* Likely the circle was removed and the source set rule wasn't
+                 * changed.
+                 */
+                return new ArrayList<Sound>();
+            }
+        }
+
+        throw new IllegalStateException("Invalid feed source set rule");
+    }
+
+    /**
+     * Returns the sound feed.
+     *
+     * The sound feed will be constructed using sources chosen with the source
+     * set rule, and then sorted according to the feed sorting rule.
+     *
+     * @return the sound feed
+     */
+    public List<SoundBean> getSoundBeanFeed() {
+        List<SoundBean> result = new ArrayList<SoundBean>();
+
+        for (Sound sound : getSoundFeed()) {
+            result.add(new SoundBean(sound));
+        }
+
+        return result;
+    }
+
+    /**
+     * Returns the friend set rule.
+     *
+     * @return the friend set rule
+     */
+    public String getFriendSetRule() {
+        return friendSetRule;
+    }
+
+    /**
+     * Sets the friend set rule.
+     *
+     * @param friendSetRule the new friend set rule
+     */
+    public void setFriendSetRule(String friendSetRule) {
+        this.friendSetRule = friendSetRule;
+        if (!friendSetRule.equals("mainSources") && !friendSetRule.startsWith("circle_")) {
+            throw new IllegalArgumentException("Invalid friendSetRule");
+        }
+    }
+
+    private List<User> getFriendList() {
+        User user = sessionBean.getSession().getUser();
+
+        if (friendSetRule.equals("mainSources")) {
+            return user.getSources();
+        } else if (friendSetRule.startsWith("circle_")) {
+            String circleName = friendSetRule.substring("circle_".length());
+            try {
+                Circle circle = user.getCircle(circleName);
+                return circle.getUsers();
+            } catch (InvalidCircleNameException ex) {
+                throw new IllegalStateException("The UI circle list contained a invalid name.");
+            } catch (CircleNotFoundException ex) {
+                /* Likely the circle was removed and the friend set rule wasn't
+                 * changed.
+                 */
+                return new ArrayList<User>();
+            }
+        }
+
+        throw new IllegalStateException("Invalid friendSetRule");
+    }
+
+    /**
+     * Returns the friend list, encapsulated by UserBean's.
+     * 
+     * @return the friend list
+     */
+    public List<UserBean> getFriendBeanList() {
+        List<UserBean> result = new ArrayList<UserBean>();
+
+        for (User user : getFriendList()) {
+            result.add(new UserBean(user));
+        }
+
+        return result;
+    }
+
+    /**
+     * Adds a new source to the user's source list.
+     *
+     * @return action to be executed
+     */
+    public String addNewFriend() {
+        User user, user2;
+
+        user = sessionBean.getSession().getUser();
+        user2 = projectBean.getProject().getModel().findUserByLogin(newFriendLogin);
+
+        if (newFriendLogin == null || newFriendLogin.isEmpty()) {
+            FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Usuário inválido!"));
+            return null;
+        }
+        
+        if (user2 == null) {
+            FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Usuário não encontrado!"));
+            return null;
+        }
+
+        if (friendSetRule.equals("mainSources")) {
+            try {
+                if (!projectBean.getProject().getModel().addUserFollowing(user, user2)) {
+                    FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("O usuário já é amigo!"));
+                    return null;
+                }
+            } catch (InvalidFollowingException ex) {
+                FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Usuário inválido!"));
+                return null;
+            }
+        } else if (friendSetRule.startsWith("circle_")) {
+            String circleName = friendSetRule.substring("circle_".length());
+            try {
+                Circle circle = user.getCircle(circleName);
+                circle.addUser(user2);
+            } catch (UserAlreadyInCircleException ex) {
+                FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("O usuário já está no círculo!"));
+                return null;
+            } catch (CircleCantAddOwnerException ex) {
+                FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Usuário inválido!"));
+                return null;
+            } catch (InvalidCircleNameException ex) {
+                throw new IllegalStateException("The UI circle list contained a invalid name.");
+            } catch (CircleNotFoundException ex) {
+                /* Likely the circle was removed and the friend set rule wasn't
+                 * changed.
+                 */
+                FacesContext.getCurrentInstance().addMessage("friendList",
+                        new FacesMessage(FacesMessage.SEVERITY_ERROR, "Círculo inexistente!", "Círculo inexistente!"));
+
+                return null;
+            }
+        } else {
+            throw new IllegalStateException("Invalid friendSetRule");
+        }
+
+        FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Usuário adicionado!"));
+
+        newFriendLogin = null;
+        return null;
+    }
+
+    /**
+     * Returns the name of the new circle.
+     * 
+     * @return the name of the new circle
+     */
+    public String getNewCircleName() {
+        return newCircleName;
+    }
+
+    /**
+     * Sets the name of the new circle
+     * 
+     * @param newCircleName the new name for the new circle
+     */
+    public void setNewCircleName(String newCircleName) {
+        this.newCircleName = newCircleName;
+    }
+    
+    /**
+     * Adds a new circle to the user's circles.
+     * 
+     * @return action to be executed
+     */
+    public String addNewCircle() {
+        String name = newCircleName;
+        User user = sessionBean.getSession().getUser();
+        
+        try {
+            user.addCircle(name);
+        } catch (InvalidCircleNameException ex) {
+            FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Nome inválido!"));
+            return null;
+        } catch (CircleNameTakenException ex) {
+            FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("O círculo já existe!"));
+            return null;
+        }
+        
+        FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Círculo criado!"));
+        
+        newCircleName = "";
+        return null;
     }
 }

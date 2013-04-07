@@ -10,11 +10,14 @@ import project.system.User;
 public interface FeedSorter {
 
     /**
-     * Sorts the user's main feed according to the rule given by getRuleName()
+     * Creates a feed from given sources, and sorts according to the
+     * rule given by getRuleName().
+     *
      * @param user the user's whose feed will be sorted and returned
+     * @param sources the sources we'll use to build the feed
      * @return user's sorted feed
      */
-    public List<Sound> sortFeed(User user);
+    public List<Sound> sortFeed(User user, List<User> sources);
 
     /**
      * Returns the name of the rule used by this sorter.

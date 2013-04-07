@@ -1,9 +1,11 @@
 <domain log-root="${com.sun.aas.instanceRoot}/logs" application-root="${com.sun.aas.instanceRoot}/applications" version="5">
   <system-applications></system-applications>
   <applications>
-    <application context-root="/projetosi120122" location="${com.sun.aas.instanceRootURI}/applications/projetosi120122/" name="projetosi120122" object-type="user">
-      <property name="appLocation" value="${com.sun.aas.instanceRootURI}/applications/__internal/projetosi120122/projetosi120122.war"></property>
-      <property name="defaultAppName" value="projetosi120122"></property>
+    <application context-root="/projetosi120122" location="file:/home/felipe/Projects/UFCG/SI1/Projeto/projetosi120122/build/web/" name="projetosi120122" directory-deployed="true" object-type="user">
+      <property name="preserveAppScopedResources" value="true"></property>
+      <property name="appLocation" value="file:/home/felipe/Projects/UFCG/SI1/Projeto/projetosi120122/build/web/"></property>
+      <property name="defaultAppName" value="web"></property>
+      <property name="keepSessions" value="true"></property>
       <module name="projetosi120122">
         <engine sniffer="security"></engine>
         <engine sniffer="web"></engine>

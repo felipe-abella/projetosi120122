@@ -3,7 +3,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <f:view contentType="text/html">
         <h:head>
@@ -35,11 +35,10 @@
             <br/>
 
             <h:form id="newPostForm">
+                <h:outputText value="Poste um novo link:"/>
                 <p:inputTextarea style="width: 95%" rows="3" id="newPostTextInput" value="#{profileBean.newPostText}"/>
                 <br/>
-                <p align="center">
-                <h:message id="newPostMessages" for="newPostForm"/>
-                </p>
+                <p:message id="newPostMessages" for="newPostForm"/>
                 <p align="right">
                 <h:commandButton value="Enviar" action="#{profileBean.addNewPost}">
                     <f:ajax execute="@form" render="newPostMessages newPostTextInput"/>
@@ -56,8 +55,8 @@
                 <h:form id="soundFeedForm">
                     <p:growl id="soundFeedMessages" for="soundFeedForm"/>
                     <p:panel style="width: 100%; height: 450px" header="Feed" id="soundFeed">
-                        <p:scrollPanel style="height: 350px" mode="native">
-                            <ui:repeat value="#{userBean.sortedSoundFeed}" var="sound">
+                        <p:scrollPanel style="height: 320px" mode="native">
+                            <ui:repeat value="#{profileBean.soundBeanFeed}" var="sound">
                                 <table>
                                     <tr>
                                         <td style="width: 100%">
@@ -77,15 +76,29 @@
                             </ui:repeat>
                         </p:scrollPanel>
                         <p align="right">
-                            
+
+
+                        <h:selectOneMenu id="sourceSetChooser" value="#{profileBean.feedSourceSetRule}">
+                            <f:ajax execute="@form" render=":soundFeedForm"/>
+                            <f:selectItem itemDisabled="true" itemLabel="Selecione o feed para exibir:" itemValue=""/>
+                            <f:selectItem itemLabel="Feed principal" itemValue="mainFeed"/>
+                            <c:if test="#{userBean.circleNames.size() > 0}">
+                                <f:selectItem itemDisabled="true" itemLabel="Feeds de círculos sociais:" itemValue=""/>
+                            </c:if>
+                            <c:if test="#{userBean.circleNames.size() == 0}">
+                                <f:selectItem itemDisabled="true" itemLabel="(Feeds de círculos sociais aparecerão aqui)" itemValue=""/>
+                            </c:if>
+                            <f:selectItems value="#{userBean.circleNames}" var="circle" itemLabel="#{circle}" itemValue="circle_#{circle}"/>
+                        </h:selectOneMenu>
+                        <br/>
                         <h:selectOneMenu id="sortingRuleChooser" value="#{profileBean.feedSorterRule}">
                             <f:ajax execute="@form" render=":soundFeedForm"/>
-                            <!--<f:selectItem itemDisabled="true" itemLabel="Selecione a ordem dos sons:"/>-->
-                            <f:selectItem itemLabel="Sons de velhos amigos primeiro" itemValue="chronologicalSource"/>
+                            <f:selectItem itemDisabled="true" itemLabel="Selecione a ordem dos sons:" itemValue=""/>
+                            <f:selectItem itemLabel="Primeiro os sons de amigos adicionados antes no feed" itemValue="chronologicalSource"/>
                             <f:selectItem itemLabel="Sons populares primeiro" itemValue="mostFavorited"/>
                             <f:selectItem itemLabel="Primeiro os sons de amigos cujas músicas eu costumo favoritar" itemValue="favoriteSources"/>
                         </h:selectOneMenu>
-                            
+
                         </p>
                     </p:panel>
                 </h:form>
@@ -121,27 +134,53 @@
                 </tr>
             </table>
 
-            <h:form id="newSource" prependId="false">
+            <h:form id="friendList" prependId="false">
                 <table>
                     <tr>
-                        <td style="width: 100%">
-                    <p:panel style="width: 100%; height: 200px" header="Lista de Amigos" id="sourceList">
-                        <p:scrollPanel style="height: 150px" mode="native">
-                            <p:dataGrid columns="5" var="friend" value="#{userBean.sourceList}">
+                        <td style="width: 95%">
+                    <p:panel style="width: 97%; height: 300px" header="Lista de Amigos" id="sourceList">
+                        <p:scrollPanel style="height: 200px" mode="native">
+                            <p:dataGrid columns="5" var="friend" value="#{profileBean.friendBeanList}">
                                 <p:panel>
                                     <h:outputText value="#{friend.name}"/>
                                 </p:panel>
                             </p:dataGrid>
                         </p:scrollPanel>
+                        <p align="right">
+                        <h:selectOneMenu id="friendSetChooser" value="#{profileBean.friendSetRule}">
+                            <f:ajax execute="@form" render=":friendList"/>
+                            <f:selectItem itemDisabled="true" itemLabel="Selecione a lista de amigos para exibir:" itemValue=""/>
+                            <f:selectItem itemLabel="Lista principal (Fontes do feed principal)" itemValue="mainSources"/>
+                            <c:if test="#{userBean.circleNames.size() > 0}">
+                                <f:selectItem itemDisabled="true" itemLabel="Círculos sociais:" itemValue=""/>
+                            </c:if>
+                            <c:if test="#{userBean.circleNames.size() == 0}">
+                                <f:selectItem itemDisabled="true" itemLabel="(Círculos sociais aparecerão aqui)" itemValue=""/>
+                            </c:if>
+                            <f:selectItems value="#{userBean.circleNames}" var="circle" itemLabel="#{circle}" itemValue="circle_#{circle}"/>
+                        </h:selectOneMenu>
+                        </p>
                     </p:panel>
                     </td>
+                    
                     <td style="height: 100%">
+                        
                     <p:panel style="width: 260px; height: 100%">
-                        <h:outputText value="Adicionar amigo:"/>
-                        <h:inputText id="newSourceLoginInput" value="#{profileBean.newSourceLogin}"/>
-                        <br/><h:message id="newSourceMessages" for="newSource"/>
-                        <h:commandButton value="Adicionar" action="#{profileBean.addNewSource}">
-                            <f:ajax execute="@form" render="newSourceMessages newSourceLoginInput sourceList :soundFeedForm:soundFeed :extraSoundFeedForm:extraSoundFeed" />
+                        <h:outputText value="Adicionar amigo a esta lista:"/>
+                        <h:inputText id="newFriendLoginInput" value="#{profileBean.newFriendLogin}"/>
+                        <br/>
+                        <h:commandButton value="Adicionar" action="#{profileBean.addNewFriend}">
+                            <f:ajax execute="@form" render="friendListMessages newFriendLoginInput sourceList :soundFeedForm:soundFeed :extraSoundFeedForm:extraSoundFeed" />
+                        </h:commandButton>
+                    </p:panel>
+                    <br/>
+                    <p:message id="friendListMessages" for="friendList"/>
+                    <br/>
+                    <p:panel style="width: 260px; height: 100%">
+                        <h:outputText value="Criar novo círculo social:"/>
+                        <h:inputText id="newCircleInput" value="#{profileBean.newCircleName}"/>
+                        <h:commandButton value="Criar" action="#{profileBean.addNewCircle}">
+                            <f:ajax execute="@form" render="friendListMessages newCircleInput sourceList :soundFeedForm:soundFeed :extraSoundFeedForm:extraSoundFeed" />
                         </h:commandButton>
                     </p:panel>
                     </td>

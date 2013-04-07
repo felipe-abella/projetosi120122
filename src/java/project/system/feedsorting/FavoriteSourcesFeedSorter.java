@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import project.system.Project;
 import project.system.Sound;
-import project.system.SourceView;
 import project.system.User;
+import project.system.statistics.Stats;
 
 /**
  * Sorts the user main feed priorizing sounds from the sources which the user
@@ -15,7 +16,8 @@ import project.system.User;
 public class FavoriteSourcesFeedSorter implements FeedSorter {
 
     /**
-     * Sorts user's main feed priorizing sounds of sources the user likes most.
+     * Creates a feed from given sources, and sorts priorizing sounds of sources
+     * the user likes most.
      *
      * Sounds from the same source will be grouped together in the same order as
      * they are in the source's post list. The sources whose number of musics
@@ -24,27 +26,28 @@ public class FavoriteSourcesFeedSorter implements FeedSorter {
      * relative ordering.
      *
      * @param user User whose feed will be sorted and returned
+     * @param sources the sources we'll use to build the feed
      * @return user's sorted feed
      */
     @Override
-    public List<Sound> sortFeed(User user) {
-        List<SourceView> sviews = new ArrayList<SourceView>(user.getSourceViews());
-        Collections.reverse(sviews);
-
-        Comparator<SourceView> cmp = new Comparator<SourceView>() {
+    public List<Sound> sortFeed(final User user, List<User> sources) {
+        sources = new ArrayList<User>(sources);
+        Collections.reverse(sources);
+        
+        Comparator<User> cmp = new Comparator<User>() {
             @Override
-            public int compare(SourceView sv1, SourceView sv2) {
-                return sv2.getFavoriteCount() - sv1.getFavoriteCount();
+            public int compare(User s1, User s2) {
+                Stats stats = Project.getInstance().getStats();
+                return stats.getFavoritesInSourceCount(user, s2)
+                        - stats.getFavoritesInSourceCount(user, s1);
             }
         };
-        Collections.sort(sviews, cmp); // Stable sort
 
+        Collections.sort(sources, cmp); // Stable sort
         List<Sound> result = new ArrayList<Sound>();
-        for (SourceView sview : sviews) {
-            List<Sound> bla = new ArrayList<Sound>(sview.getSource().getPostlist());
-            result.addAll(bla);
+        for (User source : sources) {
+            result.addAll(new ArrayList<Sound>(source.getPostlist()));
         }
-
         return result;
     }
 

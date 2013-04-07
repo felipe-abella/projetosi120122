@@ -50,9 +50,9 @@ public class UserBean implements Serializable {
         }
 
         /* Testing purposes: */
-        //if (sessionBean.getSession() == null) {
-        //    sessionBean.logon("a", "a");
-        //}
+        if (sessionBean.getSession() == null) {
+            sessionBean.logon("a", "a");
+        }
 
         Session session = sessionBean.getSession();
 
@@ -156,5 +156,14 @@ public class UserBean implements Serializable {
                     new FacesMessage("O som já está na lista de favoritos!"));
         }
         return null;
+    }
+    
+    /**
+     * Returns a list with the name of all user's social circles.
+     * 
+     * @return the list
+     */
+    public List<String> getCircleNames() {
+        return new ArrayList<String>(getUser().getCircles().keySet());
     }
 }

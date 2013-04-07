@@ -48,21 +48,6 @@ public class SoundTest {
     }
 
     /**
-     * Test favoriteCount-related methods of class Sound.
-     */
-    @Test
-    public void testFavoriteCount() {
-        assertEquals(0, sound1.getFavoriteCount());
-        sound1.incrementFavoriteCount();
-        assertEquals(1, sound1.getFavoriteCount());
-        sound1.incrementFavoriteCount();
-        sound1.incrementFavoriteCount();
-        assertEquals(3, sound1.getFavoriteCount());
-        sound1.setFavoriteCount(10);
-        assertEquals(10, sound1.getFavoriteCount());
-    }
-
-    /**
      * Test of setLink method, of class Sound.
      */
     @Test

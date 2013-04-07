@@ -12,7 +12,6 @@ public class Sound implements Comparable<Sound> {
     private Link link;
     private SimpleDate creationDate;
     private User author;
-    private int favoriteCount;
 
     /**
      * Constructs a new Sound
@@ -25,7 +24,6 @@ public class Sound implements Comparable<Sound> {
         this.link = link;
         this.creationDate = creationDate;
         this.author = author;
-        favoriteCount = 0;
     }
 
     /**
@@ -75,15 +73,6 @@ public class Sound implements Comparable<Sound> {
     }
 
     /**
-     * Returns how many users have this sound as a favorite one.
-     *
-     * @return the favorite count
-     */
-    public int getFavoriteCount() {
-        return favoriteCount;
-    }
-
-    /**
      * Changes the link of this sound
      *
      * @param link the new link
@@ -108,22 +97,6 @@ public class Sound implements Comparable<Sound> {
      */
     public void setAuthor(User author) {
         this.author = author;
-    }
-
-    /**
-     * Increment the count of how many users have this sound as a favorite one.
-     */
-    public void incrementFavoriteCount() {
-        favoriteCount++;
-    }
-
-    /**
-     * Set the amount of users that have this sound as a favorite one.
-     *
-     * @param favoriteCount the new favorite count
-     */
-    public void setFavoriteCount(int favoriteCount) {
-        this.favoriteCount = favoriteCount;
     }
 
     /**
