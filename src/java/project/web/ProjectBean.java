@@ -28,7 +28,7 @@ public class ProjectBean {
     public ProjectBean() {
         project = Project.getInstance();
         project.clear();
-        
+
         /* Testing purposes: */
         createSampleState();
     }
@@ -58,10 +58,29 @@ public class ProjectBean {
         project.getModel().findUserByLogin("c").post(new Sound("youtube234234", "30/11/2017", project.getModel().findUserByLogin("c")));
         project.getModel().findUserByLogin("c").post(new Sound("youtube234234", "30/11/2017", project.getModel().findUserByLogin("c")));
         
+        project.getModel().findUserByLogin("z").post(new Sound("blabla", "30/11/2017", project.getModel().findUserByLogin("z")));
+        project.getModel().findUserByLogin("y").post(new Sound("blabla2", "30/11/2017", project.getModel().findUserByLogin("y")));
+
         User a = project.getModel().findUserByLogin("a");
         User b = project.getModel().findUserByLogin("b");
         User c = project.getModel().findUserByLogin("c");
-        
+        User y = project.getModel().findUserByLogin("y");
+        User z = project.getModel().findUserByLogin("z");
+
+        project.getModel().addUserFollowing(z, b);
+        project.getModel().addUserFollowing(y, b);
+        project.getModel().addUserFollowing(y, c);
+
+        a.addFavorite(z.getPostlist().get(0));
+        a.addFavorite(b.getPostlist().get(0));
+        a.addFavorite(b.getPostlist().get(1));
+
+        z.addFavorite(y.getPostlist().get(0));
+        z.addFavorite(b.getPostlist().get(0));
+
+        y.addFavorite(b.getPostlist().get(0));
+        y.addFavorite(b.getPostlist().get(1));
+
         a.addCircle("C1");
         Circle c1 = a.getCircle("C1");
         c1.addUser(b);

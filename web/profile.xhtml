@@ -168,8 +168,31 @@
                     <p:panel style="width: 260px; height: 100%">
                         <h:outputText value="Adicionar amigo a esta lista:"/>
                         <p:autoComplete id="newFriendLoginInput" widgetVar="newFriendLoginInputVar" minQueryLength="10000"
-                                        value="#{profileBean.newFriendLogin}" completeMethod="#{profileBean.getNewFriendSuggestionsLogins}" dropdown="false"/>
-                        
+                                        value="#{profileBean.newFriendLogin}" completeMethod="#{profileBean.getNewFriendSuggestionsLogins}"
+                                        var="suggestion" itemLabel="#{suggestion}" itemValue="#{suggestion}">
+                            <f:facet name="itemtip">
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <f:facet name="header">
+                                        <h:outputText value="#{suggestion}"/>
+                                    </f:facet>
+                                    <h:outputText value="Nome:"/>
+                                    <h:outputText value="#{projectBean.project.model.findUserByLogin(suggestion).name}"/>
+                                    <h:outputText value="Favoritos em comum:"/>
+                                    <h:outputText value="#{projectBean.project.stats.getCommonFavoritesCount(userBean.user,
+                                                           projectBean.project.model.findUserByLogin(suggestion))}"/>
+                                    <h:outputText value="Fontes em comum:"/>
+                                    <h:outputText value="#{projectBean.project.stats.getCommonSourcesCount(userBean.user,
+                                                           projectBean.project.model.findUserByLogin(suggestion))}"/>
+                                    <h:outputText value="Sons favoritados por mim:"/>
+                                    <h:outputText value="#{projectBean.project.stats.getFavoritesInSourceCount(userBean.user,
+                                                           projectBean.project.model.findUserByLogin(suggestion))}"/>
+                                    <h:outputText value="Sons favoritados por alguém:"/>
+                                    <h:outputText value="#{projectBean.project.stats.getFavoritedPostsCount(
+                                                           projectBean.project.model.findUserByLogin(suggestion))}"/>
+                                </h:panelGrid>
+                            </f:facet>
+                        </p:autoComplete>
+
                         <h:commandLink value="Mostrar sugestões" action="#{profileBean.getNewFriendSuggestionsAction}"
                                        onclick='newFriendLoginInputVar.search("");'>
                             <f:ajax execute="@form" render="friendListMessages"/>
