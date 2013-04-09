@@ -29,6 +29,7 @@ import project.system.feedsorting.ChronologicalSourceFeedSorter;
 import project.system.feedsorting.FavoriteSourcesFeedSorter;
 import project.system.feedsorting.FeedSorter;
 import project.system.feedsorting.MostFavoritedFeedSorter;
+import project.system.recommender.FriendRecommender;
 
 /**
  * Implements the Façade to be used by EasyAccept.
@@ -94,21 +95,24 @@ public class ProjectFacade {
         }
         return (Session) ids.get(sessionId);
     }
-    
+
     private User getUserForId(String userId) {
-        if (userId == null || userId.isEmpty())
+        if (userId == null || userId.isEmpty()) {
             throw new InvalidUserIdException();
+        }
         Object user = ids.get(userId);
-        if (user == null || !(user instanceof User))
+        if (user == null || !(user instanceof User)) {
             throw new UserNotFoundException();
-        return (User)user;
+        }
+        return (User) user;
     }
-    
+
     private Circle getCircleForId(String circleId) {
-        if (circleId == null || circleId.isEmpty())
+        if (circleId == null || circleId.isEmpty()) {
             throw new InvalidCircleIdException();
-        
-        return (Circle)ids.get(circleId);
+        }
+
+        return (Circle) ids.get(circleId);
     }
 
     private User getUserByLogin(String login) {
@@ -383,28 +387,29 @@ public class ProjectFacade {
         User user = session.getUser();
         return iterableToString(user.getExtraSoundFeed());
     }
-    
+
     /**
      * Creates a new user social circle.
-     * 
+     *
      * @param idSessao User's session id
      * @param nome New circle's name
      */
     public String criarLista(String idSessao, String nome) {
         Session session = getSessionForId(idSessao);
         User user = session.getUser();
-        
-        if (nome == null || nome.isEmpty())
+
+        if (nome == null || nome.isEmpty()) {
             throw new InvalidCircleNameException();
-        
+        }
+
         user.addCircle(nome);
-        
+
         return getIdOf(user.getCircle(nome));
     }
-    
+
     /**
      * Adds a user to a social circle.
-     * 
+     *
      * @param idSessao Session of the circle's owner.
      * @param idLista Name of the circle.
      * @param idUsuario User to add in the circle.
@@ -413,13 +418,13 @@ public class ProjectFacade {
         User toAddUser = getUserForId(idUsuario);
         Circle circle = getCircleForId(idLista);
         Session session = getSessionForId(idSessao);
-        
+
         circle.addUser(toAddUser);
     }
-    
+
     /**
      * Returns the feed for a given circle.
-     * 
+     *
      * @param idSessao Session of circle's owner.
      * @param idLista Circle's name
      * @return the feed
@@ -428,14 +433,14 @@ public class ProjectFacade {
         Session session = getSessionForId(idSessao);
         User user = session.getUser();
         Circle circle = getCircleForId(idLista);
-        
+
         FeedSorter oldFeedSorter = user.getFeedSorter();
         user.setFeedSorter(new ChronologicalSourceFeedSorter());
-        
+
         List<Sound> feed = circle.getFeed();
-        
+
         user.setFeedSorter(oldFeedSorter);
-        
+
         return iterableToString(feed);
     }
 
@@ -467,7 +472,51 @@ public class ProjectFacade {
     }
 
     /**
+     * Return the amount of common favorites the logged user has with another.
+     *
+     * @param idSessao the user's session
+     * @param idUsuario the another user's id
+     * @return the amount of common favorites
+     */
+    public String getNumFavoritosEmComum(String idSessao, String idUsuario) {
+        Session session = getSessionForId(idSessao);
+        User user = session.getUser();
+        User user2 = getUserForId(idUsuario);
+
+        return Integer.toString(project.getStats().getCommonFavoritesCount(user, user2));
+    }
+
+    /**
+     * Return the amount of common sources the logged user has with another.
+     *
+     * @param idSessao the user's session id
+     * @param idUsuario the another user's id
+     * @return the amount of common sources
+     */
+    public String getNumFontesEmComum(String idSessao, String idUsuario) {
+        Session session = getSessionForId(idSessao);
+        User user = session.getUser();
+        User user2 = getUserForId(idUsuario);
+
+        return Integer.toString(project.getStats().getCommonSourcesCount(user, user2));
+    }
+
+    /**
+     * Returns the recommended friends for the logged user.
+     *
+     * @param idSessao the user's session id
+     * @return the recommended friends
+     */
+    public String getFontesDeSonsRecomendadas(String idSessao) {
+        Session session = getSessionForId(idSessao);
+        User user = session.getUser();
+
+        return iterableToString(FriendRecommender.getFriendRecommendations(user, user.getSources()));
+    }
+
+    /**
      * Closes a user's session.
+     *
      * @param login user's login
      */
     public void encerrarSessao(String login) {

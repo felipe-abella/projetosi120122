@@ -107,7 +107,7 @@
 
                 <h:form id="extraSoundFeedForm">
                     <p:growl id="extraSoundFeedMessages" for="extraSoundFeedForm"/>
-                    <p:panel style="height: 450px; min-width: 300px" header="Feed de Favoritos" id="extraSoundFeed">
+                    <p:panel style="height: 450px; min-width: 300px" header="Favoritos de amigos" id="extraSoundFeed">
                         <p:scrollPanel style="height: 400px" mode="native">
                             <ui:repeat value="#{userBean.extraSoundFeed}" var="sound">
                                 <table>
@@ -138,8 +138,8 @@
                 <table>
                     <tr>
                         <td style="width: 95%">
-                    <p:panel style="width: 97%; height: 300px" header="Lista de Amigos" id="sourceList">
-                        <p:scrollPanel style="height: 200px" mode="native">
+                    <p:panel style="width: 97%; height: 325px" header="Lista de Amigos" id="sourceList">
+                        <p:scrollPanel style="height: 225px" mode="native">
                             <p:dataGrid columns="5" var="friend" value="#{profileBean.friendBeanList}">
                                 <p:panel>
                                     <h:outputText value="#{friend.name}"/>
@@ -162,13 +162,18 @@
                         </p>
                     </p:panel>
                     </td>
-                    
+
                     <td style="height: 100%">
-                        
+
                     <p:panel style="width: 260px; height: 100%">
                         <h:outputText value="Adicionar amigo a esta lista:"/>
-                        <h:inputText id="newFriendLoginInput" value="#{profileBean.newFriendLogin}"/>
-                        <br/>
+                        <p:autoComplete id="newFriendLoginInput" widgetVar="newFriendLoginInputVar" minQueryLength="10000"
+                                        value="#{profileBean.newFriendLogin}" completeMethod="#{profileBean.getNewFriendSuggestionsLogins}" dropdown="false"/>
+                        
+                        <h:commandLink value="Mostrar sugestões" action="#{profileBean.getNewFriendSuggestionsAction}"
+                                       onclick='newFriendLoginInputVar.search("");'>
+                            <f:ajax execute="@form" render="friendListMessages"/>
+                        </h:commandLink>
                         <h:commandButton value="Adicionar" action="#{profileBean.addNewFriend}">
                             <f:ajax execute="@form" render="friendListMessages newFriendLoginInput sourceList :soundFeedForm:soundFeed :extraSoundFeedForm:extraSoundFeed" />
                         </h:commandButton>

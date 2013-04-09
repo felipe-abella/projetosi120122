@@ -25,6 +25,7 @@ import project.system.feedsorting.ChronologicalSourceFeedSorter;
 import project.system.feedsorting.FavoriteSourcesFeedSorter;
 import project.system.feedsorting.FeedSorter;
 import project.system.feedsorting.MostFavoritedFeedSorter;
+import project.system.recommender.FriendRecommender;
 
 /**
  * Manages forms and operations made on a user's profile page.
@@ -38,7 +39,6 @@ public class ProfileBean implements Serializable {
     @Inject
     private ProjectBean projectBean;
     private String newFriendLogin;
-    
     private String newPostText;
     private FeedSorter feedSorters[] = {new ChronologicalSourceFeedSorter(),
         new MostFavoritedFeedSorter(), new FavoriteSourcesFeedSorter(),};
@@ -256,7 +256,7 @@ public class ProfileBean implements Serializable {
 
     /**
      * Returns the friend list, encapsulated by UserBean's.
-     * 
+     *
      * @return the friend list
      */
     public List<UserBean> getFriendBeanList() {
@@ -284,7 +284,7 @@ public class ProfileBean implements Serializable {
             FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Usuário inválido!"));
             return null;
         }
-        
+
         if (user2 == null) {
             FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Usuário não encontrado!"));
             return null;
@@ -334,7 +334,7 @@ public class ProfileBean implements Serializable {
 
     /**
      * Returns the name of the new circle.
-     * 
+     *
      * @return the name of the new circle
      */
     public String getNewCircleName() {
@@ -343,22 +343,22 @@ public class ProfileBean implements Serializable {
 
     /**
      * Sets the name of the new circle
-     * 
+     *
      * @param newCircleName the new name for the new circle
      */
     public void setNewCircleName(String newCircleName) {
         this.newCircleName = newCircleName;
     }
-    
+
     /**
      * Adds a new circle to the user's circles.
-     * 
+     *
      * @return action to be executed
      */
     public String addNewCircle() {
         String name = newCircleName;
         User user = sessionBean.getSession().getUser();
-        
+
         try {
             user.addCircle(name);
         } catch (InvalidCircleNameException ex) {
@@ -368,10 +368,51 @@ public class ProfileBean implements Serializable {
             FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("O círculo já existe!"));
             return null;
         }
-        
+
         FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Círculo criado!"));
-        
+
         newCircleName = "";
+        return null;
+    }
+
+    /**
+     * Returns the list of new friend suggestions.
+     *
+     * @return the list
+     */
+    public List<User> getNewFriendSuggestions() {
+        User user = sessionBean.getSession().getUser();
+        List<User> excludedList = getFriendList();
+
+        return FriendRecommender.getFriendRecommendations(user, excludedList);
+    }
+
+    /**
+     * Returns the list of the logins of the new friend suggestions.
+     *
+     * @param query Will be ignored
+     * @return the list
+     */
+    public List<String> getNewFriendSuggestionsLogins(String query) {
+        List<User> suggestions = getNewFriendSuggestions();
+        List<String> result = new ArrayList<String>();
+
+        for (User potFriend : suggestions) {
+            result.add(potFriend.getLogin());
+        }
+
+        return result;
+    }
+
+    /**
+     * Action for when the user asks for new friend suggestions.
+     *
+     * @return null
+     */
+    public String getNewFriendSuggestionsAction() {
+        if (getNewFriendSuggestions().isEmpty()) {
+            FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Nenhuma sugestão!"));
+        }
         return null;
     }
 }

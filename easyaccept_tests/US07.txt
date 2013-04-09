@@ -237,7 +237,7 @@ expectError "Sessão inexistente" getNumFavoritosEmComum idSessao=${sessaoBill} 
 
 expectError "Usuário inválido" getNumFavoritosEmComum idSessao=${sessaoSteve} idUsuario=
 expectError "Usuário inválido" getNumFavoritosEmComum idSessao=${sessaoSteve} idUsuario=""
-expectError "Usuário inexistente" getNumFavoritosEmComum idSessao=${sessaoSteve} idUsuario=${IDYang}
+expectError "Usuário inválido" getNumFavoritosEmComum idSessao=${sessaoSteve} idUsuario=${IDYang}
 
 expectError "Sessão inválida" getNumFontesEmComum idSessao= idUsuario=
 expectError "Sessão inválida" getNumFontesEmComum idSessao="" idUsuario=
@@ -245,11 +245,11 @@ expectError "Sessão inexistente" getNumFontesEmComum idSessao=${sessaoBill} idU
 
 expectError "Usuário inválido" getNumFontesEmComum idSessao=${sessaoSteve} idUsuario=
 expectError "Usuário inválido" getNumFontesEmComum idSessao=${sessaoSteve} idUsuario=""
-expectError "Usuário inexistente" getNumFontesEmComum idSessao=${sessaoSteve} idUsuario=${IDYang}
+expectError "Usuário inválido" getNumFontesEmComum idSessao=${sessaoSteve} idUsuario=${IDYang}
 
 expectError "Sessão inválida" getFontesDeSonsRecomendadas idSessao=
 expectError "Sessão inválida" getFontesDeSonsRecomendadas idSessao=""
-expectError "Sessão inexistente" getFontesDeSonsRecomendadas idSessao=${sessaoYang}
+expectError "Sessão inválida" getFontesDeSonsRecomendadas idSessao=${sessaoYang}
 
 #Encerrar a sessao de Mark
 encerrarSessao login="mark"
