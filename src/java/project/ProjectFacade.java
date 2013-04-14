@@ -8,12 +8,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import project.exceptions.AttributeNotFoundException;
 import project.exceptions.InvalidAttributeException;
 import project.exceptions.InvalidCircleIdException;
 import project.exceptions.InvalidCircleNameException;
 import project.exceptions.InvalidCreationDateException;
 import project.exceptions.InvalidLoginException;
+import project.exceptions.InvalidPasswordException;
 import project.exceptions.InvalidSessionIdException;
 import project.exceptions.InvalidSoundException;
 import project.exceptions.InvalidUserIdException;
@@ -25,6 +28,9 @@ import project.system.Project;
 import project.system.Session;
 import project.system.Sound;
 import project.system.User;
+import project.system.authentication.LogoutFailedException;
+import project.system.authentication.password.PasswordAuth;
+import project.system.authentication.password.PasswordAuthChannel;
 import project.system.feedsorting.ChronologicalSourceFeedSorter;
 import project.system.feedsorting.FavoriteSourcesFeedSorter;
 import project.system.feedsorting.FeedSorter;
@@ -135,7 +141,8 @@ public class ProjectFacade {
      * @param email User's email
      */
     public void criarUsuario(String login, String senha, String nome, String email) {
-        project.getModel().addUser(login, senha, nome, email);
+        PasswordAuth.getInstance().registerUser(
+                project.getModel().addUser(login, nome, email), senha);
     }
 
     /**
@@ -279,7 +286,33 @@ public class ProjectFacade {
      * @return Id of the new session
      */
     public String abrirSessao(String login, String senha) {
-        Session session = project.login(login, senha);
+        if (login == null || login.isEmpty()) {
+            throw new InvalidLoginException();
+        }
+
+        User user = project.getModel().findUserByLogin(login);
+
+        if (user == null) {
+            throw new UserNotFoundException();
+        }
+
+        if (!PasswordAuth.getInstance().checkPassword(user, senha)) {
+            throw new InvalidPasswordException();
+        }
+
+        List<Session> openSessions = project.getSessionsOf(user);
+        Session session;
+
+        if (!openSessions.isEmpty()) {
+            session = openSessions.get(0);
+        } else {
+            session = PasswordAuth.openNewSession(user, senha);
+        }
+
+        if (session == null) {
+            throw new RuntimeException("PasswordAuth.openNewSession even after assuring the password was right!");
+        }
+
         return getIdOf(session);
     }
 
@@ -393,6 +426,7 @@ public class ProjectFacade {
      *
      * @param idSessao User's session id
      * @param nome New circle's name
+     * @return circle's id
      */
     public String criarLista(String idSessao, String nome) {
         Session session = getSessionForId(idSessao);
@@ -520,9 +554,27 @@ public class ProjectFacade {
      * @param login user's login
      */
     public void encerrarSessao(String login) {
-        Session session = project.getSessionOf(login);
-        ids.remove(objs.remove(session));
-        project.logout(login);
+
+        if (login == null || login.isEmpty()) {
+            throw new InvalidLoginException();
+        }
+
+        User user = project.getModel().findUserByLogin(login);
+
+        if (user == null) {
+            throw new InvalidLoginException();
+        }
+
+        List<Session> sessions = project.getSessionsOf(user);
+
+        for (Session session : sessions) {
+            try {
+                ids.remove(objs.remove(session));
+                project.closeSession(session);
+            } catch (LogoutFailedException ex) {
+                throw new RuntimeException("Password logout failed!");
+            }
+        }
     }
 
     /**

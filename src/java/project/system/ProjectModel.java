@@ -49,23 +49,25 @@ public class ProjectModel implements Serializable {
      * Add a new user at the model.
      *
      * @param login User's login
-     * @param password User's password
      * @param name User's name
      * @param email User's email
      * @throws LoginTakenException if the login is already taken
      * @throws EmailTakenException if the email is already taken
+     * @return the added user
      */
-    public void addUser(String login, String password, String name, String email) {
+    public User addUser(String login, String name, String email) {
         if (isLoginTaken(login)) {
             throw new LoginTakenException();
         }
         if (isEmailTaken(email)) {
             throw new EmailTakenException();
         }
-        User user = new User(login, password, name, email);
+        User user = new User(login, name, email);
         users.add(user);
         logins.put(login, user);
         emails.put(email, user);
+        
+        return user;
     }
 
     /**

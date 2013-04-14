@@ -11,7 +11,7 @@ public class Feed {
      * Constructs a new feed.
      * 
      * @param owner Owner of the feed.
-     * @param postList Posts of the feed.
+     * @param posts Posts of the feed.
      */
     public Feed(User owner, Iterable<Sound> posts) {
         this.owner = owner;

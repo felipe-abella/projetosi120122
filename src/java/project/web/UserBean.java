@@ -3,6 +3,8 @@ package project.web;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -11,6 +13,10 @@ import javax.inject.Named;
 import project.system.Session;
 import project.system.Sound;
 import project.system.User;
+import project.system.authentication.AuthenticationException;
+import project.system.authentication.password.PasswordAuth;
+import project.system.authentication.password.PasswordAuthChannel;
+import project.system.authentication.password.PasswordLoginFailedException;
 
 /**
  * Bean responsible for users manipulation.
@@ -19,6 +25,8 @@ import project.system.User;
 @SessionScoped
 public class UserBean implements Serializable {
 
+    @Inject
+    private ProjectBean projectBean;
     @Inject
     private SessionBean sessionBean;
     private User targetUser;
@@ -51,7 +59,16 @@ public class UserBean implements Serializable {
 
         /* Testing purposes: */
         if (sessionBean.getSession() == null) {
-            sessionBean.logon("a", "a");
+            try {
+                User a = projectBean.getProject().getModel().findUserByLogin("a");
+                PasswordAuthChannel channel = PasswordAuth.getInstance().getChannel(a);
+                channel.enterPassword("a");
+                channel.login();
+                sessionBean.setSession(projectBean.getProject().openNewSession(a, channel));
+            } catch (AuthenticationException ex) {
+                System.err.println("That shouldn't happen...");
+                System.exit(1);
+            }
         }
 
         Session session = sessionBean.getSession();
@@ -153,14 +170,14 @@ public class UserBean implements Serializable {
                     new FacesMessage("Som adicionado na lista de favoritos!"));
         } else {
             FacesContext.getCurrentInstance().addMessage(updateForm,
-                    new FacesMessage("O som já está na lista de favoritos!"));
+                    new FacesMessage(FacesMessage.SEVERITY_WARN, "O som já está na lista de favoritos!", null));
         }
         return null;
     }
-    
+
     /**
      * Returns a list with the name of all user's social circles.
-     * 
+     *
      * @return the list
      */
     public List<String> getCircleNames() {

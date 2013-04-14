@@ -1,6 +1,5 @@
 package project.system.statistics;
 
-import java.util.Collections;
 import project.system.Project;
 import project.system.Sound;
 import project.system.User;
@@ -95,20 +94,30 @@ public class Stats {
 
         return result;
     }
-    
+
     /**
      * Returns how many posts from a user were favorited by someone.
-     * 
+     *
      * @param user the user
      * @return how many posts
      */
     public int getFavoritedPostsCount(User user) {
         int result = 0;
-        
-        for (Sound sound : user.getPostlist())
-            if (getSoundFavoriteCount(sound) > 0)
-                result ++;
-        
+
+        for (Sound sound : user.getPostlist()) {
+            if (getSoundFavoriteCount(sound) > 0) {
+                result++;
+            }
+        }
+
         return result;
+    }
+
+    /**
+     * Clears all statistics about the Project.
+     *
+     * This function should be called when the Project model is reseted.
+     */
+    public void clear() {
     }
 }

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Project Settings</title>
+    </h:head>
+    <h:body>
+        <center><big><big><big>Project</big></big></big></center>
+        <hr/>
+        <h:form id="logoutForm">
+            <p align="right">
+                <h:commandButton value="Deslogar" action="#{authBean.logoutAction}"/>
+            </p>
+        </h:form>
+        <h:form id="formSettings" prependId="false">
+            <p:panelGrid columns="2">
+                <h:outputText value="Login"/>
+                <h:outputText id="inputLogin" value="#{userBean.login}"/>
+                <p:outputLabel value="Mudar senha:" for="inputPassword"/>
+                <h:inputSecret id="inputPassword" value="#{settingsBean.newPassword}"/>
+                <p:outputLabel value="Confirme nova senha:" for="confirmInputPassword"/>
+                <h:inputSecret id="confirmInputPassword" value="#{settingsBean.confirmNewPassword}"/>
+            </p:panelGrid>
+            <p:messages/><br/>
+            <h:commandButton action="#{settingsBean.update}" value="Atualizar"/>
+            <h:commandButton action="#{settingsBean.goToProfile}" value="Ir para o perfil"/>
+        </h:form>
+    </h:body>
+</html>

@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import project.exceptions.CircleCantAddOwnerException;
 import project.exceptions.UserAlreadyInCircleException;
-import project.system.feedfiltering.CircleFeedFilter;
-import project.system.feedfiltering.FeedFilter;
-import project.system.feedfiltering.OpenFeedFilter;
-import project.system.feedsorting.ChronologicalSourceFeedSorter;
 import project.system.feedsorting.FeedSorter;
 
 /**

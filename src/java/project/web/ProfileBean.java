@@ -105,7 +105,7 @@ public class ProfileBean implements Serializable {
         try {
             user.post(new Sound(new Link(newPostText), new SimpleDate(), user));
         } catch (InvalidLinkException ex) {
-            FacesContext.getCurrentInstance().addMessage("newPostForm", new FacesMessage("Link inválido!"));
+            FacesContext.getCurrentInstance().addMessage("newPostForm", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Link inválido!", null));
             return null;
         }
 
@@ -281,23 +281,23 @@ public class ProfileBean implements Serializable {
         user2 = projectBean.getProject().getModel().findUserByLogin(newFriendLogin);
 
         if (newFriendLogin == null || newFriendLogin.isEmpty()) {
-            FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Usuário inválido!"));
+            FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário inválido!", null));
             return null;
         }
 
         if (user2 == null) {
-            FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Usuário não encontrado!"));
+            FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não encontrado!", null));
             return null;
         }
 
         if (friendSetRule.equals("mainSources")) {
             try {
                 if (!projectBean.getProject().getModel().addUserFollowing(user, user2)) {
-                    FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("O usuário já é amigo!"));
+                    FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage(FacesMessage.SEVERITY_WARN, "O usuário já é amigo!", null));
                     return null;
                 }
             } catch (InvalidFollowingException ex) {
-                FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Usuário inválido!"));
+                FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário inválido!", null));
                 return null;
             }
         } else if (friendSetRule.startsWith("circle_")) {
@@ -306,10 +306,10 @@ public class ProfileBean implements Serializable {
                 Circle circle = user.getCircle(circleName);
                 circle.addUser(user2);
             } catch (UserAlreadyInCircleException ex) {
-                FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("O usuário já está no círculo!"));
+                FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage(FacesMessage.SEVERITY_WARN, "O usuário já está no círculo!", null));
                 return null;
             } catch (CircleCantAddOwnerException ex) {
-                FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Usuário inválido!"));
+                FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário inválido!", null));
                 return null;
             } catch (InvalidCircleNameException ex) {
                 throw new IllegalStateException("The UI circle list contained a invalid name.");
@@ -362,10 +362,10 @@ public class ProfileBean implements Serializable {
         try {
             user.addCircle(name);
         } catch (InvalidCircleNameException ex) {
-            FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Nome inválido!"));
+            FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Nome inválido!", null));
             return null;
         } catch (CircleNameTakenException ex) {
-            FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("O círculo já existe!"));
+            FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage(FacesMessage.SEVERITY_WARN, "O círculo já existe!", null));
             return null;
         }
 
@@ -411,7 +411,7 @@ public class ProfileBean implements Serializable {
      */
     public String getNewFriendSuggestionsAction() {
         if (getNewFriendSuggestions().isEmpty()) {
-            FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage("Nenhuma sugestão!"));
+            FacesContext.getCurrentInstance().addMessage("friendList", new FacesMessage(FacesMessage.SEVERITY_WARN, "Nenhuma sugestão!", null));
         }
         return null;
     }

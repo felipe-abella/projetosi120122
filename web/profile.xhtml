@@ -14,9 +14,10 @@
             <center><big><big><big>Project</big></big></big></center>
             <hr/>
 
-            <h:form id="logoutForm">
+            <h:form id="toprightForm">
                 <p align="right">
-                <h:commandButton value="Deslogar" action="#{sessionBean.logoutAction}"/>
+                <h:commandButton value="Configurações" action="settings?faces-redirect=true"/>
+                <h:commandButton value="Deslogar" action="#{authBean.logoutAction}"/>
                 </p>
             </h:form>
             <table>

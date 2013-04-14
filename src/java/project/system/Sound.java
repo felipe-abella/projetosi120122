@@ -114,33 +114,18 @@ public class Sound implements Comparable<Sound> {
     }
 
     /**
-     * Returns whether this sound equals another object
+     * Returns whether this sound have the same reference as another object.
      *
-     * Two sounds are equal when they have the same link, creation date *and
-     * author*.
+     * Two sounds might be treated differently even when they have the same
+     * link, creation date and author. This is because a user might double post
+     * a link in the same day, so, this method just calls Object's equals.
      *
      * @param obj the other object
-     * @return whether this sound equals the other object
+     * @return whether this sound is the same as the other object
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Sound other = (Sound) obj;
-        if (this.link != other.link && (this.link == null || !this.link.equals(other.link))) {
-            return false;
-        }
-        if (this.creationDate != other.creationDate && (this.creationDate == null || !this.creationDate.equals(other.creationDate))) {
-            return false;
-        }
-        if (this.author != other.author && (this.author == null || !this.author.equals(other.author))) {
-            return false;
-        }
-        return true;
+        return super.equals(obj);
     }
 
     /**

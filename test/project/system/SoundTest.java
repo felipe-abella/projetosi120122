@@ -1,6 +1,5 @@
 package project.system;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -12,12 +11,15 @@ public class SoundTest {
     private User user1, user2;
     private Sound sound1, sound2;
     
+    /**
+     * Prepare the tests.
+     */
     @Before
     public void setUp() {
-        user1 = new User("a", "a", "a", "a");
+        user1 = new User("a", "a", "a");
         sound1 = new Sound("http://google.com", "1/1/2012", user1);
         
-        user2 = new User("b", "b", "b", "b");
+        user2 = new User("b", "b", "b");
         sound2 = new Sound(new Link("http://facebook.com"), new SimpleDate("3/2/2013"), user2);
     }
     
@@ -80,7 +82,7 @@ public class SoundTest {
     @Test
     public void testEquals() {
         assertFalse(sound1.equals(sound2));
-        assertEquals(new Sound("http://google.com", "1/1/2012", user1), sound1);
+        assertNotSame(new Sound("http://google.com", "1/1/2012", user1), sound1);
     }
 
     /**

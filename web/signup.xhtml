@@ -5,15 +5,20 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
-        <h:head>
-                <title>Project Signup</title>
-        </h:head>
+    <f:metadata>
+        <f:viewParam name="signup-type" value="#{signupBean.signupType}"/>
+    </f:metadata>
+
+
+    <h:head>
+        <title>Project Signup</title>
+    </h:head>
     <h:body>
         <center><big><big><big>Project</big></big></big></center>
-        
-         <h:form id="formSignup" prependId="false">
-             <h:messages/>
-             
+
+        <h:form id="formSignup" prependId="false">
+
+
             <p:panelGrid columns="2">
                 <p:outputLabel value="Login" for="inputLogin"/>
                 <h:inputText id="inputLogin" value="#{signupBean.login}" required="true"/>
@@ -22,13 +27,20 @@
                 <p:outputLabel value="Email" for="inputEmail"/>
                 <h:inputText id="inputEmail" value="#{signupBean.email}" required="true"/>
                 <p:outputLabel value="Password" for="inputPassword"/>
-                <h:inputSecret id="inputPassword" value="#{signupBean.password}" required="true"/>
+                <h:inputSecret id="inputPassword" value="#{passwordSignupBean.password}"
+                               required="false"/>
                 <p:outputLabel value="Confirm Password" for="inputPasswordConfirm"/>
-                <h:inputSecret id="inputPasswordConfirm" value="#{signupBean.passwordConfirm}" required="true"/>
-                
+                <h:inputSecret id="inputPasswordConfirm" value="#{passwordSignupBean.passwordConfirm}"
+                               required="false"/>
+
             </p:panelGrid>
+            <p:messages/>
             <br/>
-            <h:commandButton id="createButton" value="Criar conta" action="#{signupBean.createUser}"/> 
-         </h:form>
+            <h:commandButton id="createButton" value="Criar conta" action="#{passwordSignupBean.createUser}"/> 
+
+        </h:form>
+        <h:form>
+            <h:commandButton id="backButton" value="Voltar" action="index?faces-redirect=true"/> 
+        </h:form>
     </h:body>
 </html>

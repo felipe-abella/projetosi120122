@@ -10,20 +10,34 @@
         <title>Project Login</title>
     </h:head>
     <h:body>
+        <div id="fb-root"></div>
+        <h:outputScript library="js" name="facebook.js"/>
+
         <center><big><big><big>Project</big></big></big></center>
         <h:form id="formLogin" prependId="false">
-            <h:messages/><br/>
             <p:panelGrid columns="2">
                 <p:outputLabel value="Login" for="inputLogin"/>
-                <h:inputText id="inputLogin" required="true" value="#{loginBean.login}"/>
-                <p:outputLabel value="Password" for="inputPassword"/>
-                <h:inputSecret id="inputPassword" required="true" value="#{loginBean.password}"/>
+                <h:inputText id="inputLogin" value="#{authBean.login}"
+                             required="true" requiredMessage="Insira o login!"/>
+                <p:outputLabel value="Senha" for="inputPassword"/>
+                <h:inputSecret id="inputPassword" value="#{passwordAuthBean.password}"
+                               required="true" requiredMessage="Insira a senha!"/>
             </p:panelGrid>
-            <br/>
-            <h:commandButton action="#{loginBean.logon}" value="Logar"/>
+            <p:messages showDetail="true"/><br/>
+            <h:commandButton action="#{passwordAuthBean.signin}" value="Logar"/>
         </h:form>
         <h:form>
             <h:link outcome="signup" value="Ainda não sou registrado"/>
+        </h:form>
+        <br/>
+        <h:form id="faceForm">
+            <h:inputHidden id="faceID" value="#{faceBean.faceID}"/>
+            <h:inputHidden id="faceName" value="#{faceBean.faceName}"/>
+            <h:inputHidden id="faceEmail" value="#{faceBean.faceEmail}"/>
+            <h:inputHidden id="authToken" value="#{faceBean.authToken}"/>
+            <h:commandButton value="Logar pelo Facebook" onclick="fblogin(this.form);">
+                <f:ajax/>
+            </h:commandButton>
         </h:form>
     </h:body>
 </html>

@@ -6,6 +6,8 @@ import project.system.Circle;
 import project.system.Project;
 import project.system.Sound;
 import project.system.User;
+import project.system.authentication.facebook.FacebookAuth;
+import project.system.authentication.password.PasswordAuth;
 
 /**
  * Bean responsible for the system Project instance.
@@ -36,7 +38,8 @@ public class ProjectBean {
     private void createSampleState() {
         for (int c = 'a'; c <= 'z'; c++) {
             String s = String.valueOf((char) c);
-            project.getModel().addUser(s, s, s, s);
+            PasswordAuth.getInstance().registerUser(project.getModel().addUser(s, s, s),
+                    s);
         }
         for (int c = 'b'; c <= 'r'; c++) {
             String s = String.valueOf((char) c);
@@ -57,7 +60,7 @@ public class ProjectBean {
         project.getModel().findUserByLogin("c").post(new Sound("youtube234234", "30/11/2017", project.getModel().findUserByLogin("c")));
         project.getModel().findUserByLogin("c").post(new Sound("youtube234234", "30/11/2017", project.getModel().findUserByLogin("c")));
         project.getModel().findUserByLogin("c").post(new Sound("youtube234234", "30/11/2017", project.getModel().findUserByLogin("c")));
-        
+
         project.getModel().findUserByLogin("z").post(new Sound("blabla", "30/11/2017", project.getModel().findUserByLogin("z")));
         project.getModel().findUserByLogin("y").post(new Sound("blabla2", "30/11/2017", project.getModel().findUserByLogin("y")));
 

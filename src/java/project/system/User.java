@@ -22,7 +22,7 @@ import project.system.feedsorting.ChronologicalSourceFeedSorter;
  */
 public class User implements Comparable<User> {
 
-    private String login, password, name, email;
+    private String login, name, email;
     private List<Sound> postlist;
     private List<User> sources;
     private SortedSet<User> followers;
@@ -40,9 +40,8 @@ public class User implements Comparable<User> {
      * @throws InvalidLoginException if the new login is invalid
      * @throws InvalidNameException if the name is invalid
      */
-    public User(String login, String password, String name, String email) {
+    public User(String login, String name, String email) {
         setLogin(login);
-        setPassword(password);
         setName(name);
         setEmail(email);
 
@@ -61,15 +60,6 @@ public class User implements Comparable<User> {
      */
     public String getLogin() {
         return login;
-    }
-
-    /**
-     * Returns the user's password.
-     *
-     * @return the user's password
-     */
-    public String getPassword() {
-        return password;
     }
 
     /**
@@ -159,16 +149,7 @@ public class User implements Comparable<User> {
         }
         this.login = login;
     }
-
-    /**
-     * Changes this user's password
-     *
-     * @param password the new password
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
+    
     /**
      * Changes this user's name
      *

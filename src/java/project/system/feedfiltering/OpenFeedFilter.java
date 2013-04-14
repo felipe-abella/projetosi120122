@@ -10,6 +10,11 @@ public class OpenFeedFilter extends FeedFilter {
 
     private Feed feed;
 
+    /**
+     * Constructs a new open feed filter.
+     *
+     * @param feed the feed
+     */
     public OpenFeedFilter(Feed feed) {
         this.feed = feed;
     }

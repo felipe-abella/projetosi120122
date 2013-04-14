@@ -1,50 +1,52 @@
 package project.system;
 
 import java.io.Serializable;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-import project.exceptions.InvalidLoginException;
-import project.exceptions.InvalidPasswordException;
-import project.exceptions.UserNotFoundException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import project.system.authentication.AuthChannel;
+import project.system.authentication.Authenticator;
+import project.system.authentication.LogoutFailedException;
+import project.system.authentication.NotLoggedInException;
 import project.system.statistics.Stats;
 
 /**
  * Is the principal controller of the system.
  */
 public class Project implements Serializable {
+
     private static Project instance = null;
-    private Set<Session> sessions;
-    private Map<User, Session> userSession;
     private ProjectModel model;
+    private List<Session> sessions;
+    private List<Authenticator> authenticators;
     private Stats stats;
 
     /**
      * Constructs the Project.
      */
     private Project() {
-        sessions = new TreeSet<Session>();
-        userSession = new TreeMap<User, Session>();
         model = new ProjectModel();
+        sessions = new ArrayList<Session>();
+        authenticators = new LinkedList<Authenticator>();
         stats = new Stats(this);
     }
 
     /**
      * Returns the instance of Project.
-     * 
+     *
      * If the project wasn't instantiated before, it will be now.
-     * 
+     *
      * @return the instance
      */
     public static Project getInstance() {
-        if (instance == null)
+        if (instance == null) {
             instance = new Project();
+        }
         return instance;
     }
 
     /**
-     * Returns project's model.
+     * Returns the project's model.
      *
      * @return the model
      */
@@ -53,88 +55,69 @@ public class Project implements Serializable {
     }
 
     /**
-     * Returns the Stats for this Project.
-     * 
-     * @return the Stats
+     * Return the sessions of the Project.
+     *
+     * @return the session
      */
-    public Stats getStats() {
-        return stats;
+    public List<Session> getSessions() {
+        return sessions;
     }
-    
+
     /**
-     * Creates a new user's session.
+     * Returns a list with the sessions of a user.
      *
-     * This function should be called when an user logs on the system.
-     *
-     * @param login User's login
-     * @param password User's password
-     * @return User's session
+     * @param login login of the user
+     * @return the sessions
      */
-    public Session login(String login, String password) {
-        if (login == null || login.isEmpty()) {
-            throw new InvalidLoginException();
-        }
+    public List<Session> getSessionsOf(User user) {
+        List<Session> result = new ArrayList<Session>();
 
-        User user = model.findUserByLogin(login);
-
-        if (user == null) {
-            throw new UserNotFoundException();
-        }
-        if (!user.getPassword().equals(password)) {
-            throw new InvalidPasswordException();
-        }
-
-        Session result = userSession.get(user);
-        if (result == null) {
-            result = new Session(user);
-            sessions.add(result);
-            userSession.put(user, result);
+        for (Session session : sessions) {
+            if (session.getUser().equals(user)) {
+                result.add(session);
+            }
         }
 
         return result;
     }
 
-    /**
-     * Logouts a user, thus invalidating its session.
-     *
-     * @param login Login of the user to logout
-     */
-    public void logout(String login) {
-        if (login == null || login.isEmpty()) {
-            throw new InvalidLoginException();
-        }
+    public Session openNewSession(User user, AuthChannel channel) throws NotLoggedInException {
+        Session session = new Session(user, channel);
+        sessions.add(session);
+        return session;
+    }
+    
+    public boolean isSessionAlive(Session session) {
+        return sessions.contains(session);
+    }
 
-        User user = model.findUserByLogin(login);
+    public void closeSession(Session session) throws LogoutFailedException {
+        session.close();
+        sessions.remove(session);
+    }
 
-        if (user == null) {
-            throw new InvalidLoginException();
-        }
-
-        Session session = userSession.get(user);
-        if (session != null) {
-            sessions.remove(session);
-            userSession.remove(user);
-        }
+    public void registerAuthenticator(Authenticator authenticator) {
+        authenticators.add(authenticator);
     }
 
     /**
-     * Returns the session of a user.
+     * Returns the Stats for this Project.
      *
-     * @param login login of the user
-     * @return the session
+     * @return the Stats
      */
-    public Session getSessionOf(String login) {
-        return userSession.get(model.findUserByLogin(login));
+    public Stats getStats() {
+        return stats;
     }
 
     /**
      * Clears all data.
-     * 
+     *
      * This puts the Project in a state equal to a newly created Project.
      */
     public void clear() {
-        userSession.clear();
-        sessions.clear();
         model.clear();
+        sessions.clear();
+        authenticators.clear();
+        stats.clear();
     }
 }

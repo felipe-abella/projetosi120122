@@ -2,6 +2,10 @@ package project.system.recommender;
 
 import project.system.User;
 
+/**
+ * Its a potential friend comparator that compares using the lexicographical
+ * order of their names.
+ */
 public class LexicographicalPFC implements PotentialFriendComparator {
 
     private PotentialFriendComparator decoratedPFC;
