@@ -15,6 +15,8 @@ public class PasswordAuthenticationTest {
 
     /**
      * Test classes related to password authentication.
+     * @throws PasswordLoginFailedException if an error occurs
+     * @throws LogoutFailedException if an error occurs
      */
     @Test
     public void testPasswordAuthentication() throws PasswordLoginFailedException, LogoutFailedException {

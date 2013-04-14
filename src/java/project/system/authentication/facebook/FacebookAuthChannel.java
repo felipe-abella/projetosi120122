@@ -9,6 +9,9 @@ import project.system.authentication.AuthChannelState;
 import project.system.authentication.LoginFailedException;
 import project.system.authentication.LogoutFailedException;
 
+/**
+ * Implements a facebook authentication channel for a given user.
+ */
 public class FacebookAuthChannel implements AuthChannel {
 
     private User user;
@@ -16,6 +19,11 @@ public class FacebookAuthChannel implements AuthChannel {
     private List<AuthChannelListener> listeners;
     private String inputFaceid, inputAuthToken;
 
+    /**
+     * Creates a facebook authentication channel for the user.
+     *
+     * @param user the user
+     */
     FacebookAuthChannel(User user) {
         this.user = user;
         state = AuthChannelState.CLOSED;
@@ -23,25 +31,55 @@ public class FacebookAuthChannel implements AuthChannel {
         inputFaceid = inputAuthToken = null;
     }
 
+    /**
+     * Returns the user.
+     *
+     * @return the user
+     */
     @Override
     public User getUser() {
         return user;
     }
 
+    /**
+     * Returns the authentication state.
+     *
+     * @return the state
+     */
     @Override
     public AuthChannelState getState() {
         return state;
     }
 
+    /**
+     * Returns this channel's authenticator.
+     *
+     * @return the authenticator
+     */
     @Override
     public FacebookAuth getAuthenticator() {
         return FacebookAuth.getInstance();
     }
 
+    /**
+     * Enters the facebook account id.
+     *
+     * This id will be used in the next login attempt.
+     *
+     * @param inputFaceid the facebook id
+     */
     public void enterFaceid(String inputFaceid) {
         this.inputFaceid = inputFaceid;
     }
 
+    /**
+     * Enters the facebook authentication token.
+     *
+     * This token will be used to confirm user veracity on the server-side and
+     * enforce stronger security.
+     *
+     * @param inputAuthToken the facebook auth token
+     */
     public void enterInputAuthToken(String inputAuthToken) {
         this.inputAuthToken = inputAuthToken;
     }
@@ -60,17 +98,27 @@ public class FacebookAuthChannel implements AuthChannel {
         }
     }
 
+    /**
+     * Attempts to login using given facebook id and token.
+     *
+     * @throws LoginFailedException if the login fails for some reason
+     */
     @Override
     public void login() throws LoginFailedException {
         if (state == AuthChannelState.CLOSED) {
-            if (!FacebookAuth.getInstance().isRegistered(user) ||
-                    !FacebookAuth.getInstance().getFaceid(user).equals(inputFaceid)) {
+            if (!FacebookAuth.getInstance().isRegistered(user)
+                    || !FacebookAuth.getInstance().getFaceid(user).equals(inputFaceid)) {
                 throw new FacebookLoginFailedException();
             }
             open();
         }
     }
 
+    /**
+     * Attempts to logout using given facebook id and token.
+     *
+     * @throws LogoutFailedException if the logout fails for some reason
+     */
     @Override
     public void logout() throws LogoutFailedException {
         if (state == AuthChannelState.OPEN) {
@@ -78,11 +126,21 @@ public class FacebookAuthChannel implements AuthChannel {
         }
     }
 
+    /**
+     * Adds an auth channel listener for this channel.
+     *
+     * @param listener the listener
+     */
     @Override
     public void addListener(AuthChannelListener listener) {
         listeners.add(listener);
     }
 
+    /**
+     * Removes an auth channel listener.
+     *
+     * @param listener the listener
+     */
     @Override
     public void removeListener(AuthChannelListener listener) {
         listeners.remove(listener);

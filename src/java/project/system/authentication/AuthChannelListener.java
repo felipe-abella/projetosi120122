@@ -1,8 +1,21 @@
 package project.system.authentication;
 
+/**
+ * Represents a listener for an AuthChannel.
+ */
 public interface AuthChannelListener {
 
-    public void opened(AuthChannel authSession);
+    /**
+     * Event called when the channel opens.
+     *
+     * @param authChannel the auth channel
+     */
+    public void opened(AuthChannel authChannel);
 
-    public void closed(AuthChannel authSession);
+    /**
+     * Event called when the channel closes.
+     *
+     * @param authChannel the auth channel
+     */
+    public void closed(AuthChannel authChannel);
 }

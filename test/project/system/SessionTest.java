@@ -21,6 +21,8 @@ public class SessionTest {
 
     /**
      * Set up the tests.
+     * @throws NotLoggedInException if an error occurs
+     * @throws PasswordLoginFailedException if an error occurs
      */
     @Before
     public void setUp() throws NotLoggedInException, PasswordLoginFailedException {
@@ -50,6 +52,8 @@ public class SessionTest {
 
     /**
      * Test of equals method.
+     * @throws NotLoggedInException if an error occurs
+     * @throws PasswordLoginFailedException if an error occurs
      */
     @Test
     public void testEquals() throws NotLoggedInException, PasswordLoginFailedException {

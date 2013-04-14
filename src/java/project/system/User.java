@@ -34,7 +34,6 @@ public class User implements Comparable<User> {
      * Creates a new user.
      *
      * @param login User's login
-     * @param password User's password
      * @param name User's name
      * @param email User's email
      * @throws InvalidLoginException if the new login is invalid

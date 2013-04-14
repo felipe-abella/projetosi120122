@@ -73,6 +73,14 @@ public class SignupBean implements Serializable {
         return email;
     }
 
+    /**
+     * Returns the signup type.
+     *
+     * The signup type determines what triggered the sign-up, might be
+     * "facebook" for a facebook login attempt, for example.
+     *
+     * @return the signup type
+     */
     public String getSignupType() {
         return signupType;
     }
@@ -104,15 +112,30 @@ public class SignupBean implements Serializable {
         this.email = email;
     }
 
+    /**
+     * Sets the signup type.
+     *
+     * @param signupType the new signup type
+     */
     public void setSignupType(String signupType) {
         System.out.println("Set signup type: " + signupType);
         this.signupType = signupType;
     }
 
+    /**
+     * Returns if a password <b>must</b> be registered for the new account.
+     *
+     * @return if the password is required
+     */
     public boolean isPasswordRequired() {
         return !"facebook".equals(signupType);
     }
 
+    /**
+     * Creates the new user.
+     * 
+     * @return the new user
+     */
     User createUser() {
         FacesContext context = FacesContext.getCurrentInstance();
         Project project = projectBean.getProject();
@@ -140,7 +163,7 @@ public class SignupBean implements Serializable {
                 channel.enterInputAuthToken(faceBean.getAuthToken());
 
                 channel.login();
-                
+
                 sessionBean.setSession(projectBean.getProject().openNewSession(result, channel));
             } catch (LoginFailedException ex) {
                 Logger.getLogger(SignupBean.class.getName()).log(Level.SEVERE, "Unexpected error!", ex);

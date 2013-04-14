@@ -8070,3 +8070,143 @@ Caused by: java.lang.IllegalStateException: Leaving an open session!
 
 [#|2013-04-14T20:33:16.911-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=85;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
 
+[#|2013-04-14T21:29:25.682-0200|INFO|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=84;_ThreadName=Thread-2;|FaceID: 100001938064713|#]
+
+[#|2013-04-14T21:29:25.682-0200|INFO|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=84;_ThreadName=Thread-2;|FaceName: Felipe Souza|#]
+
+[#|2013-04-14T21:29:25.682-0200|INFO|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=84;_ThreadName=Thread-2;|FaceEmail: felipe.abella@gmail.com|#]
+
+[#|2013-04-14T21:29:25.683-0200|INFO|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=84;_ThreadName=Thread-2;|AuthToken: BAAGsAj73PZCABALA9g5F5ALrA4gmzwRLTXTabaB0nU6FbxV3V2tmtF0RCoCqi8ZBa5LFZCuMSUBnolf0RYqvUbR9hqYq8ZCCJOushvxWV2wkz8jCPhZChW2FjGkMdAxsZD|#]
+
+[#|2013-04-14T21:29:27.711-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=86;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:29:27.728-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=88;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:45:27.878-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.com.sun.enterprise.v3.admin|_ThreadID=106;_ThreadName=Thread-2;|Server shutdown initiated|#]
+
+[#|2013-04-14T21:45:30.527-0200|INFO|glassfish3.1.2|javax.enterprise.system.jmx.org.glassfish.admin.mbeanserver|_ThreadID=106;_ThreadName=Thread-2;|JMX002: JMXStartupService: Stopped JMXConnectorServer: null|#]
+
+[#|2013-04-14T21:45:30.528-0200|INFO|glassfish3.1.2|javax.enterprise.system.jmx.org.glassfish.admin.mbeanserver|_ThreadID=106;_ThreadName=Thread-2;|JMX001: JMXStartupService and JMXConnectors have been shut down.|#]
+
+[#|2013-04-14T21:45:30.528-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.server|_ThreadID=106;_ThreadName=Thread-2;|Shutdown procedure finished|#]
+
+[#|2013-04-14T21:45:39.711-0200|INFO|glassfish3.1.2|com.sun.enterprise.server.logging.GFFileHandler|_ThreadID=1;_ThreadName=Thread-2;|Running GlassFish Version: GlassFish Server Open Source Edition 3.1.2.2 (build 5)|#]
+
+[#|2013-04-14T21:45:39.908-0200|INFO|glassfish3.1.2|org.glassfish.ha.store.spi.BackingStoreFactoryRegistry|_ThreadID=1;_ThreadName=Thread-2;|Registered org.glassfish.ha.store.adapter.cache.ShoalBackingStoreProxy for persistence-type = replicated in BackingStoreFactoryRegistry|#]
+
+[#|2013-04-14T21:45:40.325-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=22;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 64ms - bound to [0.0.0.0:38545]|#]
+
+[#|2013-04-14T21:45:40.325-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=19;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 91ms - bound to [0.0.0.0:38544]|#]
+
+[#|2013-04-14T21:45:40.326-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=29;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 46ms - bound to [0.0.0.0:38501]|#]
+
+[#|2013-04-14T21:45:40.326-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=26;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 54ms - bound to [0.0.0.0:38512]|#]
+
+[#|2013-04-14T21:45:40.326-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=32;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 37ms - bound to [0.0.0.0:38540]|#]
+
+[#|2013-04-14T21:45:42.339-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security|_ThreadID=1;_ThreadName=Thread-2;|SEC1002: Security Manager is OFF.|#]
+
+[#|2013-04-14T21:45:42.655-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security|_ThreadID=1;_ThreadName=Thread-2;|SEC1010: Entering Security Startup Service|#]
+
+[#|2013-04-14T21:45:42.662-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security|_ThreadID=1;_ThreadName=Thread-2;|SEC1143: Loading policy provider com.sun.enterprise.security.provider.PolicyWrapper.|#]
+
+[#|2013-04-14T21:45:42.770-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security.auth.realm|_ThreadID=1;_ThreadName=Thread-2;|SEC1115: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.|#]
+
+[#|2013-04-14T21:45:42.772-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security.auth.realm|_ThreadID=1;_ThreadName=Thread-2;|SEC1115: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.|#]
+
+[#|2013-04-14T21:45:42.791-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security.auth.realm|_ThreadID=1;_ThreadName=Thread-2;|SEC1115: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.|#]
+
+[#|2013-04-14T21:45:42.810-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security|_ThreadID=1;_ThreadName=Thread-2;|SEC1011: Security Service(s) Started Successfully|#]
+
+[#|2013-04-14T21:45:43.089-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0169: Created HTTP listener [http-listener-1] on host/port [0.0.0.0:38544]|#]
+
+[#|2013-04-14T21:45:43.105-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0169: Created HTTP listener [http-listener-2] on host/port [0.0.0.0:38545]|#]
+
+[#|2013-04-14T21:45:43.116-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0169: Created HTTP listener [admin-listener] on host/port [0.0.0.0:38512]|#]
+
+[#|2013-04-14T21:45:43.156-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0171: Created virtual server [server]|#]
+
+[#|2013-04-14T21:45:43.161-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0171: Created virtual server [__asadmin]|#]
+
+[#|2013-04-14T21:45:43.631-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0172: Virtual server [server] loaded default web module []|#]
+
+[#|2013-04-14T21:45:45.575-0200|INFO|glassfish3.1.2|org.jboss.weld.Version|_ThreadID=1;_ThreadName=Thread-2;|WELD-000900 1.1.8 (Final)|#]
+
+[#|2013-04-14T21:45:45.876-0200|INFO|glassfish3.1.2|org.hibernate.validator.internal.util.Version|_ThreadID=1;_ThreadName=Thread-2;|HV000001: Hibernate Validator 4.3.0.Final|#]
+
+[#|2013-04-14T21:45:48.424-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=1;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-04-14T21:45:49.834-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=1;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-04-14T21:45:49.857-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-04-14T21:45:49.869-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.server|_ThreadID=1;_ThreadName=Thread-2;|CORE10010: Loading application projetosi120122 done in 9,293 ms|#]
+
+[#|2013-04-14T21:45:49.873-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.server|_ThreadID=1;_ThreadName=Thread-2;|GlassFish Server Open Source Edition 3.1.2.2 (5) startup time : Felix (2,794ms), startup services(10,679ms), total(13,473ms)|#]
+
+[#|2013-04-14T21:45:50.901-0200|INFO|glassfish3.1.2|javax.enterprise.system.jmx.org.glassfish.admin.mbeanserver|_ThreadID=54;_ThreadName=Thread-2;|JMX005: JMXStartupService had Started JMXConnector on JMXService URL service:jmx:rmi://notebook2.home:38550/jndi/rmi://notebook2.home:38550/jmxrmi|#]
+
+[#|2013-04-14T21:45:51.361-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=65;_ThreadName=Thread-2;|WEB0169: Created HTTP listener [http-listener-1] on host/port [0.0.0.0:38544]|#]
+
+[#|2013-04-14T21:45:51.387-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=84;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 3ms - bound to [0.0.0.0:38544]|#]
+
+[#|2013-04-14T21:45:52.358-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=65;_ThreadName=Thread-2;|WEB0169: Created HTTP listener [http-listener-2] on host/port [0.0.0.0:38545]|#]
+
+[#|2013-04-14T21:45:52.366-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=88;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 1ms - bound to [0.0.0.0:38545]|#]
+
+[#|2013-04-14T21:49:11.634-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=36;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-04-14T21:49:11.869-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=36;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-04-14T21:49:11.886-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=36;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-04-14T21:49:11.926-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=36;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,557 milliseconds.|#]
+
+[#|2013-04-14T21:49:24.548-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=33;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-04-14T21:49:24.831-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=33;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-04-14T21:49:24.847-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=33;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-04-14T21:49:24.867-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=33;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,447 milliseconds.|#]
+
+[#|2013-04-14T21:49:29.027-0200|INFO|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=107;_ThreadName=Thread-2;|Set signup type: facebook|#]
+
+[#|2013-04-14T21:49:29.042-0200|INFO|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=107;_ThreadName=Thread-2;|faceBean Login:100001938064713|#]
+
+[#|2013-04-14T21:49:31.268-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=109;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:49:31.300-0200|INFO|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=109;_ThreadName=Thread-2;|faceBean Login:100001938064713|#]
+
+[#|2013-04-14T21:49:31.305-0200|INFO|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=109;_ThreadName=Thread-2;|Set signup type: facebook|#]
+
+[#|2013-04-14T21:49:31.337-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=107;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:49:34.482-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=110;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:49:34.535-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=109;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:49:38.925-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=109;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:49:38.938-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=107;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:49:41.897-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=108;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:49:41.924-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=107;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:49:44.463-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=107;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:49:44.537-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=106;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:49:53.029-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=108;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:49:53.066-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=109;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:49:56.258-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=109;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:49:56.395-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=106;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:50:08.661-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=106;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-04-14T21:50:08.699-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=107;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+

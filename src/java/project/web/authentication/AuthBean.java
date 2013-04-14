@@ -11,6 +11,9 @@ import project.system.authentication.LogoutFailedException;
 import project.web.ProjectBean;
 import project.web.SessionBean;
 
+/**
+ * Bean responsible for managing general authentication behavior.
+ */
 @Named("authBean")
 @RequestScoped
 public class AuthBean implements Serializable {

@@ -13,6 +13,9 @@ import project.system.authentication.password.PasswordAuthChannel;
 import project.web.ProjectBean;
 import project.web.SessionBean;
 
+/**
+ * Bean responsible for managing a password-authenticated account creation.
+ */
 @Named("passwordSignupBean")
 @RequestScoped
 public class PasswordSignupBean implements Serializable {
@@ -61,6 +64,11 @@ public class PasswordSignupBean implements Serializable {
         this.passwordConfirm = passwordConfirm;
     }
 
+    /**
+     * Action responsible for creating the new account.
+     * 
+     * @return the action to be executed
+     */
     public String createUser() {
         FacesContext context = FacesContext.getCurrentInstance();
 

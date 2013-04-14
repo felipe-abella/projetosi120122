@@ -20,6 +20,11 @@ import project.system.authentication.facebook.FacebookAuthChannel;
 import project.web.ProjectBean;
 import project.web.SessionBean;
 
+/**
+ * Bean responsible for managing facebook authentication.
+ *
+ * @author felipe
+ */
 @Named("faceBean")
 @SessionScoped
 public class FacebookAuthBean implements Serializable {
@@ -33,61 +38,97 @@ public class FacebookAuthBean implements Serializable {
     private String faceName = "";
     private String faceEmail = "";
 
+    /**
+     * Returns the face ID.
+     *
+     * @return the face ID
+     */
     public String getFaceID() {
         return faceID;
     }
 
+    /**
+     * Sets the face ID.
+     *
+     * @param faceID the new face ID
+     */
     public void setFaceID(String faceID) {
         if (faceID == null) {
             return;
         }
         this.faceID = faceID;
-        System.out.println("FaceID: " + faceID);
         if (isFilled()) {
             login();
         }
     }
 
+    /**
+     * Returns the facebook auth token.
+     *
+     * @return the facebook auth token
+     */
     public String getAuthToken() {
         return authToken;
     }
 
+    /**
+     * Sets the facebook auth token.
+     *
+     * @param authToken the new facebook auth token
+     */
     public void setAuthToken(String authToken) {
         if (authToken == null) {
             return;
         }
         this.authToken = authToken;
-        System.out.println("AuthToken: " + authToken);
         if (isFilled()) {
             login();
         }
     }
 
+    /**
+     * Returns the facebook account name.
+     *
+     * @return the facebook account name
+     */
     public String getFaceName() {
         return faceName;
     }
 
+    /**
+     * Sets the facebook account name.
+     *
+     * @param faceName the account name
+     */
     public void setFaceName(String faceName) {
         if (faceName == null) {
             return;
         }
         this.faceName = faceName;
-        System.out.println("FaceName: " + faceName);
         if (isFilled()) {
             login();
         }
     }
 
+    /**
+     * Returns the facebook account contact email.
+     *
+     * @return the face email
+     */
     public String getFaceEmail() {
         return faceEmail;
     }
 
+    /**
+     * Sets the facebook account contact email.
+     * 
+     * @param faceEmail the new face email
+     */
     public void setFaceEmail(String faceEmail) {
         if (faceEmail == null) {
             return;
         }
         this.faceEmail = faceEmail;
-        System.out.println("FaceEmail: " + faceEmail);
         if (isFilled()) {
             login();
         }
@@ -128,6 +169,11 @@ public class FacebookAuthBean implements Serializable {
         }
     }
 
+    /**
+     * Check if all form fields are filled.
+     * 
+     * @return if all form fields are filled
+     */
     private boolean isFilled() {
         return !faceID.isEmpty() && !authToken.isEmpty()
                 && !faceName.isEmpty() && !faceEmail.isEmpty();

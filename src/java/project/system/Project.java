@@ -66,7 +66,7 @@ public class Project implements Serializable {
     /**
      * Returns a list with the sessions of a user.
      *
-     * @param login login of the user
+     * @param user user whose sessions will be returned
      * @return the sessions
      */
     public List<Session> getSessionsOf(User user) {
@@ -81,21 +81,52 @@ public class Project implements Serializable {
         return result;
     }
 
+    /**
+     * Opens a new session and add to the session list.
+     *
+     * @param user owner of the session
+     * @param channel the channel used to authenticate the user
+     * @return the new created session
+     * @throws NotLoggedInException if the channel is not open
+     */
     public Session openNewSession(User user, AuthChannel channel) throws NotLoggedInException {
         Session session = new Session(user, channel);
         sessions.add(session);
         return session;
     }
-    
+
+    /**
+     * Returns if a session is alive.
+     *
+     * A session is alive if it's in the list of sessions, otherwise it's
+     * considered dead and all references to it should be removed!
+     *
+     * @param session session to check if is alive
+     * @return if the session is alive
+     */
     public boolean isSessionAlive(Session session) {
         return sessions.contains(session);
     }
 
+    /**
+     * Closes a session.
+     *
+     * The session will be removed from the list and be considered dead
+     * (regardless if the auth channel was properly closed or not).
+     *
+     * @param session the session to close
+     * @throws LogoutFailedException if the auth channel couldn't be closed
+     */
     public void closeSession(Session session) throws LogoutFailedException {
-        session.close();
         sessions.remove(session);
+        session.close();
     }
 
+    /**
+     * Registers a new authenticator.
+     *
+     * @param authenticator the authenticator
+     */
     public void registerAuthenticator(Authenticator authenticator) {
         authenticators.add(authenticator);
     }

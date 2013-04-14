@@ -38,6 +38,11 @@ public class Session implements Comparable<Session> {
         return user;
     }
 
+    /**
+     * Returns the authorization channel.
+     *
+     * @return the auth channel
+     */
     public AuthChannel getChannel() {
         return channel;
     }
