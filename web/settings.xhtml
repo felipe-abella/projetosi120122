@@ -7,11 +7,10 @@
       xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-        <title>Project Settings</title>
+        <title>Muffans Settings</title>
     </h:head>
-    <h:body>
-        <center><big><big><big>Project</big></big></big></center>
-        <hr/>
+    <h:body style="background-color: beige">
+        <ui:include src="sections/header.xhtml"/>
         <h:form id="logoutForm">
             <p align="right">
                 <h:commandButton value="Deslogar" action="#{authBean.logoutAction}"/>

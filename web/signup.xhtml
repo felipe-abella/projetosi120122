@@ -11,14 +11,12 @@
 
 
     <h:head>
-        <title>Project Signup</title>
+        <title>Muffans Signup</title>
     </h:head>
-    <h:body>
-        <center><big><big><big>Project</big></big></big></center>
-
+    <h:body style="background-color: beige">
+        <ui:include src="sections/header.xhtml"/>
+        
         <h:form id="formSignup" prependId="false">
-
-
             <p:panelGrid columns="2">
                 <p:outputLabel value="Login" for="inputLogin"/>
                 <h:inputText id="inputLogin" value="#{signupBean.login}" required="true"/>
