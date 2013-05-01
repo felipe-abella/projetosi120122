@@ -55,7 +55,7 @@ public class Sound implements Comparable<Sound> {
      *
      * @param tagName The tag name
      */
-    public void addTag(String tagName) {
+    private void addTag(String tagName) {
         tagList.add(new Tag(author, tagName));
     }
 
@@ -64,7 +64,7 @@ public class Sound implements Comparable<Sound> {
      *
      * @return the tag list
      */
-    public List<Tag> getTagList() {
+    private List<Tag> getTagList() {
         return tagList;
     }
 

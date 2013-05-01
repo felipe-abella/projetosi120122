@@ -41,7 +41,7 @@
                 <p:message id="newPostMessages" for="newPostForm"/>
                 <p align="right">
                 <h:commandButton value="Enviar" action="#{profileBean.addNewPost}">
-                    <f:ajax execute="@form" render="newPostMessages newPostTextInput"/>
+                    <f:ajax execute="@form" render="newPostMessages newPostTextInput :soundFeedForm"/>
                 </h:commandButton>
                 <h:commandButton value="Apagar" action="#{profileBean.clearNewPostText}">
                     <f:ajax execute="@form" render="newPostMessages newPostTextInput"/>
@@ -70,12 +70,16 @@
                                     </tr>
                                     <tr>
                                         <td><h:outputText value="#{sound.link}"/></td>
-
                                     </tr>
                                     <tr>
                                         <td>
-                                    <p:autoComplete value="#{sound.tagNameList}" completeMethod="#{sound.tagNameListComplete}" style="width: fit-content" multiple="true" readonly="false" disabled="false"/>
-
+                                    <p:autoComplete value="#{sound.tagNameList}" completeMethod="#{sound.tagNameListComplete}"
+                                                    multiple="true" disabled="#{userBean.user != sound.author.user}"
+                                                    
+                                                    >
+                                        <p:ajax event="itemSelect" listener="#{soundBean.tagSelect}"/>
+                                        <p:ajax event="itemUnselect" listener="#{soundBean.tagUnselect}"/>
+                                    </p:autoComplete>
                                     </td>
                                     </tr>
 
@@ -90,6 +94,7 @@
                             <f:ajax execute="@form" render=":soundFeedForm"/>
                             <f:selectItem itemDisabled="true" itemLabel="Selecione o feed para exibir:" itemValue=""/>
                             <f:selectItem itemLabel="Feed principal" itemValue="mainFeed"/>
+                            <f:selectItem itemLabel="Próprios posts" itemValue="ownFeed"/>
                             <c:if test="#{userBean.circleNames.size() > 0}">
                                 <f:selectItem itemDisabled="true" itemLabel="Feeds de círculos sociais:" itemValue=""/>
                             </c:if>

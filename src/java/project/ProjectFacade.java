@@ -647,7 +647,10 @@ public class ProjectFacade {
      */
     public String getNomeTag(String idSessao, String tag) {
         Session session = getSessionForId(idSessao);
+        User user = session.getUser();
         Tag tagObj = getTagForId(tag);
+        if (!user.getTagList().contains(tagObj))
+            throw new TagNotFoundException();
         return tagObj.getName();
     }
 

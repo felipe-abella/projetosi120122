@@ -164,7 +164,7 @@ public class ProfileBean implements Serializable {
      */
     public void setFeedSourceSetRule(String feedSourceSetRule) {
         this.feedSourceSetRule = feedSourceSetRule;
-        if (!feedSourceSetRule.equals("mainFeed") && !feedSourceSetRule.startsWith("circle_")) {
+        if (!isValidFeedRule(feedSourceSetRule)) {
             throw new IllegalStateException("Invalid feed source set rule");
         }
     }
@@ -174,7 +174,10 @@ public class ProfileBean implements Serializable {
 
         if (feedSourceSetRule.equals("mainFeed")) {
             return sessionBean.getSession().getUser().getSortedSoundFeed();
-        } else if (feedSourceSetRule.startsWith("circle_")) {
+        } else if (feedSourceSetRule.equals("ownFeed")) {
+            return sessionBean.getSession().getUser().getOwnSortedSoundFeed();
+        }
+        if (feedSourceSetRule.startsWith("circle_")) {
             String circleName = feedSourceSetRule.substring("circle_".length());
             try {
                 Circle circle = user.getCircle(circleName);
@@ -219,16 +222,22 @@ public class ProfileBean implements Serializable {
         return friendSetRule;
     }
 
+    private boolean isValidFeedRule(String feedRule) {
+        return feedRule.equals("mainFeed")
+                || feedRule.equals("ownFeed")
+                || feedRule.startsWith("circle_");
+    }
+
     /**
      * Sets the friend set rule.
      *
      * @param friendSetRule the new friend set rule
      */
     public void setFriendSetRule(String friendSetRule) {
-        this.friendSetRule = friendSetRule;
         if (!friendSetRule.equals("mainSources") && !friendSetRule.startsWith("circle_")) {
             throw new IllegalArgumentException("Invalid friendSetRule");
         }
+        this.friendSetRule = friendSetRule;
     }
 
     private List<User> getFriendList() {

@@ -2,6 +2,7 @@ package project.system;
 
 import project.system.feedsorting.FeedSorter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -214,6 +215,19 @@ public class User implements Comparable<User> {
     public List<Tag> getTagList() {
         return tagList;
     }
+    
+    /**
+     * Returns the tag with a given name, or null if not found.
+     * 
+     * @param tagName the tag name
+     * @return the tag
+     */
+    public Tag getTagWithName(String tagName) {
+        for (Tag tag : tagList)
+            if (tag.getName().equals(tagName))
+                return tag;
+        return null;
+    }
 
     /**
      * Adds a new circle to the user social circles list.
@@ -347,6 +361,15 @@ public class User implements Comparable<User> {
      */
     public List<Sound> getSortedSoundFeed() {
         return feedSorter.sortFeed(this, sources);
+    }
+
+    /**
+     * Returns a sorted feed containing user's own posts.
+     *
+     * @return the own sorted sound feed
+     */
+    public List<Sound> getOwnSortedSoundFeed() {
+        return feedSorter.sortFeed(this, Arrays.asList(this));
     }
 
     /**
