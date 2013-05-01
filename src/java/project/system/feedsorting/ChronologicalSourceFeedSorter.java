@@ -1,5 +1,6 @@
 package project.system.feedsorting;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import project.system.Sound;
@@ -9,7 +10,7 @@ import project.system.User;
  * Is a feed sorter that sorts according to the chronological order of the sound
  * source addition to the source list.
  */
-public class ChronologicalSourceFeedSorter implements FeedSorter {
+public class ChronologicalSourceFeedSorter implements FeedSorter, Serializable {
 
     /**
      * Creates a feed from given sources, and sorts according to the

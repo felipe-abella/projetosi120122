@@ -1,5 +1,6 @@
 package project.system.authentication.facebook;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import project.system.User;
@@ -12,7 +13,7 @@ import project.system.authentication.LogoutFailedException;
 /**
  * Implements a facebook authentication channel for a given user.
  */
-public class FacebookAuthChannel implements AuthChannel {
+public class FacebookAuthChannel implements AuthChannel, Serializable {
 
     private User user;
     private AuthChannelState state;

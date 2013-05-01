@@ -1,9 +1,11 @@
 package project.system;
 
+import java.io.Serializable;
+
 /**
  * Represents a user feed.
  */
-public class Feed {
+public class Feed implements Serializable {
     private User owner;
     private Iterable<Sound> posts;
 

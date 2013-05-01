@@ -1,6 +1,24 @@
 package project.web;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
+import javax.faces.event.AbortProcessingException;
+import javax.faces.event.PhaseEvent;
+import javax.faces.event.PhaseId;
+import javax.faces.event.PhaseListener;
+import javax.faces.event.PreDestroyApplicationEvent;
+import javax.faces.event.SystemEvent;
+import javax.faces.event.SystemEventListener;
 import javax.inject.Named;
 import project.system.Circle;
 import project.system.Project;
@@ -17,7 +35,7 @@ import project.system.authentication.password.PasswordAuth;
  */
 @Named("projectBean")
 @ApplicationScoped
-public class ProjectBean {
+public class ProjectBean implements SystemEventListener {
 
     private Project project;
 
@@ -28,6 +46,11 @@ public class ProjectBean {
      * it with some test data.
      */
     public ProjectBean() {
+        project = null;
+        loadSystem();
+        if (project != null)
+            Project.setInstance(project);
+        
         project = Project.getInstance();
         project.clear();
 
@@ -97,5 +120,40 @@ public class ProjectBean {
      */
     public Project getProject() {
         return project;
+    }
+
+    private void loadSystem() {
+        try {
+            ObjectInputStream is = new ObjectInputStream(new BufferedInputStream(new FileInputStream("system.dat")));
+            project = (Project)is.readObject();
+        } catch (IOException ex) {
+            Logger.getLogger(ProjectBean.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProjectBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void saveSystem() {
+        try {
+                ObjectOutputStream os = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("system.dat")));
+                os.writeObject(project);
+                os.close();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ProjectBean.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(ProjectBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    
+    @Override
+    public void processEvent(SystemEvent event) throws AbortProcessingException {
+        if (event instanceof PreDestroyApplicationEvent) {
+            saveSystem();
+        }
+    }
+
+    @Override
+    public boolean isListenerForSource(Object source) {
+        return true;
     }
 }

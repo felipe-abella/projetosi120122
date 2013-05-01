@@ -1,6 +1,18 @@
 <domain log-root="${com.sun.aas.instanceRoot}/logs" application-root="${com.sun.aas.instanceRoot}/applications" version="5">
   <system-applications></system-applications>
-  <applications></applications>
+  <applications>
+    <application context-root="/projetosi120122" location="file:/home/felipe/Projects/UFCG/SI1/Projeto/projetosi120122/build/web/" name="projetosi120122" directory-deployed="true" object-type="user">
+      <property name="preserveAppScopedResources" value="true"></property>
+      <property name="appLocation" value="file:/home/felipe/Projects/UFCG/SI1/Projeto/projetosi120122/build/web/"></property>
+      <property name="defaultAppName" value="web"></property>
+      <property name="keepSessions" value="true"></property>
+      <module name="projetosi120122">
+        <engine sniffer="security"></engine>
+        <engine sniffer="web"></engine>
+        <engine sniffer="weld"></engine>
+      </module>
+    </application>
+  </applications>
   <resources>
     <jdbc-resource pool-name="SamplePool" jndi-name="jdbc/sample"></jdbc-resource>
     <jdbc-resource pool-name="__TimerPool" jndi-name="jdbc/__TimerPool" object-type="system-admin"></jdbc-resource>
@@ -28,6 +40,7 @@
   </resources>
   <servers>
     <server name="server" config-ref="server-config">
+      <application-ref ref="projetosi120122" virtual-servers="server"></application-ref>
       <resource-ref ref="jdbc/__TimerPool"></resource-ref>
       <resource-ref ref="jdbc/__default"></resource-ref>
       <resource-ref ref="jdbc/sample"></resource-ref>

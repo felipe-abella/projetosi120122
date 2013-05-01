@@ -3291,3 +3291,1669 @@ java.lang.ClassCastException: cannot assign instance of java.lang.String to fiel
 
 [#|2013-05-01T11:56:05.836-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=35;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 3,773 milliseconds.|#]
 
+[#|2013-05-01T12:02:10.167-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.com.sun.enterprise.v3.admin|_ThreadID=315;_ThreadName=Thread-2;|Server shutdown initiated|#]
+
+[#|2013-05-01T12:02:10.265-0200|INFO|glassfish3.1.2|org.apache.catalina.session.ManagerBase|_ThreadID=315;_ThreadName=Thread-2;|PWC2785: Cannot serialize session attribute org.jboss.weld.context.http.HttpSessionContext#org.jboss.weld.bean-web-ManagedBean-class project.web.ProfileBean for session 0624741fb32cb7a8ca11455b1401
+java.io.NotSerializableException: project.system.feedsorting.ChronologicalSourceFeedSorter
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1180)
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1528)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1493)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1416)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1174)
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1528)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1493)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1416)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1174)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:346)
+	at org.apache.catalina.session.StandardSession.writeObject(StandardSession.java:2067)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:975)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1480)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1416)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1174)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:346)
+	at org.apache.catalina.session.StandardManager.writeSessions(StandardManager.java:700)
+	at com.sun.enterprise.web.WebModule.saveSessions(WebModule.java:1541)
+	at com.sun.enterprise.web.WebContainer.unloadWebModule(WebContainer.java:2229)
+	at com.sun.enterprise.web.WebContainer.unloadWebModule(WebContainer.java:2185)
+	at com.sun.enterprise.web.WebApplication.stop(WebApplication.java:159)
+	at org.glassfish.internal.data.EngineRef.stop(EngineRef.java:169)
+	at org.glassfish.internal.data.ModuleInfo.stop(ModuleInfo.java:302)
+	at org.glassfish.internal.data.ApplicationInfo.stop(ApplicationInfo.java:329)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.unload(ApplicationLifecycle.java:998)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.disable(ApplicationLifecycle.java:1970)
+	at com.sun.enterprise.v3.server.ApplicationLoaderService.stopApplication(ApplicationLoaderService.java:454)
+	at com.sun.enterprise.v3.server.ApplicationLoaderService.preDestroy(ApplicationLoaderService.java:422)
+	at com.sun.hk2.component.AbstractCreatorInhabitantImpl.dispose(AbstractCreatorInhabitantImpl.java:83)
+	at com.sun.hk2.component.SingletonInhabitant.release(SingletonInhabitant.java:81)
+	at com.sun.hk2.component.EventPublishingInhabitant.release(EventPublishingInhabitant.java:108)
+	at com.sun.hk2.component.LazyInhabitant.release(LazyInhabitant.java:133)
+	at com.sun.enterprise.v3.server.AppServerStartup.stop(AppServerStartup.java:429)
+	at com.sun.enterprise.glassfish.bootstrap.GlassFishImpl.stop(GlassFishImpl.java:88)
+	at com.sun.enterprise.glassfish.bootstrap.GlassFishDecorator.stop(GlassFishDecorator.java:68)
+	at com.sun.enterprise.v3.admin.StopServer.doExecute(StopServer.java:70)
+	at com.sun.enterprise.v3.admin.StopDomainCommand.execute(StopDomainCommand.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2.run(CommandRunnerImpl.java:377)
+|#]
+
+[#|2013-05-01T12:02:10.268-0200|INFO|glassfish3.1.2|org.apache.catalina.session.ManagerBase|_ThreadID=315;_ThreadName=Thread-2;|PWC2785: Cannot serialize session attribute org.jboss.weld.context.http.HttpSessionContext#org.jboss.weld.bean-web-ManagedBean-class project.web.SessionBean for session 0624741fb32cb7a8ca11455b1401
+java.io.NotSerializableException: project.system.Session
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1180)
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1528)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1493)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1416)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1174)
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1528)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1493)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1416)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1174)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:346)
+	at org.apache.catalina.session.StandardSession.writeObject(StandardSession.java:2067)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:975)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1480)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1416)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1174)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:346)
+	at org.apache.catalina.session.StandardManager.writeSessions(StandardManager.java:700)
+	at com.sun.enterprise.web.WebModule.saveSessions(WebModule.java:1541)
+	at com.sun.enterprise.web.WebContainer.unloadWebModule(WebContainer.java:2229)
+	at com.sun.enterprise.web.WebContainer.unloadWebModule(WebContainer.java:2185)
+	at com.sun.enterprise.web.WebApplication.stop(WebApplication.java:159)
+	at org.glassfish.internal.data.EngineRef.stop(EngineRef.java:169)
+	at org.glassfish.internal.data.ModuleInfo.stop(ModuleInfo.java:302)
+	at org.glassfish.internal.data.ApplicationInfo.stop(ApplicationInfo.java:329)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.unload(ApplicationLifecycle.java:998)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.disable(ApplicationLifecycle.java:1970)
+	at com.sun.enterprise.v3.server.ApplicationLoaderService.stopApplication(ApplicationLoaderService.java:454)
+	at com.sun.enterprise.v3.server.ApplicationLoaderService.preDestroy(ApplicationLoaderService.java:422)
+	at com.sun.hk2.component.AbstractCreatorInhabitantImpl.dispose(AbstractCreatorInhabitantImpl.java:83)
+	at com.sun.hk2.component.SingletonInhabitant.release(SingletonInhabitant.java:81)
+	at com.sun.hk2.component.EventPublishingInhabitant.release(EventPublishingInhabitant.java:108)
+	at com.sun.hk2.component.LazyInhabitant.release(LazyInhabitant.java:133)
+	at com.sun.enterprise.v3.server.AppServerStartup.stop(AppServerStartup.java:429)
+	at com.sun.enterprise.glassfish.bootstrap.GlassFishImpl.stop(GlassFishImpl.java:88)
+	at com.sun.enterprise.glassfish.bootstrap.GlassFishDecorator.stop(GlassFishDecorator.java:68)
+	at com.sun.enterprise.v3.admin.StopServer.doExecute(StopServer.java:70)
+	at com.sun.enterprise.v3.admin.StopDomainCommand.execute(StopDomainCommand.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2.run(CommandRunnerImpl.java:377)
+|#]
+
+[#|2013-05-01T12:02:10.531-0200|SEVERE|glassfish3.1.2|com.sun.grizzly.config.GrizzlyServiceListener|_ThreadID=53;_ThreadName=Thread-2;|service exception
+java.lang.RuntimeException: ClientAbortException:  java.nio.channels.ClosedChannelException
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:246)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: ClientAbortException:  java.nio.channels.ClosedChannelException
+	at com.sun.grizzly.tcp.http11.GrizzlyOutputBuffer.doFlush(GrizzlyOutputBuffer.java:439)
+	at com.sun.grizzly.tcp.http11.GrizzlyOutputBuffer.flush(GrizzlyOutputBuffer.java:405)
+	at com.sun.grizzly.tcp.http11.GrizzlyOutputStream.flush(GrizzlyOutputStream.java:140)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:243)
+	... 18 more
+Caused by: java.nio.channels.ClosedChannelException
+	at java.nio.channels.spi.AbstractSelectableChannel.register(AbstractSelectableChannel.java:194)
+	at java.nio.channels.SelectableChannel.register(SelectableChannel.java:277)
+	at com.sun.grizzly.util.OutputWriter.flushChannel(OutputWriter.java:141)
+	at com.sun.grizzly.util.OutputWriter.flushChannel(OutputWriter.java:76)
+	at com.sun.grizzly.http.SocketChannelOutputBuffer.flushChannel(SocketChannelOutputBuffer.java:426)
+	at com.sun.grizzly.http.SocketChannelOutputBuffer.flushBuffer(SocketChannelOutputBuffer.java:498)
+	at com.sun.grizzly.http.SocketChannelOutputBuffer.flush(SocketChannelOutputBuffer.java:476)
+	at com.sun.grizzly.http.ProcessorTask.action(ProcessorTask.java:1287)
+	at com.sun.grizzly.tcp.Response.action(Response.java:268)
+	at com.sun.grizzly.tcp.http11.GrizzlyOutputBuffer.doFlush(GrizzlyOutputBuffer.java:434)
+	... 21 more
+|#]
+
+[#|2013-05-01T12:02:10.531-0200|SEVERE|glassfish3.1.2|com.sun.grizzly.config.GrizzlyServiceListener|_ThreadID=34;_ThreadName=Thread-2;|service exception
+java.lang.RuntimeException: ClientAbortException:  java.nio.channels.ClosedChannelException
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:246)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: ClientAbortException:  java.nio.channels.ClosedChannelException
+	at com.sun.grizzly.tcp.http11.GrizzlyOutputBuffer.doFlush(GrizzlyOutputBuffer.java:439)
+	at com.sun.grizzly.tcp.http11.GrizzlyOutputBuffer.flush(GrizzlyOutputBuffer.java:405)
+	at com.sun.grizzly.tcp.http11.GrizzlyOutputStream.flush(GrizzlyOutputStream.java:140)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:243)
+	... 18 more
+Caused by: java.nio.channels.ClosedChannelException
+	at java.nio.channels.spi.AbstractSelectableChannel.register(AbstractSelectableChannel.java:194)
+	at java.nio.channels.SelectableChannel.register(SelectableChannel.java:277)
+	at com.sun.grizzly.util.OutputWriter.flushChannel(OutputWriter.java:141)
+	at com.sun.grizzly.util.OutputWriter.flushChannel(OutputWriter.java:76)
+	at com.sun.grizzly.http.SocketChannelOutputBuffer.flushChannel(SocketChannelOutputBuffer.java:426)
+	at com.sun.grizzly.http.SocketChannelOutputBuffer.flushBuffer(SocketChannelOutputBuffer.java:498)
+	at com.sun.grizzly.http.SocketChannelOutputBuffer.flush(SocketChannelOutputBuffer.java:476)
+	at com.sun.grizzly.http.ProcessorTask.action(ProcessorTask.java:1287)
+	at com.sun.grizzly.tcp.Response.action(Response.java:268)
+	at com.sun.grizzly.tcp.http11.GrizzlyOutputBuffer.doFlush(GrizzlyOutputBuffer.java:434)
+	... 21 more
+|#]
+
+[#|2013-05-01T12:02:13.224-0200|INFO|glassfish3.1.2|javax.enterprise.system.jmx.org.glassfish.admin.mbeanserver|_ThreadID=315;_ThreadName=Thread-2;|JMX002: JMXStartupService: Stopped JMXConnectorServer: null|#]
+
+[#|2013-05-01T12:02:13.225-0200|INFO|glassfish3.1.2|javax.enterprise.system.jmx.org.glassfish.admin.mbeanserver|_ThreadID=315;_ThreadName=Thread-2;|JMX001: JMXStartupService and JMXConnectors have been shut down.|#]
+
+[#|2013-05-01T12:02:13.225-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.server|_ThreadID=315;_ThreadName=Thread-2;|Shutdown procedure finished|#]
+
+[#|2013-05-01T19:27:06.517-0200|INFO|glassfish3.1.2|com.sun.enterprise.server.logging.GFFileHandler|_ThreadID=1;_ThreadName=Thread-2;|Running GlassFish Version: GlassFish Server Open Source Edition 3.1.2.2 (build 5)|#]
+
+[#|2013-05-01T19:27:06.716-0200|INFO|glassfish3.1.2|org.glassfish.ha.store.spi.BackingStoreFactoryRegistry|_ThreadID=1;_ThreadName=Thread-2;|Registered org.glassfish.ha.store.adapter.cache.ShoalBackingStoreProxy for persistence-type = replicated in BackingStoreFactoryRegistry|#]
+
+[#|2013-05-01T19:27:07.171-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=32;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 47ms - bound to [0.0.0.0:38540]|#]
+
+[#|2013-05-01T19:27:07.174-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=29;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 61ms - bound to [0.0.0.0:38501]|#]
+
+[#|2013-05-01T19:27:07.173-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=26;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 69ms - bound to [0.0.0.0:38512]|#]
+
+[#|2013-05-01T19:27:07.174-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=22;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 83ms - bound to [0.0.0.0:38545]|#]
+
+[#|2013-05-01T19:27:07.173-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=20;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 110ms - bound to [0.0.0.0:38544]|#]
+
+[#|2013-05-01T19:27:11.182-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security|_ThreadID=1;_ThreadName=Thread-2;|SEC1002: Security Manager is OFF.|#]
+
+[#|2013-05-01T19:27:11.684-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security|_ThreadID=1;_ThreadName=Thread-2;|SEC1010: Entering Security Startup Service|#]
+
+[#|2013-05-01T19:27:11.698-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security|_ThreadID=1;_ThreadName=Thread-2;|SEC1143: Loading policy provider com.sun.enterprise.security.provider.PolicyWrapper.|#]
+
+[#|2013-05-01T19:27:11.854-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security.auth.realm|_ThreadID=1;_ThreadName=Thread-2;|SEC1115: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.|#]
+
+[#|2013-05-01T19:27:11.857-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security.auth.realm|_ThreadID=1;_ThreadName=Thread-2;|SEC1115: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.|#]
+
+[#|2013-05-01T19:27:11.870-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security.auth.realm|_ThreadID=1;_ThreadName=Thread-2;|SEC1115: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.|#]
+
+[#|2013-05-01T19:27:11.885-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security|_ThreadID=1;_ThreadName=Thread-2;|SEC1011: Security Service(s) Started Successfully|#]
+
+[#|2013-05-01T19:27:12.402-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0169: Created HTTP listener [http-listener-1] on host/port [0.0.0.0:38544]|#]
+
+[#|2013-05-01T19:27:12.414-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0169: Created HTTP listener [http-listener-2] on host/port [0.0.0.0:38545]|#]
+
+[#|2013-05-01T19:27:12.422-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0169: Created HTTP listener [admin-listener] on host/port [0.0.0.0:38512]|#]
+
+[#|2013-05-01T19:27:12.458-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0171: Created virtual server [server]|#]
+
+[#|2013-05-01T19:27:12.463-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0171: Created virtual server [__asadmin]|#]
+
+[#|2013-05-01T19:27:13.039-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0172: Virtual server [server] loaded default web module []|#]
+
+[#|2013-05-01T19:27:15.620-0200|INFO|glassfish3.1.2|org.jboss.weld.Version|_ThreadID=1;_ThreadName=Thread-2;|WELD-000900 1.1.8 (Final)|#]
+
+[#|2013-05-01T19:27:16.247-0200|INFO|glassfish3.1.2|org.hibernate.validator.internal.util.Version|_ThreadID=1;_ThreadName=Thread-2;|HV000001: Hibernate Validator 4.3.0.Final|#]
+
+[#|2013-05-01T19:27:19.403-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=1;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:27:21.166-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=1;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:27:21.200-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:27:21.220-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.server|_ThreadID=1;_ThreadName=Thread-2;|CORE10010: Loading application projetosi120122 done in 13,405 ms|#]
+
+[#|2013-05-01T19:27:21.232-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.server|_ThreadID=1;_ThreadName=Thread-2;|GlassFish Server Open Source Edition 3.1.2.2 (5) startup time : Felix (17,376ms), startup services(15,500ms), total(32,876ms)|#]
+
+[#|2013-05-01T19:27:22.307-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=70;_ThreadName=Thread-2;|WEB0169: Created HTTP listener [http-listener-1] on host/port [0.0.0.0:38544]|#]
+
+[#|2013-05-01T19:27:22.339-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=74;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 2ms - bound to [0.0.0.0:38544]|#]
+
+[#|2013-05-01T19:27:23.305-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=66;_ThreadName=Thread-2;|WEB0169: Created HTTP listener [http-listener-2] on host/port [0.0.0.0:38545]|#]
+
+[#|2013-05-01T19:27:23.373-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=85;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 1ms - bound to [0.0.0.0:38545]|#]
+
+[#|2013-05-01T19:27:23.869-0200|INFO|glassfish3.1.2|javax.enterprise.system.jmx.org.glassfish.admin.mbeanserver|_ThreadID=76;_ThreadName=Thread-2;|JMX005: JMXStartupService had Started JMXConnector on JMXService URL service:jmx:rmi://notebook2.home:38550/jndi/rmi://notebook2.home:38550/jmxrmi|#]
+
+[#|2013-05-01T19:27:27.313-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=36;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:27:27.768-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=36;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:27:27.835-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=36;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:27:27.912-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=36;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 4,257 milliseconds.|#]
+
+[#|2013-05-01T19:27:36.872-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=33;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:27:37.113-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=33;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:27:37.130-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=33;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:27:37.159-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=33;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,908 milliseconds.|#]
+
+[#|2013-05-01T19:27:58.906-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=33;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:27:59.216-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=33;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:27:59.250-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=33;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:27:59.268-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=33;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,781 milliseconds.|#]
+
+[#|2013-05-01T19:28:05.530-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=59;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:28:05.845-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=59;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:28:05.881-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=59;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:28:05.903-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=59;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,854 milliseconds.|#]
+
+[#|2013-05-01T19:28:15.636-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=33;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:28:15.866-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=33;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:28:15.898-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=33;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:28:15.916-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=33;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,758 milliseconds.|#]
+
+[#|2013-05-01T19:29:08.048-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=35;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:29:08.256-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=35;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:29:08.285-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=35;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:29:08.301-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=35;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,551 milliseconds.|#]
+
+[#|2013-05-01T19:29:52.056-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=34;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:29:52.311-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=34;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:29:52.338-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=34;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:29:52.353-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=34;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,669 milliseconds.|#]
+
+[#|2013-05-01T19:30:12.356-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=59;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:30:12.669-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=59;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:30:12.702-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=59;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:30:12.722-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=59;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,839 milliseconds.|#]
+
+[#|2013-05-01T19:30:21.422-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=33;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:30:21.642-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=33;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:30:21.676-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=33;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:30:21.699-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=33;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,478 milliseconds.|#]
+
+[#|2013-05-01T19:30:30.336-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=35;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:30:30.574-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=35;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:30:30.610-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=35;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:30:30.631-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=35;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,404 milliseconds.|#]
+
+[#|2013-05-01T19:30:39.679-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=59;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:30:39.920-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=59;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:30:39.955-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=59;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:30:39.976-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=59;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,461 milliseconds.|#]
+
+[#|2013-05-01T19:30:48.072-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=35;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:30:48.270-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=35;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:30:48.302-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=35;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:30:48.318-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=35;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,320 milliseconds.|#]
+
+[#|2013-05-01T19:31:39.893-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=36;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:31:40.089-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=36;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:31:40.125-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=36;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:31:40.140-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=36;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,329 milliseconds.|#]
+
+[#|2013-05-01T19:35:36.843-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=35;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:35:37.170-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=35;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:35:37.206-0200|WARNING|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=35;_ThreadName=Thread-2;|WEB0517: Unable to restore sessions for web module [/projetosi120122] from previous deployment
+com.google.common.collect.ComputationException: java.lang.ExceptionInInitializerError
+	at com.google.common.collect.ComputingConcurrentHashMap$ComputingMapAdapter.get(ComputingConcurrentHashMap.java:397)
+	at org.jboss.weld.bean.proxy.ClientProxyProvider.getClientProxy(ClientProxyProvider.java:102)
+	at org.jboss.weld.bean.proxy.util.SerializableClientProxy.readResolve(SerializableClientProxy.java:54)
+	at sun.reflect.GeneratedMethodAccessor111.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at java.io.ObjectStreamClass.invokeReadResolve(ObjectStreamClass.java:1091)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1780)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1347)
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:1964)
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1888)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1771)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1347)
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:1964)
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1888)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1771)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1347)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:369)
+	at org.apache.catalina.session.StandardSession.readRemainingObject(StandardSession.java:1951)
+	at org.apache.catalina.session.StandardSession.readObject(StandardSession.java:1859)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1004)
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1866)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1771)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1347)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:369)
+	at org.apache.catalina.session.StandardSession.deserialize(StandardSession.java:1144)
+	at org.apache.catalina.session.StandardManager.readSessions(StandardManager.java:493)
+	at com.sun.enterprise.web.WebModule.loadSessions(WebModule.java:1573)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:2021)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:1669)
+	at com.sun.enterprise.web.WebApplication.start(WebApplication.java:109)
+	at org.glassfish.internal.data.EngineRef.start(EngineRef.java:130)
+	at org.glassfish.internal.data.ModuleInfo.start(ModuleInfo.java:269)
+	at org.glassfish.internal.data.ApplicationInfo.start(ApplicationInfo.java:301)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:461)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:240)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:389)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:353)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at org.glassfish.deployment.admin.ReDeployCommand.execute(ReDeployCommand.java:126)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at com.sun.enterprise.v3.admin.AdminAdapter.doCommand(AdminAdapter.java:461)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:212)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.ExceptionInInitializerError
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:525)
+	at java.lang.Class.newInstance0(Class.java:372)
+	at java.lang.Class.newInstance(Class.java:325)
+	at org.jboss.weld.util.reflection.SecureReflections$16.work(SecureReflections.java:344)
+	at org.jboss.weld.util.reflection.SecureReflectionAccess.run(SecureReflectionAccess.java:52)
+	at org.jboss.weld.util.reflection.SecureReflectionAccess.runAsInstantiation(SecureReflectionAccess.java:173)
+	at org.jboss.weld.util.reflection.SecureReflections.newInstance(SecureReflections.java:341)
+	at org.jboss.weld.bean.proxy.ProxyFactory.create(ProxyFactory.java:242)
+	at org.jboss.weld.bean.proxy.ClientProxyProvider.createClientProxy(ClientProxyProvider.java:87)
+	at org.jboss.weld.bean.proxy.ClientProxyProvider.access$000(ClientProxyProvider.java:43)
+	at org.jboss.weld.bean.proxy.ClientProxyProvider$1.apply(ClientProxyProvider.java:53)
+	at org.jboss.weld.bean.proxy.ClientProxyProvider$1.apply(ClientProxyProvider.java:46)
+	at com.google.common.collect.ComputingConcurrentHashMap$ComputingValueReference.compute(ComputingConcurrentHashMap.java:355)
+	at com.google.common.collect.ComputingConcurrentHashMap$ComputingSegment.compute(ComputingConcurrentHashMap.java:184)
+	at com.google.common.collect.ComputingConcurrentHashMap$ComputingSegment.getOrCompute(ComputingConcurrentHashMap.java:153)
+	at com.google.common.collect.ComputingConcurrentHashMap.getOrCompute(ComputingConcurrentHashMap.java:69)
+	at com.google.common.collect.ComputingConcurrentHashMap$ComputingMapAdapter.get(ComputingConcurrentHashMap.java:393)
+	... 73 more
+Caused by: java.lang.RuntimeException: Uncompilable source code - project.web.ProjectBean is not abstract and does not override abstract method getPhaseId() in javax.faces.event.PhaseListener
+	at project.web.ProjectBean.<clinit>(ProjectBean.java:19)
+	... 93 more
+|#]
+
+[#|2013-05-01T19:35:37.209-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=35;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:35:37.229-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=35;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,321 milliseconds.|#]
+
+[#|2013-05-01T19:35:38.390-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=59;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:35:38.598-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=59;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:35:38.611-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=59;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:35:38.626-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=59;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,185 milliseconds.|#]
+
+[#|2013-05-01T19:35:41.829-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=34;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:35:42.090-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=34;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:35:42.108-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=34;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:35:42.122-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=34;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,297 milliseconds.|#]
+
+[#|2013-05-01T19:35:43.269-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=59;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:35:43.493-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=59;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:35:43.505-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=59;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:35:43.519-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=59;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,261 milliseconds.|#]
+
+[#|2013-05-01T19:35:57.332-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=36;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:35:57.540-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=36;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:35:57.552-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=36;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:35:57.564-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=36;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,280 milliseconds.|#]
+
+[#|2013-05-01T19:39:50.904-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=34;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:39:51.132-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=34;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:39:51.145-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=34;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:39:51.158-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=34;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,866 milliseconds.|#]
+
+[#|2013-05-01T19:39:52.372-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=36;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:39:52.681-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=36;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:39:52.708-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=36;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:39:52.726-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=36;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,393 milliseconds.|#]
+
+[#|2013-05-01T19:39:56.919-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=35;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:39:57.287-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=35;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:39:57.306-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=35;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:39:57.325-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=35;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,525 milliseconds.|#]
+
+[#|2013-05-01T19:39:58.485-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=36;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:39:58.715-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=36;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:39:58.726-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=36;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:39:58.739-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=36;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,181 milliseconds.|#]
+
+[#|2013-05-01T19:40:01.081-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=59;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:40:01.283-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=59;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:40:01.294-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=59;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:40:01.307-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=59;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,369 milliseconds.|#]
+
+[#|2013-05-01T19:42:18.137-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=59;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:42:18.337-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=59;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:42:18.349-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=59;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:42:18.364-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=59;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,360 milliseconds.|#]
+
+[#|2013-05-01T19:42:23.473-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=35;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:42:23.694-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=35;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:42:23.707-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=35;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:42:23.722-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=35;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,224 milliseconds.|#]
+
+[#|2013-05-01T19:43:49.901-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=34;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:43:50.115-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=34;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:43:50.117-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=34;_ThreadName=Thread-2;|Monitoring jndi:/server/projetosi120122/WEB-INF/faces-config.xml for modifications|#]
+
+[#|2013-05-01T19:43:50.129-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=34;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:43:50.141-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=34;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,330 milliseconds.|#]
+
+[#|2013-05-01T19:43:53.968-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=33;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:43:54.163-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=33;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:43:54.164-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=33;_ThreadName=Thread-2;|Monitoring jndi:/server/projetosi120122/WEB-INF/faces-config.xml for modifications|#]
+
+[#|2013-05-01T19:43:54.177-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=33;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:43:54.188-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=33;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,173 milliseconds.|#]
+
+[#|2013-05-01T19:43:56.652-0200|WARNING|glassfish3.1.2|org.apache.catalina.connector.Request|_ThreadID=105;_ThreadName=Thread-2;|PWC4011: Unable to set request character encoding to UTF-8 from context /projetosi120122, because request parameters have already been read, or ServletRequest.getReader() has already been called|#]
+
+[#|2013-05-01T19:46:12.165-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=204;_ThreadName=Thread-2;|jndi:/server/projetosi120122/WEB-INF/faces-config.xml changed!|#]
+
+[#|2013-05-01T19:46:12.165-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=204;_ThreadName=Thread-2;|Reloading JSF configuration for context /projetosi120122|#]
+
+[#|2013-05-01T19:46:12.165-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=204;_ThreadName=Thread-2;|Invalidating Session 20d410a65e1ee4377ab4a050fe4c|#]
+
+[#|2013-05-01T19:46:12.250-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|com.sun.faces.config.ConfigurationException: java.lang.ClassNotFoundException: eventClass
+	at com.sun.faces.config.processor.ApplicationConfigProcessor.addSystemEventListener(ApplicationConfigProcessor.java:835)
+	at com.sun.faces.config.processor.ApplicationConfigProcessor.process(ApplicationConfigProcessor.java:315)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.invokeNext(AbstractConfigProcessor.java:114)
+	at com.sun.faces.config.processor.LifecycleConfigProcessor.process(LifecycleConfigProcessor.java:116)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.invokeNext(AbstractConfigProcessor.java:114)
+	at com.sun.faces.config.processor.FactoryConfigProcessor.process(FactoryConfigProcessor.java:222)
+	at com.sun.faces.config.ConfigManager.initialize(ConfigManager.java:360)
+	at com.sun.faces.config.ConfigureListener.reload(ConfigureListener.java:586)
+	at com.sun.faces.config.ConfigureListener.access$600(ConfigureListener.java:128)
+	at com.sun.faces.config.ConfigureListener$WebConfigResourceMonitor.run(ConfigureListener.java:1037)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask$Sync.innerRunAndReset(FutureTask.java:351)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:178)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:178)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.ClassNotFoundException: eventClass
+	at org.glassfish.web.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1509)
+	at org.glassfish.web.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1359)
+	at com.sun.faces.util.Util.loadClass(Util.java:293)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.loadClass(AbstractConfigProcessor.java:311)
+	at com.sun.faces.config.processor.ApplicationConfigProcessor.addSystemEventListener(ApplicationConfigProcessor.java:814)
+	... 17 more
+|#]
+
+[#|2013-05-01T19:46:12.251-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at com.sun.faces.config.processor.ApplicationConfigProcessor.addSystemEventListener(ApplicationConfigProcessor.java:835)|#]
+
+[#|2013-05-01T19:46:12.251-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at com.sun.faces.config.processor.ApplicationConfigProcessor.process(ApplicationConfigProcessor.java:315)|#]
+
+[#|2013-05-01T19:46:12.251-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at com.sun.faces.config.processor.AbstractConfigProcessor.invokeNext(AbstractConfigProcessor.java:114)|#]
+
+[#|2013-05-01T19:46:12.252-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at com.sun.faces.config.processor.LifecycleConfigProcessor.process(LifecycleConfigProcessor.java:116)|#]
+
+[#|2013-05-01T19:46:12.252-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at com.sun.faces.config.processor.AbstractConfigProcessor.invokeNext(AbstractConfigProcessor.java:114)|#]
+
+[#|2013-05-01T19:46:12.252-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at com.sun.faces.config.processor.FactoryConfigProcessor.process(FactoryConfigProcessor.java:222)|#]
+
+[#|2013-05-01T19:46:12.252-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at com.sun.faces.config.ConfigManager.initialize(ConfigManager.java:360)|#]
+
+[#|2013-05-01T19:46:12.253-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at com.sun.faces.config.ConfigureListener.reload(ConfigureListener.java:586)|#]
+
+[#|2013-05-01T19:46:12.253-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at com.sun.faces.config.ConfigureListener.access$600(ConfigureListener.java:128)|#]
+
+[#|2013-05-01T19:46:12.253-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at com.sun.faces.config.ConfigureListener$WebConfigResourceMonitor.run(ConfigureListener.java:1037)|#]
+
+[#|2013-05-01T19:46:12.253-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)|#]
+
+[#|2013-05-01T19:46:12.253-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at java.util.concurrent.FutureTask$Sync.innerRunAndReset(FutureTask.java:351)|#]
+
+[#|2013-05-01T19:46:12.254-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:178)|#]
+
+[#|2013-05-01T19:46:12.254-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:178)|#]
+
+[#|2013-05-01T19:46:12.254-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)|#]
+
+[#|2013-05-01T19:46:12.254-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)|#]
+
+[#|2013-05-01T19:46:12.254-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)|#]
+
+[#|2013-05-01T19:46:12.254-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at java.lang.Thread.run(Thread.java:722)|#]
+
+[#|2013-05-01T19:46:12.255-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|Caused by: java.lang.ClassNotFoundException: eventClass|#]
+
+[#|2013-05-01T19:46:12.255-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at org.glassfish.web.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1509)|#]
+
+[#|2013-05-01T19:46:12.255-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at org.glassfish.web.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1359)|#]
+
+[#|2013-05-01T19:46:12.255-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at com.sun.faces.util.Util.loadClass(Util.java:293)|#]
+
+[#|2013-05-01T19:46:12.255-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at com.sun.faces.config.processor.AbstractConfigProcessor.loadClass(AbstractConfigProcessor.java:311)|#]
+
+[#|2013-05-01T19:46:12.255-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	at com.sun.faces.config.processor.ApplicationConfigProcessor.addSystemEventListener(ApplicationConfigProcessor.java:814)|#]
+
+[#|2013-05-01T19:46:12.256-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=204;_ThreadName=Thread-2;|	... 17 more|#]
+
+[#|2013-05-01T19:46:12.256-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=204;_ThreadName=Thread-2;|Reload complete.|#]
+
+[#|2013-05-01T19:46:12.404-0200|SEVERE|glassfish3.1.2|javax.faces|_ThreadID=36;_ThreadName=Thread-2;|Application was not properly initialized at startup, could not find Factory: javax.faces.application.ApplicationFactory. Attempting to find backup.|#]
+
+[#|2013-05-01T19:46:12.405-0200|SEVERE|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=36;_ThreadName=Thread-2;|Unexpected exception when attempting to tear down the Mojarra runtime
+java.lang.IllegalStateException: Could not find backup for factory javax.faces.application.ApplicationFactory. 
+	at javax.faces.FactoryFinder$FactoryManager.getFactory(FactoryFinder.java:1008)
+	at javax.faces.FactoryFinder.getFactory(FactoryFinder.java:343)
+	at com.sun.faces.config.InitFacesContext.getApplication(InitFacesContext.java:131)
+	at com.sun.faces.config.ConfigureListener.contextDestroyed(ConfigureListener.java:328)
+	at org.apache.catalina.core.StandardContext.contextListenerStop(StandardContext.java:4840)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:5584)
+	at com.sun.enterprise.web.WebModule.stop(WebModule.java:527)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:1049)
+	at com.sun.enterprise.web.WebContainer.unloadWebModule(WebContainer.java:2230)
+	at com.sun.enterprise.web.WebContainer.unloadWebModule(WebContainer.java:2185)
+	at com.sun.enterprise.web.WebApplication.stop(WebApplication.java:159)
+	at org.glassfish.internal.data.EngineRef.stop(EngineRef.java:169)
+	at org.glassfish.internal.data.ModuleInfo.stop(ModuleInfo.java:302)
+	at org.glassfish.internal.data.ApplicationInfo.stop(ApplicationInfo.java:329)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.unload(ApplicationLifecycle.java:998)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.undeploy(ApplicationLifecycle.java:1024)
+	at org.glassfish.deployment.admin.UndeployCommand.execute(UndeployCommand.java:330)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:353)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at org.glassfish.deployment.admin.DeployCommand.handleRedeploy(DeployCommand.java:607)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:274)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:353)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at org.glassfish.deployment.admin.ReDeployCommand.execute(ReDeployCommand.java:126)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at com.sun.enterprise.v3.admin.AdminAdapter.doCommand(AdminAdapter.java:461)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:212)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+|#]
+
+[#|2013-05-01T19:46:13.353-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=36;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:46:13.426-0200|SEVERE|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=36;_ThreadName=Thread-2;|Critical error during deployment: 
+com.sun.faces.config.ConfigurationException: java.lang.ClassNotFoundException: eventClass
+	at com.sun.faces.config.processor.ApplicationConfigProcessor.addSystemEventListener(ApplicationConfigProcessor.java:835)
+	at com.sun.faces.config.processor.ApplicationConfigProcessor.process(ApplicationConfigProcessor.java:315)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.invokeNext(AbstractConfigProcessor.java:114)
+	at com.sun.faces.config.processor.LifecycleConfigProcessor.process(LifecycleConfigProcessor.java:116)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.invokeNext(AbstractConfigProcessor.java:114)
+	at com.sun.faces.config.processor.FactoryConfigProcessor.process(FactoryConfigProcessor.java:222)
+	at com.sun.faces.config.ConfigManager.initialize(ConfigManager.java:360)
+	at com.sun.faces.config.ConfigureListener.contextInitialized(ConfigureListener.java:225)
+	at org.apache.catalina.core.StandardContext.contextListenerStart(StandardContext.java:4750)
+	at com.sun.enterprise.web.WebModule.contextListenerStart(WebModule.java:550)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:5366)
+	at com.sun.enterprise.web.WebModule.start(WebModule.java:498)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:917)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:901)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:733)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:2019)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:1669)
+	at com.sun.enterprise.web.WebApplication.start(WebApplication.java:109)
+	at org.glassfish.internal.data.EngineRef.start(EngineRef.java:130)
+	at org.glassfish.internal.data.ModuleInfo.start(ModuleInfo.java:269)
+	at org.glassfish.internal.data.ApplicationInfo.start(ApplicationInfo.java:301)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:461)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:240)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:389)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:353)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at org.glassfish.deployment.admin.ReDeployCommand.execute(ReDeployCommand.java:126)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at com.sun.enterprise.v3.admin.AdminAdapter.doCommand(AdminAdapter.java:461)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:212)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.ClassNotFoundException: eventClass
+	at org.glassfish.web.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1509)
+	at org.glassfish.web.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1359)
+	at com.sun.faces.util.Util.loadClass(Util.java:293)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.loadClass(AbstractConfigProcessor.java:311)
+	at com.sun.faces.config.processor.ApplicationConfigProcessor.addSystemEventListener(ApplicationConfigProcessor.java:814)
+	... 56 more
+|#]
+
+[#|2013-05-01T19:46:13.427-0200|SEVERE|glassfish3.1.2|org.apache.catalina.core.StandardContext|_ThreadID=36;_ThreadName=Thread-2;|PWC1306: Startup of context /projetosi120122 failed due to previous errors|#]
+
+[#|2013-05-01T19:46:13.454-0200|SEVERE|glassfish3.1.2|org.apache.catalina.core.StandardContext|_ThreadID=36;_ThreadName=Thread-2;|PWC1305: Exception during cleanup after start failed
+org.apache.catalina.LifecycleException: PWC2769: Manager has not yet been started
+	at org.apache.catalina.session.StandardManager.stop(StandardManager.java:873)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:5571)
+	at com.sun.enterprise.web.WebModule.stop(WebModule.java:527)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:5384)
+	at com.sun.enterprise.web.WebModule.start(WebModule.java:498)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:917)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:901)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:733)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:2019)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:1669)
+	at com.sun.enterprise.web.WebApplication.start(WebApplication.java:109)
+	at org.glassfish.internal.data.EngineRef.start(EngineRef.java:130)
+	at org.glassfish.internal.data.ModuleInfo.start(ModuleInfo.java:269)
+	at org.glassfish.internal.data.ApplicationInfo.start(ApplicationInfo.java:301)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:461)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:240)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:389)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:353)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at org.glassfish.deployment.admin.ReDeployCommand.execute(ReDeployCommand.java:126)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at com.sun.enterprise.v3.admin.AdminAdapter.doCommand(AdminAdapter.java:461)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:212)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+|#]
+
+[#|2013-05-01T19:46:13.455-0200|SEVERE|glassfish3.1.2|org.apache.catalina.core.ContainerBase|_ThreadID=36;_ThreadName=Thread-2;|ContainerBase.addChild: start: 
+org.apache.catalina.LifecycleException: java.lang.RuntimeException: com.sun.faces.config.ConfigurationException: java.lang.ClassNotFoundException: eventClass
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:5389)
+	at com.sun.enterprise.web.WebModule.start(WebModule.java:498)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:917)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:901)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:733)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:2019)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:1669)
+	at com.sun.enterprise.web.WebApplication.start(WebApplication.java:109)
+	at org.glassfish.internal.data.EngineRef.start(EngineRef.java:130)
+	at org.glassfish.internal.data.ModuleInfo.start(ModuleInfo.java:269)
+	at org.glassfish.internal.data.ApplicationInfo.start(ApplicationInfo.java:301)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:461)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:240)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:389)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:353)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at org.glassfish.deployment.admin.ReDeployCommand.execute(ReDeployCommand.java:126)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at com.sun.enterprise.v3.admin.AdminAdapter.doCommand(AdminAdapter.java:461)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:212)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.RuntimeException: com.sun.faces.config.ConfigurationException: java.lang.ClassNotFoundException: eventClass
+	at com.sun.faces.config.ConfigureListener.contextInitialized(ConfigureListener.java:292)
+	at org.apache.catalina.core.StandardContext.contextListenerStart(StandardContext.java:4750)
+	at com.sun.enterprise.web.WebModule.contextListenerStart(WebModule.java:550)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:5366)
+	... 46 more
+Caused by: com.sun.faces.config.ConfigurationException: java.lang.ClassNotFoundException: eventClass
+	at com.sun.faces.config.processor.ApplicationConfigProcessor.addSystemEventListener(ApplicationConfigProcessor.java:835)
+	at com.sun.faces.config.processor.ApplicationConfigProcessor.process(ApplicationConfigProcessor.java:315)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.invokeNext(AbstractConfigProcessor.java:114)
+	at com.sun.faces.config.processor.LifecycleConfigProcessor.process(LifecycleConfigProcessor.java:116)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.invokeNext(AbstractConfigProcessor.java:114)
+	at com.sun.faces.config.processor.FactoryConfigProcessor.process(FactoryConfigProcessor.java:222)
+	at com.sun.faces.config.ConfigManager.initialize(ConfigManager.java:360)
+	at com.sun.faces.config.ConfigureListener.contextInitialized(ConfigureListener.java:225)
+	... 49 more
+Caused by: java.lang.ClassNotFoundException: eventClass
+	at org.glassfish.web.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1509)
+	at org.glassfish.web.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1359)
+	at com.sun.faces.util.Util.loadClass(Util.java:293)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.loadClass(AbstractConfigProcessor.java:311)
+	at com.sun.faces.config.processor.ApplicationConfigProcessor.addSystemEventListener(ApplicationConfigProcessor.java:814)
+	... 56 more
+|#]
+
+[#|2013-05-01T19:46:13.456-0200|WARNING|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=36;_ThreadName=Thread-2;|java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: java.lang.RuntimeException: com.sun.faces.config.ConfigurationException: java.lang.ClassNotFoundException: eventClass
+java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: java.lang.RuntimeException: com.sun.faces.config.ConfigurationException: java.lang.ClassNotFoundException: eventClass
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:921)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:901)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:733)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:2019)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:1669)
+	at com.sun.enterprise.web.WebApplication.start(WebApplication.java:109)
+	at org.glassfish.internal.data.EngineRef.start(EngineRef.java:130)
+	at org.glassfish.internal.data.ModuleInfo.start(ModuleInfo.java:269)
+	at org.glassfish.internal.data.ApplicationInfo.start(ApplicationInfo.java:301)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:461)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:240)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:389)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:353)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at org.glassfish.deployment.admin.ReDeployCommand.execute(ReDeployCommand.java:126)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at com.sun.enterprise.v3.admin.AdminAdapter.doCommand(AdminAdapter.java:461)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:212)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+|#]
+
+[#|2013-05-01T19:46:13.458-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=36;_ThreadName=Thread-2;|Exception while invoking class com.sun.enterprise.web.WebApplication start method
+java.lang.Exception: java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: java.lang.RuntimeException: com.sun.faces.config.ConfigurationException: java.lang.ClassNotFoundException: eventClass
+	at com.sun.enterprise.web.WebApplication.start(WebApplication.java:138)
+	at org.glassfish.internal.data.EngineRef.start(EngineRef.java:130)
+	at org.glassfish.internal.data.ModuleInfo.start(ModuleInfo.java:269)
+	at org.glassfish.internal.data.ApplicationInfo.start(ApplicationInfo.java:301)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:461)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:240)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:389)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:353)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at org.glassfish.deployment.admin.ReDeployCommand.execute(ReDeployCommand.java:126)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at com.sun.enterprise.v3.admin.AdminAdapter.doCommand(AdminAdapter.java:461)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:212)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+|#]
+
+[#|2013-05-01T19:46:13.459-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.server|_ThreadID=36;_ThreadName=Thread-2;|Exception while loading the app|#]
+
+[#|2013-05-01T19:46:13.620-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=36;_ThreadName=Thread-2;|Exception while loading the app : java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: java.lang.RuntimeException: com.sun.faces.config.ConfigurationException: java.lang.ClassNotFoundException: eventClass|#]
+
+[#|2013-05-01T19:46:16.153-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=36;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:46:16.235-0200|SEVERE|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=36;_ThreadName=Thread-2;|Critical error during deployment: 
+com.sun.faces.config.ConfigurationException: CONFIGURATION FAILED! null
+	at com.sun.faces.config.ConfigManager.initialize(ConfigManager.java:375)
+	at com.sun.faces.config.ConfigureListener.contextInitialized(ConfigureListener.java:225)
+	at org.apache.catalina.core.StandardContext.contextListenerStart(StandardContext.java:4750)
+	at com.sun.enterprise.web.WebModule.contextListenerStart(WebModule.java:550)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:5366)
+	at com.sun.enterprise.web.WebModule.start(WebModule.java:498)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:917)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:901)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:733)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:2019)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:1669)
+	at com.sun.enterprise.web.WebApplication.start(WebApplication.java:109)
+	at org.glassfish.internal.data.EngineRef.start(EngineRef.java:130)
+	at org.glassfish.internal.data.ModuleInfo.start(ModuleInfo.java:269)
+	at org.glassfish.internal.data.ApplicationInfo.start(ApplicationInfo.java:301)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:461)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:240)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:389)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at com.sun.enterprise.v3.admin.AdminAdapter.doCommand(AdminAdapter.java:461)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:212)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at com.sun.faces.util.Util.loadClass(Util.java:290)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.loadClass(AbstractConfigProcessor.java:311)
+	at com.sun.faces.config.processor.ApplicationConfigProcessor.addSystemEventListener(ApplicationConfigProcessor.java:814)
+	at com.sun.faces.config.processor.ApplicationConfigProcessor.process(ApplicationConfigProcessor.java:315)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.invokeNext(AbstractConfigProcessor.java:114)
+	at com.sun.faces.config.processor.LifecycleConfigProcessor.process(LifecycleConfigProcessor.java:116)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.invokeNext(AbstractConfigProcessor.java:114)
+	at com.sun.faces.config.processor.FactoryConfigProcessor.process(FactoryConfigProcessor.java:222)
+	at com.sun.faces.config.ConfigManager.initialize(ConfigManager.java:360)
+	... 43 more
+|#]
+
+[#|2013-05-01T19:46:16.236-0200|SEVERE|glassfish3.1.2|org.apache.catalina.core.StandardContext|_ThreadID=36;_ThreadName=Thread-2;|PWC1306: Startup of context /projetosi120122 failed due to previous errors|#]
+
+[#|2013-05-01T19:46:16.237-0200|SEVERE|glassfish3.1.2|org.apache.catalina.core.StandardContext|_ThreadID=36;_ThreadName=Thread-2;|PWC1305: Exception during cleanup after start failed
+org.apache.catalina.LifecycleException: PWC2769: Manager has not yet been started
+	at org.apache.catalina.session.StandardManager.stop(StandardManager.java:873)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:5571)
+	at com.sun.enterprise.web.WebModule.stop(WebModule.java:527)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:5384)
+	at com.sun.enterprise.web.WebModule.start(WebModule.java:498)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:917)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:901)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:733)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:2019)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:1669)
+	at com.sun.enterprise.web.WebApplication.start(WebApplication.java:109)
+	at org.glassfish.internal.data.EngineRef.start(EngineRef.java:130)
+	at org.glassfish.internal.data.ModuleInfo.start(ModuleInfo.java:269)
+	at org.glassfish.internal.data.ApplicationInfo.start(ApplicationInfo.java:301)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:461)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:240)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:389)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at com.sun.enterprise.v3.admin.AdminAdapter.doCommand(AdminAdapter.java:461)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:212)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+|#]
+
+[#|2013-05-01T19:46:16.237-0200|SEVERE|glassfish3.1.2|org.apache.catalina.core.ContainerBase|_ThreadID=36;_ThreadName=Thread-2;|ContainerBase.addChild: start: 
+org.apache.catalina.LifecycleException: java.lang.RuntimeException: com.sun.faces.config.ConfigurationException: CONFIGURATION FAILED! null
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:5389)
+	at com.sun.enterprise.web.WebModule.start(WebModule.java:498)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:917)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:901)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:733)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:2019)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:1669)
+	at com.sun.enterprise.web.WebApplication.start(WebApplication.java:109)
+	at org.glassfish.internal.data.EngineRef.start(EngineRef.java:130)
+	at org.glassfish.internal.data.ModuleInfo.start(ModuleInfo.java:269)
+	at org.glassfish.internal.data.ApplicationInfo.start(ApplicationInfo.java:301)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:461)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:240)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:389)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at com.sun.enterprise.v3.admin.AdminAdapter.doCommand(AdminAdapter.java:461)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:212)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.RuntimeException: com.sun.faces.config.ConfigurationException: CONFIGURATION FAILED! null
+	at com.sun.faces.config.ConfigureListener.contextInitialized(ConfigureListener.java:292)
+	at org.apache.catalina.core.StandardContext.contextListenerStart(StandardContext.java:4750)
+	at com.sun.enterprise.web.WebModule.contextListenerStart(WebModule.java:550)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:5366)
+	... 39 more
+Caused by: com.sun.faces.config.ConfigurationException: CONFIGURATION FAILED! null
+	at com.sun.faces.config.ConfigManager.initialize(ConfigManager.java:375)
+	at com.sun.faces.config.ConfigureListener.contextInitialized(ConfigureListener.java:225)
+	... 42 more
+Caused by: java.lang.NullPointerException
+	at com.sun.faces.util.Util.loadClass(Util.java:290)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.loadClass(AbstractConfigProcessor.java:311)
+	at com.sun.faces.config.processor.ApplicationConfigProcessor.addSystemEventListener(ApplicationConfigProcessor.java:814)
+	at com.sun.faces.config.processor.ApplicationConfigProcessor.process(ApplicationConfigProcessor.java:315)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.invokeNext(AbstractConfigProcessor.java:114)
+	at com.sun.faces.config.processor.LifecycleConfigProcessor.process(LifecycleConfigProcessor.java:116)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.invokeNext(AbstractConfigProcessor.java:114)
+	at com.sun.faces.config.processor.FactoryConfigProcessor.process(FactoryConfigProcessor.java:222)
+	at com.sun.faces.config.ConfigManager.initialize(ConfigManager.java:360)
+	... 43 more
+|#]
+
+[#|2013-05-01T19:46:16.238-0200|WARNING|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=36;_ThreadName=Thread-2;|java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: java.lang.RuntimeException: com.sun.faces.config.ConfigurationException: CONFIGURATION FAILED! null
+java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: java.lang.RuntimeException: com.sun.faces.config.ConfigurationException: CONFIGURATION FAILED! null
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:921)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:901)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:733)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:2019)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:1669)
+	at com.sun.enterprise.web.WebApplication.start(WebApplication.java:109)
+	at org.glassfish.internal.data.EngineRef.start(EngineRef.java:130)
+	at org.glassfish.internal.data.ModuleInfo.start(ModuleInfo.java:269)
+	at org.glassfish.internal.data.ApplicationInfo.start(ApplicationInfo.java:301)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:461)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:240)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:389)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at com.sun.enterprise.v3.admin.AdminAdapter.doCommand(AdminAdapter.java:461)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:212)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+|#]
+
+[#|2013-05-01T19:46:16.238-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=36;_ThreadName=Thread-2;|Exception while invoking class com.sun.enterprise.web.WebApplication start method
+java.lang.Exception: java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: java.lang.RuntimeException: com.sun.faces.config.ConfigurationException: CONFIGURATION FAILED! null
+	at com.sun.enterprise.web.WebApplication.start(WebApplication.java:138)
+	at org.glassfish.internal.data.EngineRef.start(EngineRef.java:130)
+	at org.glassfish.internal.data.ModuleInfo.start(ModuleInfo.java:269)
+	at org.glassfish.internal.data.ApplicationInfo.start(ApplicationInfo.java:301)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:461)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:240)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:389)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at com.sun.enterprise.v3.admin.AdminAdapter.doCommand(AdminAdapter.java:461)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:212)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+|#]
+
+[#|2013-05-01T19:46:16.239-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.server|_ThreadID=36;_ThreadName=Thread-2;|Exception while loading the app|#]
+
+[#|2013-05-01T19:46:16.389-0200|SEVERE|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=36;_ThreadName=Thread-2;|Exception while loading the app : java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: java.lang.RuntimeException: com.sun.faces.config.ConfigurationException: CONFIGURATION FAILED! null|#]
+
+[#|2013-05-01T19:48:09.097-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=34;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:48:09.287-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=34;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:48:09.288-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=34;_ThreadName=Thread-2;|Monitoring jndi:/server/projetosi120122/WEB-INF/faces-config.xml for modifications|#]
+
+[#|2013-05-01T19:48:09.299-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=34;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:48:09.310-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=34;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,045 milliseconds.|#]
+
+[#|2013-05-01T19:48:12.139-0200|SEVERE|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=33;_ThreadName=Thread-2;|Unexpected exception when attempting to tear down the Mojarra runtime
+java.lang.RuntimeException: Uncompilable source code - missing return statement
+	at project.web.ProjectBean.isListenerForSource(ProjectBean.java:117)
+	at com.sun.faces.application.ApplicationImpl.processListeners(ApplicationImpl.java:2162)
+	at com.sun.faces.application.ApplicationImpl.invokeListenersFor(ApplicationImpl.java:2144)
+	at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:302)
+	at javax.faces.application.ApplicationWrapper.publishEvent(ApplicationWrapper.java:683)
+	at com.sun.faces.config.ConfigureListener.contextDestroyed(ConfigureListener.java:332)
+	at org.apache.catalina.core.StandardContext.contextListenerStop(StandardContext.java:4840)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:5584)
+	at com.sun.enterprise.web.WebModule.stop(WebModule.java:527)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:1049)
+	at com.sun.enterprise.web.WebContainer.unloadWebModule(WebContainer.java:2230)
+	at com.sun.enterprise.web.WebContainer.unloadWebModule(WebContainer.java:2185)
+	at com.sun.enterprise.web.WebApplication.stop(WebApplication.java:159)
+	at org.glassfish.internal.data.EngineRef.stop(EngineRef.java:169)
+	at org.glassfish.internal.data.ModuleInfo.stop(ModuleInfo.java:302)
+	at org.glassfish.internal.data.ApplicationInfo.stop(ApplicationInfo.java:329)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.unload(ApplicationLifecycle.java:998)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.undeploy(ApplicationLifecycle.java:1024)
+	at org.glassfish.deployment.admin.UndeployCommand.execute(UndeployCommand.java:330)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:353)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at org.glassfish.deployment.admin.DeployCommand.handleRedeploy(DeployCommand.java:607)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:274)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:353)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at org.glassfish.deployment.admin.ReDeployCommand.execute(ReDeployCommand.java:126)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at com.sun.enterprise.v3.admin.AdminAdapter.doCommand(AdminAdapter.java:461)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:212)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+|#]
+
+[#|2013-05-01T19:48:13.043-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=33;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:48:13.266-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=33;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:48:13.267-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=33;_ThreadName=Thread-2;|Monitoring jndi:/server/projetosi120122/WEB-INF/faces-config.xml for modifications|#]
+
+[#|2013-05-01T19:48:13.279-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=33;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:48:13.291-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=33;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,162 milliseconds.|#]
+
+[#|2013-05-01T19:48:28.753-0200|SEVERE|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=33;_ThreadName=Thread-2;|Unexpected exception when attempting to tear down the Mojarra runtime
+java.lang.RuntimeException: Uncompilable source code - missing return statement
+	at project.web.ProjectBean.isListenerForSource(ProjectBean.java:117)
+	at com.sun.faces.application.ApplicationImpl.processListeners(ApplicationImpl.java:2162)
+	at com.sun.faces.application.ApplicationImpl.invokeListenersFor(ApplicationImpl.java:2144)
+	at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:302)
+	at javax.faces.application.ApplicationWrapper.publishEvent(ApplicationWrapper.java:683)
+	at com.sun.faces.config.ConfigureListener.contextDestroyed(ConfigureListener.java:332)
+	at org.apache.catalina.core.StandardContext.contextListenerStop(StandardContext.java:4840)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:5584)
+	at com.sun.enterprise.web.WebModule.stop(WebModule.java:527)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:1049)
+	at com.sun.enterprise.web.WebContainer.unloadWebModule(WebContainer.java:2230)
+	at com.sun.enterprise.web.WebContainer.unloadWebModule(WebContainer.java:2185)
+	at com.sun.enterprise.web.WebApplication.stop(WebApplication.java:159)
+	at org.glassfish.internal.data.EngineRef.stop(EngineRef.java:169)
+	at org.glassfish.internal.data.ModuleInfo.stop(ModuleInfo.java:302)
+	at org.glassfish.internal.data.ApplicationInfo.stop(ApplicationInfo.java:329)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.unload(ApplicationLifecycle.java:998)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.undeploy(ApplicationLifecycle.java:1024)
+	at org.glassfish.deployment.admin.UndeployCommand.execute(UndeployCommand.java:330)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:353)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at org.glassfish.deployment.admin.DeployCommand.handleRedeploy(DeployCommand.java:607)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:274)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:353)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at org.glassfish.deployment.admin.ReDeployCommand.execute(ReDeployCommand.java:126)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at com.sun.enterprise.v3.admin.AdminAdapter.doCommand(AdminAdapter.java:461)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:212)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+|#]
+
+[#|2013-05-01T19:48:29.793-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=33;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:48:29.985-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=33;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:48:29.986-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=33;_ThreadName=Thread-2;|Monitoring jndi:/server/projetosi120122/WEB-INF/faces-config.xml for modifications|#]
+
+[#|2013-05-01T19:48:29.997-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=33;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:48:30.009-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=33;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,264 milliseconds.|#]
+
+[#|2013-05-01T19:56:30.957-0200|SEVERE|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=59;_ThreadName=Thread-2;|Unexpected exception when attempting to tear down the Mojarra runtime
+java.lang.RuntimeException: Uncompilable source code - missing return statement
+	at project.web.ProjectBean.isListenerForSource(ProjectBean.java:117)
+	at com.sun.faces.application.ApplicationImpl.processListeners(ApplicationImpl.java:2162)
+	at com.sun.faces.application.ApplicationImpl.invokeListenersFor(ApplicationImpl.java:2144)
+	at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:302)
+	at javax.faces.application.ApplicationWrapper.publishEvent(ApplicationWrapper.java:683)
+	at com.sun.faces.config.ConfigureListener.contextDestroyed(ConfigureListener.java:332)
+	at org.apache.catalina.core.StandardContext.contextListenerStop(StandardContext.java:4840)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:5584)
+	at com.sun.enterprise.web.WebModule.stop(WebModule.java:527)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:1049)
+	at com.sun.enterprise.web.WebContainer.unloadWebModule(WebContainer.java:2230)
+	at com.sun.enterprise.web.WebContainer.unloadWebModule(WebContainer.java:2185)
+	at com.sun.enterprise.web.WebApplication.stop(WebApplication.java:159)
+	at org.glassfish.internal.data.EngineRef.stop(EngineRef.java:169)
+	at org.glassfish.internal.data.ModuleInfo.stop(ModuleInfo.java:302)
+	at org.glassfish.internal.data.ApplicationInfo.stop(ApplicationInfo.java:329)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.unload(ApplicationLifecycle.java:998)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.undeploy(ApplicationLifecycle.java:1024)
+	at org.glassfish.deployment.admin.UndeployCommand.execute(UndeployCommand.java:330)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:353)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at org.glassfish.deployment.admin.DeployCommand.handleRedeploy(DeployCommand.java:607)
+	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:274)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:353)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at org.glassfish.deployment.admin.ReDeployCommand.execute(ReDeployCommand.java:126)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$1.execute(CommandRunnerImpl.java:348)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:363)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1085)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1200(CommandRunnerImpl.java:95)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1291)
+	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1259)
+	at com.sun.enterprise.v3.admin.AdminAdapter.doCommand(AdminAdapter.java:461)
+	at com.sun.enterprise.v3.admin.AdminAdapter.service(AdminAdapter.java:212)
+	at com.sun.grizzly.tcp.http11.GrizzlyAdapter.service(GrizzlyAdapter.java:179)
+	at com.sun.enterprise.v3.server.HK2Dispatcher.dispath(HK2Dispatcher.java:117)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$Hk2DispatcherCallable.call(ContainerMapper.java:354)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:195)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:860)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:757)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1056)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:229)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:722)
+|#]
+
+[#|2013-05-01T19:56:31.853-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=59;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:56:32.047-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=59;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:56:32.048-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=59;_ThreadName=Thread-2;|Monitoring jndi:/server/projetosi120122/WEB-INF/faces-config.xml for modifications|#]
+
+[#|2013-05-01T19:56:32.059-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=59;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:56:32.070-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=59;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,126 milliseconds.|#]
+
+[#|2013-05-01T19:56:42.894-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=36;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:56:43.098-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=36;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:56:43.100-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=36;_ThreadName=Thread-2;|Monitoring jndi:/server/projetosi120122/WEB-INF/faces-config.xml for modifications|#]
+
+[#|2013-05-01T19:56:43.111-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=36;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:56:43.124-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=36;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,667 milliseconds.|#]
+
+[#|2013-05-01T19:57:06.952-0200|INFO|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=34;_ThreadName=Thread-2;|Destroyyy|#]
+
+[#|2013-05-01T19:57:07.819-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=34;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T19:57:08.006-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=34;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T19:57:08.007-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=34;_ThreadName=Thread-2;|Monitoring jndi:/server/projetosi120122/WEB-INF/faces-config.xml for modifications|#]
+
+[#|2013-05-01T19:57:08.018-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=34;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T19:57:08.030-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.org.glassfish.deployment.admin|_ThreadID=34;_ThreadName=Thread-2;|projetosi120122 was successfully deployed in 1,089 milliseconds.|#]
+
+[#|2013-05-01T19:57:26.486-0200|INFO|glassfish3.1.2|javax.enterprise.system.tools.admin.com.sun.enterprise.v3.admin|_ThreadID=266;_ThreadName=Thread-2;|Server shutdown initiated|#]
+
+[#|2013-05-01T19:57:26.556-0200|INFO|glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=266;_ThreadName=Thread-2;|Destroyyy|#]
+
+[#|2013-05-01T19:57:29.329-0200|INFO|glassfish3.1.2|javax.enterprise.system.jmx.org.glassfish.admin.mbeanserver|_ThreadID=266;_ThreadName=Thread-2;|JMX002: JMXStartupService: Stopped JMXConnectorServer: null|#]
+
+[#|2013-05-01T19:57:29.330-0200|INFO|glassfish3.1.2|javax.enterprise.system.jmx.org.glassfish.admin.mbeanserver|_ThreadID=266;_ThreadName=Thread-2;|JMX001: JMXStartupService and JMXConnectors have been shut down.|#]
+
+[#|2013-05-01T19:57:29.331-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.server|_ThreadID=266;_ThreadName=Thread-2;|Shutdown procedure finished|#]
+
+[#|2013-05-01T20:12:17.579-0200|INFO|glassfish3.1.2|com.sun.enterprise.server.logging.GFFileHandler|_ThreadID=1;_ThreadName=Thread-2;|Running GlassFish Version: GlassFish Server Open Source Edition 3.1.2.2 (build 5)|#]
+
+[#|2013-05-01T20:12:17.820-0200|INFO|glassfish3.1.2|org.glassfish.ha.store.spi.BackingStoreFactoryRegistry|_ThreadID=1;_ThreadName=Thread-2;|Registered org.glassfish.ha.store.adapter.cache.ShoalBackingStoreProxy for persistence-type = replicated in BackingStoreFactoryRegistry|#]
+
+[#|2013-05-01T20:12:18.159-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=18;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 75ms - bound to [0.0.0.0:38544]|#]
+
+[#|2013-05-01T20:12:18.184-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=23;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 42ms - bound to [0.0.0.0:38545]|#]
+
+[#|2013-05-01T20:12:18.190-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=26;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 5ms - bound to [0.0.0.0:38512]|#]
+
+[#|2013-05-01T20:12:18.207-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=29;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 8ms - bound to [0.0.0.0:38501]|#]
+
+[#|2013-05-01T20:12:18.219-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=32;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 5ms - bound to [0.0.0.0:38540]|#]
+
+[#|2013-05-01T20:12:20.448-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security|_ThreadID=1;_ThreadName=Thread-2;|SEC1002: Security Manager is OFF.|#]
+
+[#|2013-05-01T20:12:20.620-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security|_ThreadID=1;_ThreadName=Thread-2;|SEC1010: Entering Security Startup Service|#]
+
+[#|2013-05-01T20:12:20.630-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security|_ThreadID=1;_ThreadName=Thread-2;|SEC1143: Loading policy provider com.sun.enterprise.security.provider.PolicyWrapper.|#]
+
+[#|2013-05-01T20:12:20.687-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security.auth.realm|_ThreadID=1;_ThreadName=Thread-2;|SEC1115: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.|#]
+
+[#|2013-05-01T20:12:20.689-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security.auth.realm|_ThreadID=1;_ThreadName=Thread-2;|SEC1115: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.|#]
+
+[#|2013-05-01T20:12:20.699-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security.auth.realm|_ThreadID=1;_ThreadName=Thread-2;|SEC1115: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.|#]
+
+[#|2013-05-01T20:12:20.713-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.security.com.sun.enterprise.security|_ThreadID=1;_ThreadName=Thread-2;|SEC1011: Security Service(s) Started Successfully|#]
+
+[#|2013-05-01T20:12:21.023-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0169: Created HTTP listener [http-listener-1] on host/port [0.0.0.0:38544]|#]
+
+[#|2013-05-01T20:12:21.043-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0169: Created HTTP listener [http-listener-2] on host/port [0.0.0.0:38545]|#]
+
+[#|2013-05-01T20:12:21.058-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0169: Created HTTP listener [admin-listener] on host/port [0.0.0.0:38512]|#]
+
+[#|2013-05-01T20:12:21.116-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0171: Created virtual server [server]|#]
+
+[#|2013-05-01T20:12:21.122-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0171: Created virtual server [__asadmin]|#]
+
+[#|2013-05-01T20:12:21.582-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0172: Virtual server [server] loaded default web module []|#]
+
+[#|2013-05-01T20:12:23.436-0200|INFO|glassfish3.1.2|org.jboss.weld.Version|_ThreadID=1;_ThreadName=Thread-2;|WELD-000900 1.1.8 (Final)|#]
+
+[#|2013-05-01T20:12:23.731-0200|INFO|glassfish3.1.2|org.hibernate.validator.internal.util.Version|_ThreadID=1;_ThreadName=Thread-2;|HV000001: Hibernate Validator 4.3.0.Final|#]
+
+[#|2013-05-01T20:12:25.884-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=1;_ThreadName=Thread-2;|Initializing Mojarra 2.1.6 (SNAPSHOT 20111206) for context '/projetosi120122'|#]
+
+[#|2013-05-01T20:12:26.784-0200|SEVERE|glassfish3.1.2|project.web.ProjectBean|_ThreadID=1;_ThreadName=Thread-2;|java.io.FileNotFoundException: system.dat (No such file or directory)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileInputStream.<init>(FileInputStream.java:97)
+	at project.web.ProjectBean.loadSystem(ProjectBean.java:127)
+	at project.web.ProjectBean.<init>(ProjectBean.java:50)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:525)
+	at java.lang.Class.newInstance0(Class.java:372)
+	at java.lang.Class.newInstance(Class.java:325)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.createInstance(AbstractConfigProcessor.java:268)
+	at com.sun.faces.config.processor.ApplicationConfigProcessor.addSystemEventListener(ApplicationConfigProcessor.java:804)
+	at com.sun.faces.config.processor.ApplicationConfigProcessor.process(ApplicationConfigProcessor.java:315)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.invokeNext(AbstractConfigProcessor.java:114)
+	at com.sun.faces.config.processor.LifecycleConfigProcessor.process(LifecycleConfigProcessor.java:116)
+	at com.sun.faces.config.processor.AbstractConfigProcessor.invokeNext(AbstractConfigProcessor.java:114)
+	at com.sun.faces.config.processor.FactoryConfigProcessor.process(FactoryConfigProcessor.java:222)
+	at com.sun.faces.config.ConfigManager.initialize(ConfigManager.java:360)
+	at com.sun.faces.config.ConfigureListener.contextInitialized(ConfigureListener.java:225)
+	at org.apache.catalina.core.StandardContext.contextListenerStart(StandardContext.java:4750)
+	at com.sun.enterprise.web.WebModule.contextListenerStart(WebModule.java:550)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:5366)
+	at com.sun.enterprise.web.WebModule.start(WebModule.java:498)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:917)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:901)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:733)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:2019)
+	at com.sun.enterprise.web.WebContainer.loadWebModule(WebContainer.java:1669)
+	at com.sun.enterprise.web.WebApplication.start(WebApplication.java:109)
+	at org.glassfish.internal.data.EngineRef.start(EngineRef.java:130)
+	at org.glassfish.internal.data.ModuleInfo.start(ModuleInfo.java:269)
+	at org.glassfish.internal.data.ApplicationInfo.start(ApplicationInfo.java:301)
+	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:461)
+	at com.sun.enterprise.v3.server.ApplicationLoaderService.processApplication(ApplicationLoaderService.java:375)
+	at com.sun.enterprise.v3.server.ApplicationLoaderService.postConstruct(ApplicationLoaderService.java:219)
+	at com.sun.hk2.component.AbstractCreatorImpl.inject(AbstractCreatorImpl.java:131)
+	at com.sun.hk2.component.ConstructorCreator.initialize(ConstructorCreator.java:91)
+	at com.sun.hk2.component.AbstractCreatorImpl.get(AbstractCreatorImpl.java:82)
+	at com.sun.hk2.component.SingletonInhabitant.get(SingletonInhabitant.java:67)
+	at com.sun.hk2.component.EventPublishingInhabitant.get(EventPublishingInhabitant.java:139)
+	at com.sun.hk2.component.AbstractInhabitantImpl.get(AbstractInhabitantImpl.java:78)
+	at com.sun.enterprise.v3.server.AppServerStartup.run(AppServerStartup.java:253)
+	at com.sun.enterprise.v3.server.AppServerStartup.doStart(AppServerStartup.java:145)
+	at com.sun.enterprise.v3.server.AppServerStartup.start(AppServerStartup.java:136)
+	at com.sun.enterprise.glassfish.bootstrap.GlassFishImpl.start(GlassFishImpl.java:79)
+	at com.sun.enterprise.glassfish.bootstrap.GlassFishDecorator.start(GlassFishDecorator.java:63)
+	at com.sun.enterprise.glassfish.bootstrap.osgi.OSGiGlassFishImpl.start(OSGiGlassFishImpl.java:69)
+	at com.sun.enterprise.glassfish.bootstrap.GlassFishMain$Launcher.launch(GlassFishMain.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at com.sun.enterprise.glassfish.bootstrap.GlassFishMain.main(GlassFishMain.java:97)
+	at com.sun.enterprise.glassfish.bootstrap.ASMain.main(ASMain.java:55)
+|#]
+
+[#|2013-05-01T20:12:27.156-0200|INFO|glassfish3.1.2|org.primefaces.webapp.PostConstructApplicationEventListener|_ThreadID=1;_ThreadName=Thread-2;|Running on PrimeFaces 3.4|#]
+
+[#|2013-05-01T20:12:27.159-0200|INFO|glassfish3.1.2|javax.enterprise.resource.webcontainer.jsf.config|_ThreadID=1;_ThreadName=Thread-2;|Monitoring jndi:/server/projetosi120122/WEB-INF/faces-config.xml for modifications|#]
+
+[#|2013-05-01T20:12:27.182-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=1;_ThreadName=Thread-2;|WEB0671: Loading application [projetosi120122] at [/projetosi120122]|#]
+
+[#|2013-05-01T20:12:27.194-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.server|_ThreadID=1;_ThreadName=Thread-2;|CORE10010: Loading application projetosi120122 done in 8,545 ms|#]
+
+[#|2013-05-01T20:12:27.196-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.server|_ThreadID=1;_ThreadName=Thread-2;|GlassFish Server Open Source Edition 3.1.2.2 (5) startup time : Felix (2,483ms), startup services(10,146ms), total(12,629ms)|#]
+
+[#|2013-05-01T20:12:27.920-0200|INFO|glassfish3.1.2|javax.enterprise.system.jmx.org.glassfish.admin.mbeanserver|_ThreadID=55;_ThreadName=Thread-2;|JMX005: JMXStartupService had Started JMXConnector on JMXService URL service:jmx:rmi://notebook2.home:38550/jndi/rmi://notebook2.home:38550/jmxrmi|#]
+
+[#|2013-05-01T20:12:28.184-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=74;_ThreadName=Thread-2;|WEB0169: Created HTTP listener [http-listener-1] on host/port [0.0.0.0:38544]|#]
+
+[#|2013-05-01T20:12:28.210-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=85;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 2ms - bound to [0.0.0.0:38544]|#]
+
+[#|2013-05-01T20:12:29.203-0200|INFO|glassfish3.1.2|javax.enterprise.system.container.web.com.sun.enterprise.web|_ThreadID=68;_ThreadName=Thread-2;|WEB0169: Created HTTP listener [http-listener-2] on host/port [0.0.0.0:38545]|#]
+
+[#|2013-05-01T20:12:29.218-0200|INFO|glassfish3.1.2|javax.enterprise.system.core.com.sun.enterprise.v3.services.impl|_ThreadID=89;_ThreadName=Thread-2;|Grizzly Framework 1.9.50 started in: 2ms - bound to [0.0.0.0:38545]|#]
+

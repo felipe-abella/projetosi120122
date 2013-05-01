@@ -1,5 +1,6 @@
 package project.system;
 
+import java.io.Serializable;
 import project.system.feedsorting.FeedSorter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +22,7 @@ import project.system.feedsorting.ChronologicalSourceFeedSorter;
 /**
  * Represents a User of the system.
  */
-public class User implements Comparable<User> {
+public class User implements Comparable<User>, Serializable {
 
     private String login, name, email;
     private List<Sound> postlist;

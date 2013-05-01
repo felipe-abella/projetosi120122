@@ -1,12 +1,13 @@
 package project.system.feedfiltering;
 
+import java.io.Serializable;
 import project.system.Feed;
 import project.system.Sound;
 
 /**
  * Represents an open feed filter which let all posts pass.
  */
-public class OpenFeedFilter extends FeedFilter {
+public class OpenFeedFilter extends FeedFilter implements Serializable {
 
     private Feed feed;
 

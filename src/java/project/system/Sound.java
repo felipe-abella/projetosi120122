@@ -1,5 +1,6 @@
 package project.system;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import project.exceptions.InvalidCreationDateException;
@@ -9,7 +10,7 @@ import project.exceptions.InvalidLinkException;
 /**
  * Represents a sound that some user posted.
  */
-public class Sound implements Comparable<Sound> {
+public class Sound implements Comparable<Sound>, Serializable {
 
     private Link link;
     private SimpleDate creationDate;

@@ -1,5 +1,6 @@
 package project.system;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import project.exceptions.CircleCantAddOwnerException;
@@ -9,7 +10,7 @@ import project.system.feedsorting.FeedSorter;
 /**
  * Represents a social circle as seen by a defined user.
  */
-public class Circle {
+public class Circle implements Serializable {
 
     private User owner;
     private String name;

@@ -1,12 +1,13 @@
 package project.system;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import project.exceptions.InvalidDateException;
 
 /**
  * Implements a simple "day/month/year" container.
  */
-public class SimpleDate implements Comparable<SimpleDate> {
+public class SimpleDate implements Comparable<SimpleDate>, Serializable {
 
     private int year, month, day;
 

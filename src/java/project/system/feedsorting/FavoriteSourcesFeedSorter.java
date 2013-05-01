@@ -1,5 +1,6 @@
 package project.system.feedsorting;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -13,7 +14,7 @@ import project.system.statistics.Stats;
  * Sorts the user main feed priorizing sounds from the sources which the user
  * favorites most.
  */
-public class FavoriteSourcesFeedSorter implements FeedSorter {
+public class FavoriteSourcesFeedSorter implements FeedSorter, Serializable {
 
     /**
      * Creates a feed from given sources, and sorts priorizing sounds of sources

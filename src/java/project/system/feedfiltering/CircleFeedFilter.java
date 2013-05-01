@@ -1,5 +1,6 @@
 package project.system.feedfiltering;
 
+import java.io.Serializable;
 import project.system.Circle;
 import project.system.Feed;
 import project.system.Sound;
@@ -7,7 +8,7 @@ import project.system.Sound;
 /**
  * Filters a feed selecting only posts from users of a specified Circle.
  */
-public class CircleFeedFilter extends FeedFilter {
+public class CircleFeedFilter extends FeedFilter implements Serializable {
 
     private FeedFilter filter;
     private Circle circle;

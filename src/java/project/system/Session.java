@@ -1,5 +1,6 @@
 package project.system;
 
+import java.io.Serializable;
 import project.system.authentication.AuthChannel;
 import project.system.authentication.AuthChannelState;
 import project.system.authentication.LogoutFailedException;
@@ -8,7 +9,7 @@ import project.system.authentication.NotLoggedInException;
 /**
  * Represents the session of a currently logged user.
  */
-public class Session implements Comparable<Session> {
+public class Session implements Comparable<Session>, Serializable {
 
     private User user;
     private AuthChannel channel;

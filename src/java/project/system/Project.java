@@ -46,6 +46,18 @@ public class Project implements Serializable {
     }
 
     /**
+     * Initializes the Project with a given instance *if* the singleton is
+     * uninitialized.
+     *
+     * @param instance the instance to initialize the Project with
+     */
+    public static void setInstance(Project instance) {
+        if (Project.instance == null) {
+            Project.instance = instance;
+        }
+    }
+
+    /**
      * Returns the project's model.
      *
      * @return the model
@@ -151,7 +163,7 @@ public class Project implements Serializable {
         authenticators.clear();
         stats.clear();
     }
-    
+
     /**
      * Closes all open sessions.
      */

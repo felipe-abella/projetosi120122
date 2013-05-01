@@ -1,9 +1,10 @@
 package project.system;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tag {
+public class Tag implements Serializable {
 
     private User owner;
     private String name;

@@ -1,5 +1,6 @@
 package project.system.authentication.password;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -13,7 +14,7 @@ import project.system.authentication.Authenticator;
 /**
  * Implements a simple password authenticator.
  */
-public class PasswordAuth implements Authenticator {
+public class PasswordAuth implements Authenticator, Serializable {
 
     private static PasswordAuth instance = null;
     private Map<User, String> passwords;

@@ -1,11 +1,12 @@
 package project.system;
 
+import java.io.Serializable;
 import project.exceptions.InvalidLinkException;
 
 /**
  * Represents a web link.
  */
-public class Link implements Comparable<Link> {
+public class Link implements Serializable, Comparable<Link> {
 
     private String path;
 

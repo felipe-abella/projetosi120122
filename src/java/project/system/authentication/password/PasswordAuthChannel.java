@@ -1,5 +1,6 @@
 package project.system.authentication.password;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import project.system.User;
@@ -11,7 +12,7 @@ import project.system.authentication.LogoutFailedException;
 /**
  * Implements a password authentication channel for a given user.
  */
-public class PasswordAuthChannel implements AuthChannel {
+public class PasswordAuthChannel implements AuthChannel, Serializable {
 
     private User user;
     private String password;

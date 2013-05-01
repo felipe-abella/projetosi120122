@@ -1,5 +1,6 @@
 package project.system.feedfiltering;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import project.system.Feed;
@@ -8,7 +9,7 @@ import project.system.Sound;
 /**
  * A FeedFilter is able to choose a subset of posts from a feed.
  */
-public abstract class FeedFilter implements Iterable<Sound> {
+public abstract class FeedFilter implements Iterable<Sound>, Serializable {
     /**
      * Returns the feed that will be filtered.
      * 

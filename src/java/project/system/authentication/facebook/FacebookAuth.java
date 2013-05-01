@@ -1,5 +1,6 @@
 package project.system.authentication.facebook;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import project.system.Project;
@@ -9,7 +10,7 @@ import project.system.authentication.Authenticator;
 /**
  * Implements an authentication that logs in using Facebook accounts.
  */
-public class FacebookAuth implements Authenticator {
+public class FacebookAuth implements Authenticator, Serializable {
 
     private static FacebookAuth instance = null;
     private Map<User, String> userFaceid;
