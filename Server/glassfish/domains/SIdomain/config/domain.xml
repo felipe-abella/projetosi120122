@@ -2,8 +2,10 @@
   <system-applications></system-applications>
   <applications>
     <application context-root="/projetosi120122" location="file:/home/felipe/Projects/UFCG/SI1/Projeto/projetosi120122/build/web/" name="projetosi120122" directory-deployed="true" object-type="user">
+      <property name="preserveAppScopedResources" value="true"></property>
       <property name="appLocation" value="file:/home/felipe/Projects/UFCG/SI1/Projeto/projetosi120122/build/web/"></property>
       <property name="defaultAppName" value="web"></property>
+      <property name="keepSessions" value="true"></property>
       <module name="projetosi120122">
         <engine sniffer="security"></engine>
         <engine sniffer="web"></engine>

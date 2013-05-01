@@ -29,6 +29,7 @@ public class User implements Comparable<User> {
     private Map<String, Circle> circles;
     private List<Sound> favoriteList;
     private FeedSorter feedSorter;
+    private List<Tag> tagList;
 
     /**
      * Creates a new user.
@@ -50,6 +51,7 @@ public class User implements Comparable<User> {
         followers = new TreeSet<User>();
         favoriteList = new LinkedList<Sound>();
         feedSorter = new ChronologicalSourceFeedSorter();
+        tagList = new ArrayList<Tag>();
     }
 
     /**
@@ -148,7 +150,7 @@ public class User implements Comparable<User> {
         }
         this.login = login;
     }
-    
+
     /**
      * Changes this user's name
      *
@@ -190,6 +192,27 @@ public class User implements Comparable<User> {
      */
     public void setFeedSorter(FeedSorter feedSorter) {
         this.feedSorter = feedSorter;
+    }
+
+    /**
+     * Add a new tag to a user's tag list.
+     *
+     * @param tagName The new tag name
+     * @return the new tag
+     */
+    public Tag addTag(String tagName) {
+        Tag tag = new Tag(this, tagName);
+        tagList.add(tag);
+        return tag;
+    }
+
+    /**
+     * Return the tag list.
+     *
+     * @return the tag list
+     */
+    public List<Tag> getTagList() {
+        return tagList;
     }
 
     /**

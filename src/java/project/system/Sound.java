@@ -1,5 +1,7 @@
 package project.system;
 
+import java.util.ArrayList;
+import java.util.List;
 import project.exceptions.InvalidCreationDateException;
 import project.exceptions.InvalidDateException;
 import project.exceptions.InvalidLinkException;
@@ -12,6 +14,7 @@ public class Sound implements Comparable<Sound> {
     private Link link;
     private SimpleDate creationDate;
     private User author;
+    private List<Tag> tagList;
 
     /**
      * Constructs a new Sound
@@ -24,6 +27,7 @@ public class Sound implements Comparable<Sound> {
         this.link = link;
         this.creationDate = creationDate;
         this.author = author;
+        tagList = new ArrayList<Tag>();
     }
 
     /**
@@ -43,6 +47,25 @@ public class Sound implements Comparable<Sound> {
             throw new InvalidCreationDateException();
         }
         this.author = author;
+        tagList = new ArrayList<Tag>();
+    }
+
+    /**
+     * Add a new tag to this sound.
+     *
+     * @param tagName The tag name
+     */
+    public void addTag(String tagName) {
+        tagList.add(new Tag(author, tagName));
+    }
+
+    /**
+     * Returns the tag list.
+     *
+     * @return the tag list
+     */
+    public List<Tag> getTagList() {
+        return tagList;
     }
 
     /**
@@ -151,10 +174,11 @@ public class Sound implements Comparable<Sound> {
 
     /**
      * Returns a string representation of this Sound
+     *
      * @return the representation
      */
     @Override
     public String toString() {
-      return "[Sound: link=" + getLink() + ", creationDate=" + getCreationDate()+", author=" + author + "]";
+        return "[Sound: link=" + getLink() + ", creationDate=" + getCreationDate() + ", author=" + author + "]";
     }
 }

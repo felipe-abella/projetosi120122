@@ -1,8 +1,8 @@
-/* AUTOMATICALLY GENERATED ON Sun Apr 14 21:49:24 FNT 2013*/
+/* AUTOMATICALLY GENERATED ON Fri Apr 26 23:25:18 FNT 2013*/
 /* DO NOT EDIT */
 
 grant {
-  permission javax.security.jacc.WebResourcePermission "/";
   permission javax.security.jacc.WebUserDataPermission "/";
+  permission javax.security.jacc.WebResourcePermission "/";
 };
 

@@ -19,14 +19,17 @@ import project.exceptions.InvalidLoginException;
 import project.exceptions.InvalidPasswordException;
 import project.exceptions.InvalidSessionIdException;
 import project.exceptions.InvalidSoundException;
+import project.exceptions.InvalidTagException;
 import project.exceptions.InvalidUserIdException;
 import project.exceptions.LoginNotFoundException;
 import project.exceptions.SessionNotFoundException;
+import project.exceptions.TagNotFoundException;
 import project.exceptions.UserNotFoundException;
 import project.system.Circle;
 import project.system.Project;
 import project.system.Session;
 import project.system.Sound;
+import project.system.Tag;
 import project.system.User;
 import project.system.authentication.LogoutFailedException;
 import project.system.authentication.password.PasswordAuth;
@@ -119,6 +122,25 @@ public class ProjectFacade {
         }
 
         return (Circle) ids.get(circleId);
+    }
+
+    private Tag getTagForId(String tagId) {
+        if (tagId == null || tagId.isEmpty()) {
+            throw new InvalidTagException();
+        }
+        return (Tag) ids.get(tagId);
+    }
+
+    private Tag getTagForUserAndName(User user, String tagName) {
+        if (tagName == null || tagName.isEmpty()) {
+            throw new InvalidTagException();
+        }
+        for (Tag tag : user.getTagList()) {
+            if (tag.getName().equals(tagName)) {
+                return tag;
+            }
+        }
+        return null;
     }
 
     private User getUserByLogin(String login) {
@@ -549,6 +571,105 @@ public class ProjectFacade {
     }
 
     /**
+     * Creates a new tag for a user.
+     *
+     * @param idSessao The user session's id
+     * @param tag the new tag name
+     * @return the new tag id
+     */
+    public String criarTag(String idSessao, String tag) {
+        Session session = getSessionForId(idSessao);
+
+        if (tag == null || tag.isEmpty()) {
+            throw new InvalidTagException();
+        }
+
+        User user = session.getUser();
+
+        if (getTagForUserAndName(user, tag) != null) {
+            throw new InvalidTagException();
+        }
+
+        Tag tagObj = user.addTag(tag);
+        return getIdOf(tagObj);
+    }
+
+    /**
+     * Tag a given sound.
+     *
+     * @param idSessao The tag owner session id
+     * @param tag The tag
+     * @param som The sound to tag
+     */
+    public void adicionarTagASom(String idSessao, String tag, String som) {
+        Session session = getSessionForId(idSessao);
+        User user = session.getUser();
+        Tag tagObj = getTagForUserAndName(user, tag);
+        
+        if (tagObj == null)
+            throw new TagNotFoundException();
+        
+        Sound sound = getSoundForId(som);
+
+        tagObj.addSound(sound);
+    }
+
+    /**
+     * Returns a list with all tags in a sound.
+     *
+     * @param idSessao The session id
+     * @param som The sound id
+     * @return the list
+     */
+    public String getListaTagsEmSom(String idSessao, String som) {
+        Session session = getSessionForId(idSessao);
+        User sessionUser = session.getUser();
+        Sound sound = getSoundForId(som);
+        List<String> result = new ArrayList<String>();
+
+        for (User user : project.getModel().getUsers()) {
+            for (Tag tag : user.getTagList()) {
+                if (tag.getSoundList().contains(sound)) {
+                    result.add(tag.toString());
+                }
+            }
+        }
+
+        return iterableToString(result);
+    }
+
+    /**
+     * Returns the name of a tag.
+     *
+     * @param idSessao the session id
+     * @param tag the tag id
+     * @return the name
+     */
+    public String getNomeTag(String idSessao, String tag) {
+        Session session = getSessionForId(idSessao);
+        Tag tagObj = getTagForId(tag);
+        return tagObj.getName();
+    }
+
+    /**
+     * Return a list with a user's tags.
+     *
+     * @param idSessao the user's session id
+     * @return the list
+     */
+    public String getTagsDisponiveis(String idSessao) {
+        Session session = getSessionForId(idSessao);
+        User user = session.getUser();
+        List<String> result = new ArrayList<String>();
+
+        for (Tag tag : user.getTagList()) {
+            result.add(tag.toString());
+        }
+
+        return iterableToString(result);
+    }
+
+    /**
      * Closes a user's session.
      *
      * @param login user's login
@@ -581,15 +702,23 @@ public class ProjectFacade {
      * Clears the system.
      */
     public void zerarSistema() {
+        encerrarSistema();
         project.clear();
+        ids.clear();
+        objs.clear();
     }
 
     /**
-     * Closes the system.
+     * Closes all system sessions.
+     */
+    public void reiniciarSistema() {
+        encerrarSistema();
+    }
+
+    /**
+     * Closes all system sessions.
      */
     public void encerrarSistema() {
-        zerarSistema();
-        ids.clear();
-        objs.clear();
+        project.clearSessions();
     }
 }

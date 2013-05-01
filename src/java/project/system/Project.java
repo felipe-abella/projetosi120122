@@ -151,4 +151,11 @@ public class Project implements Serializable {
         authenticators.clear();
         stats.clear();
     }
+    
+    /**
+     * Closes all open sessions.
+     */
+    public void clearSessions() {
+        sessions.clear();
+    }
 }

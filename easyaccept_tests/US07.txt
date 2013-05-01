@@ -265,4 +265,3 @@ encerrarSessao login="filo"
 
 encerrarSistema
 quit
-

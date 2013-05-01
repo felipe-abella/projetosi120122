@@ -70,7 +70,15 @@
                                     </tr>
                                     <tr>
                                         <td><h:outputText value="#{sound.link}"/></td>
+
                                     </tr>
+                                    <tr>
+                                        <td>
+                                    <p:autoComplete value="#{sound.tagNameList}" completeMethod="#{sound.tagNameListComplete}" style="width: fit-content" multiple="true" readonly="false" disabled="false"/>
+
+                                    </td>
+                                    </tr>
+
                                 </table>
                                 <p:separator/>
                             </ui:repeat>
